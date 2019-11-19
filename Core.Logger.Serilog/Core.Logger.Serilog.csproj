@@ -6,8 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
+    <PackageReference Include="Serilog.Sinks.Email" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Core.Logger.Abstractions\Core.Logger.Abstractions.csproj" />
-    <ProjectReference Include="..\Core.Logger.Serilog\Core.Logger.Serilog.csproj" />
   </ItemGroup>
 
 </Project>

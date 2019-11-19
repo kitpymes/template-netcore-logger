@@ -1,4 +1,6 @@
-﻿namespace Core.Logger
+﻿using Core.Logger.Serilog;
+
+namespace Core.Logger
 {
     public class Log
     {
