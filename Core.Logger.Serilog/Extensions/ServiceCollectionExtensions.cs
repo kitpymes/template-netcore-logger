@@ -1,6 +1,5 @@
 ﻿using Core.Logger.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using System;
 
@@ -15,7 +14,6 @@ namespace Core.Logger.Serilog
             Action<SerilogOptions> options
         )
         {
-
             var settings = options.ConfigureOrDefault();
 
             var loggerConfiguration = new LoggerConfiguration().AddDefaultSettings();
