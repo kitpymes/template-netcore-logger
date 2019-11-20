@@ -1,7 +1,7 @@
 ﻿using Core.Logger.Abstractions;
 using Serilog;
 using System;
-using Seri = Serilog;
+using System.Linq;
 
 namespace Core.Logger.Serilog
 {
@@ -27,23 +27,18 @@ namespace Core.Logger.Serilog
 
         public override LoggerService Info(string message, object data)
         {
-            Logger?.WithData(data).Information(message);
+             Logger?.Information(message + " => {Data}", data);
 
             return this;
         }
 
-        public override LoggerService Info(string message, string propertyName, object propertyValue)
+        public override LoggerService Info(string eventName, string template, params object[] propertyValues)
         {
-            Logger?.WithProperty(propertyName, propertyValue).Information(message);
+            var messageTemplate = "{EventName} => " + template;
 
-            return this;
-        }
+            var messageValues = new object[] { eventName }.Concat(propertyValues).ToArray();
 
-        public override LoggerService Info(string eventName, string message, params object[] propertyValues)
-        {
-            var (eventMessage, eventProperties) = SerilogExtensions.WithEvent(eventName, message, propertyValues);
-
-            Logger?.Write(Seri.Events.LogEventLevel.Information, eventMessage, eventProperties);
+            Logger?.Information(messageTemplate, messageValues);
 
             return this;
         }
@@ -61,44 +56,25 @@ namespace Core.Logger.Serilog
 
         public override LoggerService Error(string message, object data)
         {
-            Logger?.WithData(data).Error(message);
+            Logger?.Error(message + " => {Data}", data);
 
             return this;
         }
 
-        public override LoggerService Error(string message, string propertyName, object propertyValue)
+        public override LoggerService Error(string eventName, string template, params object[] propertyValues)
         {
-            Logger?.WithProperty(propertyName, propertyValue).Error(message);
+            var messageTemplate = "{EventName} => " + template;
 
-            return this;
-        }
+            var messageValues = new object[] { eventName }.Concat(propertyValues).ToArray();
 
-        public override LoggerService Error(string eventName, string message, params object[] propertyValues)
-        {
-            var (eventMessage, eventProperties) = SerilogExtensions.WithEvent(eventName, message, propertyValues);
-
-            Logger?.Write(Seri.Events.LogEventLevel.Error, eventMessage, eventProperties);
-
-            return this;
-        }
-
-        public override LoggerService Error(string message, Exception exception)
-        {
-            Logger?.Error(exception, message);
+            Logger?.Error(messageTemplate, messageValues);
 
             return this;
         }
 
         public override LoggerService Error(Exception exception)
         {
-            Logger?.Error(exception, exception.Message);
-
-            return this;
-        }
-
-        public override LoggerService Error(Exception exception, object data)
-        {
-            Logger?.WithData(data).Error(exception, exception.Message);
+            Logger?.Error("Exception => {Exception}", exception.Message);
 
             return this;
         }
@@ -110,7 +86,7 @@ namespace Core.Logger.Serilog
             return CreateLogger(typeof(TSourceContext).Name);
         }
 
-        public override LoggerService CreateLogger(string? sourceContext = null)
+        public override LoggerService CreateLogger(string sourceContext)
         {
             if (!string.IsNullOrWhiteSpace(sourceContext))
             {

@@ -1,4 +1,5 @@
 ﻿using Core.Logger.Abstractions;
+using System;
 
 namespace Core.Logger.Serilog
 {
@@ -27,16 +28,27 @@ namespace Core.Logger.Serilog
             string outputTemplate = SerilogConsoleSettings.DefaultOutputTemplate
         )
         {
-            SerilogConsoleSettings = new SerilogConsoleSettings
+            return WithConsole(new SerilogConsoleSettings
             {
                 Enabled = true,
 
                 MinimumLevel = minimumLevel.ToString(),
 
                 OutputTemplate = outputTemplate
-            };
+            });
+        }
 
-            IsConsoleEnabled = true;
+        public SerilogOptions WithConsole(Action<SerilogConsoleSettings> settings)
+        {
+            return WithConsole(settings.ConfigureOrDefault());
+        }
+
+        public SerilogOptions WithConsole(SerilogConsoleSettings settings)
+        {
+            SerilogConsoleSettings = settings;
+
+            if (settings.Enabled.HasValue)
+                IsConsoleEnabled = settings.Enabled.Value;
 
             return this;
         }
@@ -56,7 +68,7 @@ namespace Core.Logger.Serilog
             LoggerInterval loggerInterval = SerilogFileSettings.DefaultLoggerInterval
         )
         {
-            SerilogFileSettings = new SerilogFileSettings
+            return WithFile(new SerilogFileSettings
             {
                 Enabled = true,
 
@@ -65,9 +77,20 @@ namespace Core.Logger.Serilog
                 Interval = loggerInterval.ToString(),
 
                 MinimumLevel = loggerMinimumLevel.ToString()
-            };
+            });
+        }
 
-            IsFileEnabled = true;
+        public SerilogOptions WithFile(Action<SerilogFileSettings> settings)
+        {
+            return WithFile(settings.ConfigureOrDefault());
+        }
+
+        public SerilogOptions WithFile(SerilogFileSettings settings)
+        {
+            SerilogFileSettings = settings;
+
+            if (settings.Enabled.HasValue)
+                IsFileEnabled = settings.Enabled.Value;
 
             return this;
         }
@@ -80,7 +103,7 @@ namespace Core.Logger.Serilog
         public SerilogEmailSettings? SerilogEmailSettings { get; private set; }
         public SerilogOptions WithEmail
         (
-            string userName,
+           string userName,
 
             string password,
 
@@ -96,14 +119,16 @@ namespace Core.Logger.Serilog
 
             string subject = SerilogEmailSettings.DefaultSubject,
 
+            bool isBodyHtml = SerilogEmailSettings.DefaultIsBodyHtml,
+
             LoggerMinimumLevel loggerMinimumLevel = SerilogEmailSettings.DefaultMinimumLevel,
 
             string outputTemplate = SerilogEmailSettings.DefaultOutputTemplate
         )
         {
-            SerilogEmailSettings = new SerilogEmailSettings
+            return WithEmail(new SerilogEmailSettings
             (
-                userName,
+               userName,
 
                 password,
 
@@ -119,15 +144,23 @@ namespace Core.Logger.Serilog
 
                 subject,
 
+                isBodyHtml,
+
                 loggerMinimumLevel,
 
                 outputTemplate
             )
             {
                 Enabled = true
-            };
+            });
+        }
 
-            IsEmailEnabled = true;
+        public SerilogOptions WithEmail(SerilogEmailSettings settings)
+        {
+            SerilogEmailSettings = settings;
+
+            if(settings.Enabled.HasValue)
+                IsEmailEnabled = settings.Enabled.Value;
 
             return this;
         }

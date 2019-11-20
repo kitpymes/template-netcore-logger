@@ -6,9 +6,7 @@
 
         TLogger Info(string message, object data);
 
-        TLogger Info(string message, string propertyName, object propertyValue);
-
-        TLogger Info(string eventName, string message, params object[] propertyValues);
+        TLogger Info(string eventName, string template, params object[] propertyValues);
     }
 
     public interface ILoggerInfo
@@ -17,8 +15,6 @@
 
         void Info(string message, object data);
 
-        void Info(string message, string propertyName, object propertyValue);
-
-        void Info(string eventName, string message, params object[] propertyValues);
+        void Info(string eventName, string template, params object[] propertyValues);
     }
 }

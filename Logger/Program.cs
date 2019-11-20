@@ -1,7 +1,7 @@
-using Core.Logger;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace Logger
 {
@@ -11,28 +11,21 @@ namespace Logger
         {
             try
             {
-                // Log Serilog Console
-                Test.Console.Write();
+                Tests.Serilog.Console.Write.Default(false).Custom(false);
 
-                // Log Serilog File
-                Test.File.Write(false);
+                Tests.Serilog.File.Write.Default(false).Custom(false);
 
-                // Simulate exception
-             //   throw new System.Exception(null);
+                Tests.Serilog.Email.Write(false);
 
                 CreateHostBuilder(args).Build().Run();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                // Log Serilog Email
-                Test.Email.Write();
-
                 throw;
             }
             finally
             {
-                // Log Serilog dispose
-                Log.Serilog.CloseLogger();
+                Tests.Serilog.Shared.CloseLogger();
             }
         }
 

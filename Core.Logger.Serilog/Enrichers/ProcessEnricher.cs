@@ -19,12 +19,12 @@ namespace Core.Logger.Serilog
 
             if (processId > 0)
             {
-                processValue = processId.ToString();
+                processValue = $"| {ProcessPropertyName}: {processId.ToString()}";
             }
 
             if(!string.IsNullOrWhiteSpace(processName))
             {
-                processValue += $"-{processName}";
+                processValue += $" - {processName}";
             }
 
             var last = _lastValue;

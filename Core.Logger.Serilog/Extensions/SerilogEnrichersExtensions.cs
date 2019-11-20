@@ -34,7 +34,7 @@ namespace Core.Logger.Serilog
         (
             this LoggerEnrichmentConfiguration enrichmentConfiguration,
 
-            string? sourceContext
+            string sourceContext
         )
         {
             if (enrichmentConfiguration is null)

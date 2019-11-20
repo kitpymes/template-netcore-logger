@@ -21,12 +21,12 @@ namespace Core.Logger.Serilog
 
             if (threadId > 0)
             {
-                threadValue = threadId.ToString();
+                threadValue = $"| {ThreadPropertyName}: {threadId.ToString()}";
             }
 
             if (!string.IsNullOrWhiteSpace(threadName))
             {
-                threadValue += $"-{threadName}";
+                threadValue += $" - {threadName}";
             }
 
             var last = _lastValue;

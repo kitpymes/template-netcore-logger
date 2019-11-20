@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Core.Logger.Abstractions;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Core.Logger.Abstractions;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace Logger.Controllers
 {
@@ -17,19 +15,22 @@ namespace Logger.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILoggerService _logger;
+        private ILoggerService Logger { get; }
 
         public WeatherForecastController(ILoggerService logger)
         {
-            _logger = logger.CreateLogger<WeatherForecastController>();
+            Logger = logger.CreateLogger<WeatherForecastController>();
         }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            _logger.Info("pepepepeppep");
+            Logger.Info("INFO: Get()", Summaries);
+
+            Logger.Error("ERROR");
 
             var rng = new Random();
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),

@@ -10,15 +10,6 @@ namespace Core.Logger.Serilog
 {
     public static class SerilogExtensions
     {
-        public static ILogger WithProperty(this ILogger logger, string propertyName, object propertyValue)
-        => logger.ForContext(propertyName, propertyValue, destructureObjects: true);
-
-        public static ILogger WithData(this ILogger logger, object data)
-        => logger.WithProperty("Data", data);
-
-        public static (string eventMessage, object[] eventProperties) WithEvent(string eventName, string message, params object[] propertyValues)
-        => ("{EventName:l} => " + message, new object[] { eventName }.Concat(propertyValues).ToArray());
-
         public static LoggerConfiguration AddDefaultSettings(this LoggerConfiguration loggerConfiguration)
         {
             Seri.Debugging.SelfLog.Enable(msg => System.Diagnostics.Debug.WriteLine(msg));
@@ -38,6 +29,8 @@ namespace Core.Logger.Serilog
             {
                 loggerConfiguration.WriteTo.Console
                 (
+                    theme: Seri.Sinks.SystemConsole.Themes.AnsiConsoleTheme.Code,
+
                     outputTemplate: settings.OutputTemplate,
 
                     restrictedToMinimumLevel: settings.MinimumLevel.ToMinimumLevel()
@@ -113,6 +106,8 @@ namespace Core.Logger.Serilog
 
                         EmailSubject = settings.Subject
                     },
+
+                    outputTemplate: settings.OutputTemplate,
 
                     restrictedToMinimumLevel: settings.MinimumLevel.ToMinimumLevel()
                 );

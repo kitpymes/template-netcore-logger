@@ -8,15 +8,9 @@ namespace Core.Logger.Abstractions
 
         TLogger Error(string message, object data);
 
-        TLogger Error(string message, string propertyName, object propertyValue);
-
-        TLogger Error(string eventName, string message, params object[] propertyValues);
-
-        TLogger Error(string message, Exception exception);
+        TLogger Error(string eventName, string template, params object[] propertyValues);
 
         TLogger Error(Exception exception);
-
-        TLogger Error(Exception exception, object data);
     }
 
     public interface ILoggerError
@@ -27,12 +21,10 @@ namespace Core.Logger.Abstractions
 
         void Error(string message, string propertyName, object propertyValue);
 
-        void Error(string eventName, string message, params object[] propertyValues);
+        void Error(string eventName, string template, params object[] propertyValues);
 
         void Error(string message, Exception exception);
 
         void Error(Exception exception);
-
-        void Error(Exception exception, object data);
     }
 }

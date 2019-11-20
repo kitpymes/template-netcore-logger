@@ -9,18 +9,16 @@ namespace Core.Logger.Serilog
 
         #region Console
 
-        public LogSerilog Console(bool enabled = true)
-        {
-            LoggerConfiguration.AddConsole(new SerilogConsoleSettings { Enabled = enabled });
-
-            return this;
-        }
-
-        public LogSerilog Console(LoggerMinimumLevel loggerMinimumLevel, string outputTemplate, bool enabled = true)
+        public LogSerilog Console
+        (
+            LoggerMinimumLevel loggerMinimumLevel = SerilogConsoleSettings.DefaultMinimumLevel, 
+            
+            string outputTemplate = SerilogConsoleSettings.DefaultOutputTemplate
+        )
         {
             LoggerConfiguration.AddConsole(new SerilogConsoleSettings 
             {
-                Enabled = enabled,
+                Enabled = true,
 
                 MinimumLevel = loggerMinimumLevel.ToString(),
 
@@ -34,21 +32,18 @@ namespace Core.Logger.Serilog
 
         #region File
 
-        public LogSerilog File(bool enabled = true)
+        public LogSerilog File
+        (
+            string filePath = SerilogFileSettings.DefaultFilePath, 
+            
+            LoggerMinimumLevel loggerMinimumLevel = SerilogFileSettings.DefaultMinimumLevel, 
+            
+            LoggerInterval loggerInterval = SerilogFileSettings.DefaultLoggerInterval
+        )
         {
             LoggerConfiguration.AddFile(new SerilogFileSettings
             {
-                Enabled = enabled
-            });
-
-            return this;
-        }
-
-        public LogSerilog File(string filePath, LoggerMinimumLevel loggerMinimumLevel, LoggerInterval loggerInterval, bool enabled = true)
-        {
-            LoggerConfiguration.AddFile(new SerilogFileSettings
-            {
-                Enabled = enabled,
+                Enabled = true,
 
                 FilePath = filePath,
 
@@ -82,11 +77,11 @@ namespace Core.Logger.Serilog
 
             string subject = SerilogEmailSettings.DefaultSubject,
 
+            bool isBodyHtml = SerilogEmailSettings.DefaultIsBodyHtml,
+
             LoggerMinimumLevel loggerMinimumLevel = SerilogEmailSettings.DefaultMinimumLevel,
 
-            string outputTemplate = SerilogEmailSettings.DefaultOutputTemplate,
-
-            bool enabled = true
+            string outputTemplate = SerilogEmailSettings.DefaultOutputTemplate
         )
         {
             LoggerConfiguration.AddEmail(new SerilogEmailSettings
@@ -107,12 +102,14 @@ namespace Core.Logger.Serilog
 
                 subject,
 
+                isBodyHtml,
+
                 loggerMinimumLevel,
 
                 outputTemplate
             )
             { 
-                Enabled = enabled 
+                Enabled = true 
             });
 
             return this;
@@ -121,14 +118,10 @@ namespace Core.Logger.Serilog
         #endregion Email
 
         public LoggerService CreateLogger<TSourceContext>()
-        {
-            return CreateLogger(typeof(TSourceContext).Name);
-        }
+         => CreateLogger(typeof(TSourceContext).Name);
 
-        public LoggerService CreateLogger(string? sourceContext = null)
-        {
-            return new SerilogProvider(LoggerConfiguration).CreateLogger(sourceContext);
-        }
+        public LoggerService CreateLogger(string sourceContext)
+        => new SerilogProvider(LoggerConfiguration).CreateLogger(sourceContext);
 
         public void CloseLogger() => Log.CloseAndFlush();
     }
