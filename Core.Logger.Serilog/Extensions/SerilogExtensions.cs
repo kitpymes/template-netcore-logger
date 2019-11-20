@@ -23,7 +23,7 @@ namespace Core.Logger.Serilog
                 .Enrich.WithThread();
         }
 
-        public static LoggerConfiguration? AddConsole(this LoggerConfiguration loggerConfiguration, SerilogConsoleSettings? settings)
+        public static LoggerConfiguration AddConsole(this LoggerConfiguration loggerConfiguration, SerilogConsoleSettings? settings)
         {
             if(settings != null && settings.Enabled.HasValue && settings.Enabled.Value)
             {
@@ -40,7 +40,7 @@ namespace Core.Logger.Serilog
             return loggerConfiguration;
         }
 
-        public static LoggerConfiguration? AddFile(this LoggerConfiguration loggerConfiguration, SerilogFileSettings? settings)
+        public static LoggerConfiguration AddFile(this LoggerConfiguration loggerConfiguration, SerilogFileSettings? settings)
         {
             if (settings != null && settings.Enabled.HasValue && settings.Enabled.Value)
             {
@@ -59,7 +59,7 @@ namespace Core.Logger.Serilog
             return loggerConfiguration;
         }
 
-        public static LoggerConfiguration? AddEmail(this LoggerConfiguration loggerConfiguration, SerilogEmailSettings? settings)
+        public static LoggerConfiguration AddEmail(this LoggerConfiguration loggerConfiguration, SerilogEmailSettings? settings)
         {
             if(settings != null && settings.Enabled.HasValue && settings.Enabled.Value)
             {

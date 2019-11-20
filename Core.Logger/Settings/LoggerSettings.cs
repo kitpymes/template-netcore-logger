@@ -4,6 +4,6 @@ namespace Core.Logger
 {
     public class LoggerSettings
     {
-        public SerilogSettings? Serilog { get; set; }
+        public SerilogSettings? Serilog { get; set; } = new SerilogSettings();
     }
 }

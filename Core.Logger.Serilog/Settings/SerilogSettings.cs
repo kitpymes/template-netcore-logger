@@ -2,10 +2,10 @@
 {
     public class SerilogSettings
     {
-        public SerilogConsoleSettings? Console { get; set; }
+        public SerilogConsoleSettings Console { get; set; } = new SerilogConsoleSettings();
 
-        public SerilogFileSettings? File { get; set; }
+        public SerilogFileSettings File { get; set; } = new SerilogFileSettings();
 
-        public SerilogEmailSettings? Email { get; set; }
+        public SerilogEmailSettings Email { get; set; } = new SerilogEmailSettings();
     }
 }

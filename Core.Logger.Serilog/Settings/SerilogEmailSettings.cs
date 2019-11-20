@@ -16,6 +16,8 @@ namespace Core.Logger.Serilog
 
         public const LoggerMinimumLevel DefaultMinimumLevel = LoggerMinimumLevel.Error;
 
+        public SerilogEmailSettings() { Enabled = false; }
+
         public SerilogEmailSettings
         (
             string userName,
@@ -66,7 +68,7 @@ namespace Core.Logger.Serilog
 
             To = to;
 
-            Enabled = enableSsl;
+            EnableSsl = enableSsl;
 
             Port = port;
 
@@ -77,6 +79,8 @@ namespace Core.Logger.Serilog
             MinimumLevel = loggerMinimumLevel.ToString();
 
             OutputTemplate = outputTemplate;
+
+            Enabled = true;
         }
 
         public string? UserName { get; set; }

@@ -11,36 +11,30 @@ namespace Core.Logger.Serilog
         (
             this IServiceCollection services,
 
-            Action<SerilogOptions> options
+            SerilogSettings settings
         )
         {
-            var settings = options.ConfigureOrDefault();
-
-            var loggerConfiguration = new LoggerConfiguration().AddDefaultSettings();
-
-            if (settings.IsConsoleEnabled)
-            {
-                loggerConfiguration.AddConsole(settings.SerilogConsoleSettings);
-            }
-
-            if (settings.IsFileEnabled)
-            {
-                loggerConfiguration.AddFile(settings.SerilogFileSettings);
-            }
-
-            if (settings.IsEmailEnabled)
-            {
-                loggerConfiguration.AddEmail(settings.SerilogEmailSettings);
-            }
-
-            if (settings.IsSourceContext)
-            {
-                loggerConfiguration.Enrich.WithSourceContext(settings.SourceContext);
-            }
+            var loggerConfiguration = new LoggerConfiguration()
+                .AddDefaultSettings()
+                .AddConsole(settings.Console)
+                .AddFile(settings.File)
+                .AddEmail(settings.Email);
 
             services.AddSingleton<ILoggerService>(new SerilogProvider(loggerConfiguration));
 
             return services;
+        }
+
+        public static IServiceCollection LoadSerilog
+        (
+            this IServiceCollection services,
+
+            Action<SerilogSettings> options
+        )
+        {
+            var settings = options.ConfigureOrDefault();
+
+            return services.LoadSerilog(settings);
         }
     }
 }

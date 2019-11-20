@@ -23,10 +23,25 @@ namespace Logger
 
             services.LoadLogger(loggers =>
             {
-                loggers.UseSerilog(options =>
-                {
-                    options.WithConsole().WithFile();
-                });
+                loggers.UseSerilog(Configuration);
+
+                //loggers.UseSerilog(options => 
+                //{
+                //    options.Console = new Core.Logger.Serilog.SerilogConsoleSettings 
+                //    {
+                //          // Custom values
+                //    };
+
+                //    options.File = new Core.Logger.Serilog.SerilogFileSettings 
+                //    { 
+                //          // Custom values
+                //    };
+
+                //    options.Email = new Core.Logger.Serilog.SerilogEmailSettings()
+                //    {
+                //          // Custom values
+                //    };
+                //});
             });
         }
 

@@ -1,7 +1,6 @@
 ﻿using Core.Logger.Abstractions;
 using Core.Logger.Serilog;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
 
 namespace Core.Logger
@@ -19,7 +18,7 @@ namespace Core.Logger
 
             if (settings.IsSerilogEnabled)
             {
-                services.LoadSerilog(settings.SerilogOptions);
+                services.LoadSerilog(settings.SerilogSettings);
             }
 
             return services;
