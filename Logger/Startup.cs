@@ -21,28 +21,36 @@ namespace Logger
         {
             services.AddControllers();
 
-            services.LoadLogger(loggers =>
-            {
-                loggers.UseSerilog(Configuration);
+            // Option 1
+            services.LoadLogger(Configuration);
 
-                //loggers.UseSerilog(options => 
-                //{
-                //    options.Console = new Core.Logger.Serilog.SerilogConsoleSettings 
-                //    {
-                //          // Custom values
-                //    };
+            // Option 2
+            //services.LoadLogger(loggers =>
+            //{
+            //    loggers.UseSerilog(Configuration);
+            //});
 
-                //    options.File = new Core.Logger.Serilog.SerilogFileSettings 
-                //    { 
-                //          // Custom values
-                //    };
+            // Option 3
+            //services.LoadLogger(loggers =>
+            //{
+            //    loggers.UseSerilog(options =>
+            //    {
+            //        options.Console = new Core.Logger.Serilog.SerilogConsoleSettings
+            //        {
+            //            // Custom values
+            //        };
 
-                //    options.Email = new Core.Logger.Serilog.SerilogEmailSettings()
-                //    {
-                //          // Custom values
-                //    };
-                //});
-            });
+            //        options.File = new Core.Logger.Serilog.SerilogFileSettings
+            //        {
+            //            // Custom values
+            //        };
+
+            //        options.Email = new Core.Logger.Serilog.SerilogEmailSettings()
+            //        {
+            //            // Custom values
+            //        };
+            //    });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

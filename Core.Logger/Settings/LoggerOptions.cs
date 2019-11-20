@@ -24,9 +24,12 @@ namespace Core.Logger
         {
             var settings = configuration.GetSection("LoggerSettings:Serilog")?.Get<SerilogSettings>();
 
-            SerilogSettings = settings;
+            if(settings != null)
+            {
+                SerilogSettings = settings;
 
-            IsSerilogEnabled = true;
+                IsSerilogEnabled = true;
+            }
 
             return this;
         }
