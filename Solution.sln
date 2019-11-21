@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csproj", "{BC87329E-738B-4316-ACCE-021A9C04EB52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Logger\Api.csproj", "{BC87329E-738B-4316-ACCE-021A9C04EB52}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Logger", "Core.Logger\Core.Logger.csproj", "{ADCB458F-45DA-4F5D-925D-6D185E4B3499}"
 EndProject

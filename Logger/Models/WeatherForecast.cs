@@ -1,6 +1,6 @@
 using System;
 
-namespace Logger
+namespace Api
 {
     public class WeatherForecast
     {
