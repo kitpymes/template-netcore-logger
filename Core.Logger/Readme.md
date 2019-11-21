@@ -7,25 +7,25 @@ The package provides interface and classe for **logger**.
 ```cs
 public interface ILoggerService
 {
-    LoggerService CreateLogger(string sourceContext);
+	LoggerService CreateLogger(string sourceContext);
 
-    LoggerService CreateLogger<TSourceContext>();
+	LoggerService CreateLogger<TSourceContext>();
 
-    void CloseLogger();
+	void CloseLogger();
 
 	LoggerService Error(string message);
 
-    LoggerService Error(string message, object data);
+	LoggerService Error(string message, object data);
 
-    LoggerService Error(string eventName, string template, params object[] propertyValues);
-    
+	LoggerService Error(string eventName, string template, params object[] propertyValues);
+
 	LoggerService Error(Exception exception);
 
-    LoggerService Info(string message);
+	LoggerService Info(string message);
 
-    LoggerService Info(string message, object data);
+	LoggerService Info(string message, object data);
 
-    LoggerService Info(string eventName, string template, params object[] propertyValues);
+	LoggerService Info(string eventName, string template, params object[] propertyValues);
 }
 ```
 
@@ -158,7 +158,7 @@ public WeatherForecastController(ILoggerService logger)
 **Option 2: Custom logger**
 
 ```cs
- public class Program
+public class Program
 {
     public static void Main(string[] args)
     {	
@@ -181,8 +181,7 @@ public WeatherForecastController(ILoggerService logger)
                 server: "smtp.gmail.com",
                 from: "admin@app.com",
                 to: "error@app.com"
-            )
-			.CreateLogger<Program>();
+            ).CreateLogger<Program>();
 
         try
         {
