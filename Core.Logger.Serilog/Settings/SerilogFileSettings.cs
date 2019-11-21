@@ -4,7 +4,7 @@ namespace Core.Logger.Serilog
 {
     public class SerilogFileSettings
     {
-        public const string DefaultFilePath = "Logs\\error_.log";
+        public const string DefaultFilePath = @"Logs\\.log";
 
         public const LoggerMinimumLevel DefaultMinimumLevel = LoggerMinimumLevel.Error;
 

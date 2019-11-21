@@ -7,30 +7,34 @@ namespace Core.Logger.Serilog
 {
     public class SerilogProvider: LoggerService, ILoggerService
     {
-        private LoggerConfiguration LoggerConfiguration { get; set; }
+        private SerilogSettings SerilogSettings { get; } = new SerilogSettings();
 
-        private ILogger? Logger;
+        private ILogger? Logger { get; set; }
 
-        public SerilogProvider(LoggerConfiguration loggerConfiguration)
+        public SerilogProvider(SerilogSettings settings)
         {
-            LoggerConfiguration = loggerConfiguration;
+            SerilogSettings = settings;
         }
 
         public override LoggerService CreateLogger<TSourceContext>()
-        {
-            return CreateLogger(typeof(TSourceContext).Name);
-        }
+        => CreateLogger(typeof(TSourceContext).Name);
 
         public override LoggerService CreateLogger(string sourceContext)
         {
-            if (!string.IsNullOrWhiteSpace(sourceContext))
-            {
-                LoggerConfiguration.Enrich.WithSourceContext(sourceContext);
-            }
+            var logger = new LoggerConfiguration()
+                .AddDefaultSettings(sourceContext)
+                .AddConsole(SerilogSettings.Console)
+                .AddFile(SerilogSettings.File)
+                .AddEmail(SerilogSettings.Email).CreateLogger();
 
-            Logger = LoggerConfiguration.CreateLogger();
+            Logger = logger;
 
             return this;
+        }
+
+        public override void CloseLogger()
+        {
+            (Logger as IDisposable)?.Dispose();
         }
 
         #region Info

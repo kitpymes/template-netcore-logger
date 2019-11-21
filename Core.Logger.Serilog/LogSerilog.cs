@@ -1,61 +1,35 @@
 ﻿using Core.Logger.Abstractions;
-using Serilog;
+using System;
 
 namespace Core.Logger.Serilog
 {
     public class LogSerilog
     {
-        private LoggerConfiguration LoggerConfiguration { get; set; } = new LoggerConfiguration().AddDefaultSettings();
+        private SerilogProvider? SerilogProvider { get; set; }
+        private SerilogSettings SerilogSettings { get; set; } = new SerilogSettings();
 
-        #region Console
 
-        public LogSerilog Console
-        (
-            LoggerMinimumLevel loggerMinimumLevel = SerilogConsoleSettings.DefaultMinimumLevel, 
-            
-            string outputTemplate = SerilogConsoleSettings.DefaultOutputTemplate
-        )
+        public LogSerilog Set(Action<SerilogSettings> settings)
         {
-            LoggerConfiguration.AddConsole(new SerilogConsoleSettings 
-            {
-                Enabled = true,
-
-                MinimumLevel = loggerMinimumLevel.ToString(),
-
-                OutputTemplate = outputTemplate                 
-            });
+            SerilogSettings = settings.ConfigureOrDefault();
 
             return this;
         }
 
-        #endregion Console
-
-        #region File
-
-        public LogSerilog File
-        (
-            string filePath = SerilogFileSettings.DefaultFilePath, 
-            
-            LoggerMinimumLevel loggerMinimumLevel = SerilogFileSettings.DefaultMinimumLevel, 
-            
-            LoggerInterval loggerInterval = SerilogFileSettings.DefaultLoggerInterval
-        )
+        public LogSerilog Console(Action<SerilogConsoleSettings> settings)
         {
-            LoggerConfiguration.AddFile(new SerilogFileSettings
-            {
-                Enabled = true,
-
-                FilePath = filePath,
-
-                Interval = loggerInterval.ToString(),
-
-                MinimumLevel = loggerMinimumLevel.ToString()
-            });
+            SerilogSettings.Console = settings.ConfigureOrDefault();
 
             return this;
         }
 
-        #endregion File
+        public LogSerilog File(Action<SerilogFileSettings> settings)
+        {
+            SerilogSettings.File = settings.ConfigureOrDefault();
+
+            return this;
+        }
+
 
         #region Email
 
@@ -84,7 +58,7 @@ namespace Core.Logger.Serilog
             string outputTemplate = SerilogEmailSettings.DefaultOutputTemplate
         )
         {
-            LoggerConfiguration.AddEmail(new SerilogEmailSettings
+            return Email(new SerilogEmailSettings
             (
                 userName,
 
@@ -108,9 +82,14 @@ namespace Core.Logger.Serilog
 
                 outputTemplate
             )
-            { 
-                Enabled = true 
+            {
+                Enabled = true
             });
+        }
+
+        public LogSerilog Email(SerilogEmailSettings settings)
+        {
+            SerilogSettings.Email = settings;
 
             return this;
         }
@@ -118,9 +97,18 @@ namespace Core.Logger.Serilog
         #endregion Email
 
         public LoggerService CreateLogger<TSourceContext>()
-         => CreateLogger(typeof(TSourceContext).Name);
+        => CreateLogger(typeof(TSourceContext).Name);
 
         public LoggerService CreateLogger(string sourceContext)
-        => new SerilogProvider(LoggerConfiguration).CreateLogger(sourceContext);
+        {
+            SerilogProvider = new SerilogProvider(SerilogSettings);
+
+            return SerilogProvider.CreateLogger(sourceContext); 
+        } 
+
+        public void CloseLogger()
+        {
+            SerilogProvider?.CloseLogger();
+        }
     }
 }

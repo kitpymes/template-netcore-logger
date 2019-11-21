@@ -6,7 +6,9 @@ namespace Core.Logger.Abstractions
     {
         public abstract LoggerService CreateLogger(string sourceContext);
         public abstract LoggerService CreateLogger<TSourceContext>();
-        
+
+        public abstract void CloseLogger();
+
         public abstract LoggerService Error(string message);
         public abstract LoggerService Error(string message, object data);
         public abstract LoggerService Error(string eventName, string template, params object[] propertyValues);

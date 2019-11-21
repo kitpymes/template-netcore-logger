@@ -9,11 +9,16 @@ namespace Core.Logger.Serilog
 {
     public static class SerilogExtensions
     {
-        public static LoggerConfiguration AddDefaultSettings(this LoggerConfiguration loggerConfiguration)
+        public static LoggerConfiguration AddDefaultSettings(this LoggerConfiguration loggerConfiguration, string sourceContext)
         {
             Seri.Debugging.SelfLog.Enable(msg => System.Diagnostics.Debug.WriteLine(msg));
 
             Seri.Debugging.SelfLog.Enable(Console.Error);
+
+            if (!string.IsNullOrWhiteSpace(sourceContext))
+            {
+                loggerConfiguration.Enrich.WithSourceContext(sourceContext);
+            }
 
             return loggerConfiguration
                 .Enrich.FromLogContext()

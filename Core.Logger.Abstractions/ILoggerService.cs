@@ -7,5 +7,7 @@ namespace Core.Logger.Abstractions
         LoggerService CreateLogger(string sourceContext);
 
         LoggerService CreateLogger<TSourceContext>();
+
+        void CloseLogger();
     }
 }

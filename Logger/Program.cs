@@ -1,3 +1,4 @@
+using Core.Logger;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -9,22 +10,23 @@ namespace Logger
     {
         public static void Main(string[] args)
         {
+            var logger = Log.Serilog.CreateLogger<Program>();
+
             try
             {
-                Tests.Serilog.Console.Write.Default().Custom();
-
-                Tests.Serilog.File.Write.Default().Custom();
-
-                // Simulate exception
-                //throw new Exception(null);
+                logger.Info("Init Host...");
 
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
             {
-                Tests.Serilog.Email.Write(false);
+                logger.Error(ex);
 
                 throw ex;
+            }
+            finally
+            {
+                logger.CloseLogger();
             }
         }
 

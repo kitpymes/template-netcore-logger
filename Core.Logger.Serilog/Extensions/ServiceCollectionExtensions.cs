@@ -1,40 +1,30 @@
 ﻿using Core.Logger.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 
 namespace Core.Logger.Serilog
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection LoadSerilog
+        public static ILoggerService LoadSerilog
         (
             this IServiceCollection services,
 
             SerilogSettings settings
         )
         {
-            var loggerConfiguration = new LoggerConfiguration()
-                .AddDefaultSettings()
-                .AddConsole(settings.Console)
-                .AddFile(settings.File)
-                .AddEmail(settings.Email);
+            services.TryAddSingleton<ILoggerService>(new SerilogProvider(settings));
 
-            services.AddSingleton<ILoggerService>(new SerilogProvider(loggerConfiguration));
-
-            return services;
+            return services.BuildServiceProvider().GetService<ILoggerService>();
         }
 
-        public static IServiceCollection LoadSerilog
+        public static ILoggerService LoadSerilog
         (
             this IServiceCollection services,
 
-            Action<SerilogSettings> options
+            Action<SerilogSettings> settings
         )
-        {
-            var settings = options.ConfigureOrDefault();
-
-            return services.LoadSerilog(settings);
-        }
+        => services.LoadSerilog(settings.ConfigureOrDefault());
     }
 }
