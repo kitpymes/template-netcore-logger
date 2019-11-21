@@ -4,12 +4,7 @@ namespace Core.Logger.Abstractions
 {
     public static class LoggerExtensions
     {
-        public static TOptions Configure<TOptions>
-        (
-            this Action<TOptions> action,
-
-            TOptions defaultOptions
-        )
+        public static TOptions Configure<TOptions>(this Action<TOptions> action, TOptions defaultOptions)
             where TOptions : class
         {
             if (defaultOptions is null)
@@ -20,17 +15,8 @@ namespace Core.Logger.Abstractions
             return defaultOptions;
         }
 
-        public static TOptions ConfigureOrDefault<TOptions>
-        (
-            this Action<TOptions> action,
-
-            TOptions? defaultOptions = null
-        )
+        public static TOptions Configure<TOptions>(this Action<TOptions> action)
             where TOptions : class, new()
-        {
-            defaultOptions ??= new TOptions();
-
-            return action.Configure(defaultOptions);
-        }
+        => action.Configure(new TOptions());
     }
 }

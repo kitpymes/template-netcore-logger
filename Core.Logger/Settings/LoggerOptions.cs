@@ -13,7 +13,7 @@ namespace Core.Logger
         public SerilogSettings SerilogSettings { get; private set; } = new SerilogSettings();
         public LoggerOptions UseSerilog(Action<SerilogSettings> settings)
         {
-            return UseSerilog(settings.ConfigureOrDefault());
+            return UseSerilog(settings.Configure());
         }
 
         public LoggerOptions UseSerilog(SerilogSettings? settings)

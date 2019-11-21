@@ -32,7 +32,7 @@ namespace Core.Logger
             Action<LoggerOptions> options
         )
         {
-            var settings = options.ConfigureOrDefault();
+            var settings = options.Configure();
 
             if (settings.IsSerilogEnabled)
             {

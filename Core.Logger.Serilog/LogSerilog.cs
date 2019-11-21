@@ -11,21 +11,21 @@ namespace Core.Logger.Serilog
 
         public LogSerilog Set(Action<SerilogSettings> settings)
         {
-            SerilogSettings = settings.ConfigureOrDefault();
+            SerilogSettings = settings.Configure();
 
             return this;
         }
 
         public LogSerilog Console(Action<SerilogConsoleSettings> settings)
         {
-            SerilogSettings.Console = settings.ConfigureOrDefault();
+            SerilogSettings.Console = settings.Configure();
 
             return this;
         }
 
         public LogSerilog File(Action<SerilogFileSettings> settings)
         {
-            SerilogSettings.File = settings.ConfigureOrDefault();
+            SerilogSettings.File = settings.Configure();
 
             return this;
         }

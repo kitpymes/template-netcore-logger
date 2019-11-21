@@ -25,6 +25,6 @@ namespace Core.Logger.Serilog
 
             Action<SerilogSettings> settings
         )
-        => services.LoadSerilog(settings.ConfigureOrDefault());
+        => services.LoadSerilog(settings.Configure());
     }
 }
