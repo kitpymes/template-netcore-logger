@@ -122,7 +122,5 @@ namespace Core.Logger.Serilog
 
         public LoggerService CreateLogger(string sourceContext)
         => new SerilogProvider(LoggerConfiguration).CreateLogger(sourceContext);
-
-        public void CloseLogger() => Log.CloseAndFlush();
     }
 }

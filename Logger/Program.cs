@@ -11,27 +11,27 @@ namespace Logger
         {
             try
             {
-                Tests.Serilog.Console.Write.Default(false).Custom(false);
+                Tests.Serilog.Console.Write.Default().Custom();
 
-                Tests.Serilog.File.Write.Default(false).Custom(false);
+                Tests.Serilog.File.Write.Default().Custom();
 
-                Tests.Serilog.Email.Write(false);
+                // Simulate exception
+                //throw new Exception(null);
 
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
             {
-                throw;
-            }
-            finally
-            {
-                Tests.Serilog.Shared.CloseLogger();
+                Tests.Serilog.Email.Write(false);
+
+                throw ex;
             }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureLogging(providers => providers.ClearProviders())
+                // (OPTIONAL) Clear default logging
+                // .ConfigureLogging(providers => providers.ClearProviders())
                 .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
     }
 }

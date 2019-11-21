@@ -16,13 +16,8 @@ namespace Logger.Tests.Serilog
                 .Info("New User", "Id: {Id} Name: {Name}", User.Id, User.Name)
                 .Error("Message")
                 .Error("Ocurrio un error con el usuario", User)
-                .Error(new Exception("Fatal error App"))
+                .Error(new OutOfMemoryException("Fatal error App"))
                 .Error("Ocurrio un error con el usuario", "Id: {Id} Name: {Name}", User.Id, User.Name);
-        }
-
-        public static void CloseLogger()
-        {
-            Log.Serilog.CloseLogger();
         }
     }
 }

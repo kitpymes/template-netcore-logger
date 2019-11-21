@@ -2,7 +2,6 @@
 using Serilog;
 using Serilog.Events;
 using System;
-using System.Linq;
 using System.Net;
 using Seri = Serilog;
 
@@ -46,7 +45,7 @@ namespace Core.Logger.Serilog
             {
                 loggerConfiguration.WriteTo.Async(x => x.File
                 (
-                    formatter: new Seri.Formatting.Compact.RenderedCompactJsonFormatter(),
+                    formatter: new Seri.Formatting.Json.JsonFormatter(),
 
                     path: settings.FilePath,
 

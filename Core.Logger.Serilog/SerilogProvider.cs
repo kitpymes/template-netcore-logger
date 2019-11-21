@@ -9,11 +9,28 @@ namespace Core.Logger.Serilog
     {
         private LoggerConfiguration LoggerConfiguration { get; set; }
 
-        private ILogger? Logger { get; set; }
+        private ILogger? Logger;
 
         public SerilogProvider(LoggerConfiguration loggerConfiguration)
         {
             LoggerConfiguration = loggerConfiguration;
+        }
+
+        public override LoggerService CreateLogger<TSourceContext>()
+        {
+            return CreateLogger(typeof(TSourceContext).Name);
+        }
+
+        public override LoggerService CreateLogger(string sourceContext)
+        {
+            if (!string.IsNullOrWhiteSpace(sourceContext))
+            {
+                LoggerConfiguration.Enrich.WithSourceContext(sourceContext);
+            }
+
+            Logger = LoggerConfiguration.CreateLogger();
+
+            return this;
         }
 
         #region Info
@@ -27,14 +44,14 @@ namespace Core.Logger.Serilog
 
         public override LoggerService Info(string message, object data)
         {
-             Logger?.Information(message + " => {Data}", data);
+             Logger?.Information(message + " => {@Data}", data);
 
             return this;
         }
 
         public override LoggerService Info(string eventName, string template, params object[] propertyValues)
         {
-            var messageTemplate = "{EventName} => " + template;
+            var messageTemplate = "{@EventName} => " + template;
 
             var messageValues = new object[] { eventName }.Concat(propertyValues).ToArray();
 
@@ -56,14 +73,14 @@ namespace Core.Logger.Serilog
 
         public override LoggerService Error(string message, object data)
         {
-            Logger?.Error(message + " => {Data}", data);
+            Logger?.Error(message + " => {@Data}", data);
 
             return this;
         }
 
         public override LoggerService Error(string eventName, string template, params object[] propertyValues)
         {
-            var messageTemplate = "{EventName} => " + template;
+            var messageTemplate = "{@EventName} => " + template;
 
             var messageValues = new object[] { eventName }.Concat(propertyValues).ToArray();
 
@@ -74,28 +91,11 @@ namespace Core.Logger.Serilog
 
         public override LoggerService Error(Exception exception)
         {
-            Logger?.Error("Exception => {Exception}", exception.Message);
+            Logger?.Error("Exception => {@Exception}", exception);
 
             return this;
         }
 
         #endregion Error
-
-        public override LoggerService CreateLogger<TSourceContext>()
-        {
-            return CreateLogger(typeof(TSourceContext).Name);
-        }
-
-        public override LoggerService CreateLogger(string sourceContext)
-        {
-            if (!string.IsNullOrWhiteSpace(sourceContext))
-            {
-                LoggerConfiguration.Enrich.WithSourceContext(sourceContext);
-            }
-
-            Logger = LoggerConfiguration.CreateLogger();
-
-            return this;
-        }
     }
 }

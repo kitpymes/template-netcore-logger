@@ -16,7 +16,7 @@ namespace Core.Logger.Serilog
 
         public const LoggerMinimumLevel DefaultMinimumLevel = LoggerMinimumLevel.Error;
 
-        public SerilogEmailSettings() { Enabled = false; }
+        public SerilogEmailSettings() { }
 
         public SerilogEmailSettings
         (
@@ -138,7 +138,7 @@ namespace Core.Logger.Serilog
             {
                 if (value.HasValue)
                 {
-                    _enabled = value.Value;
+                    _isBodyHtml = value.Value;
                 }
             }
         }
