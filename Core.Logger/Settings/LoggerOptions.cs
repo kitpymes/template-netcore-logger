@@ -13,17 +13,11 @@ namespace Core.Logger
         public SerilogSettings SerilogSettings { get; private set; } = new SerilogSettings();
         public LoggerOptions UseSerilog(Action<SerilogSettings> settings)
         {
-            SerilogSettings = settings.ConfigureOrDefault();
-
-            IsSerilogEnabled = true;
-
-            return this;
+            return UseSerilog(settings.ConfigureOrDefault());
         }
 
-        public LoggerOptions UseSerilog(IConfiguration configuration)
+        public LoggerOptions UseSerilog(SerilogSettings? settings)
         {
-            var settings = configuration.GetSection("LoggerSettings:Serilog")?.Get<SerilogSettings>();
-
             if(settings != null)
             {
                 SerilogSettings = settings;

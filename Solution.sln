@@ -11,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Logger.Abstractions", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Logger.Serilog", "Core.Logger.Serilog\Core.Logger.Serilog.csproj", "{7B82E93D-7195-4CD2-9280-B70EE6F31523}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Logger.Serilog.Tests", "Core.Logger.Serilog.Tests\Core.Logger.Serilog.Tests.csproj", "{756A3CBE-33DD-427D-8D06-2A99B71CF0FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Logger.Serilog.Tests", "Core.Logger.Serilog.Tests\Core.Logger.Serilog.Tests.csproj", "{756A3CBE-33DD-427D-8D06-2A99B71CF0FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CA10A654-5178-4A29-BCA2-00E0DF903B2E}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

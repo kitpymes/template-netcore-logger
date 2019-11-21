@@ -1,4 +1,4 @@
-# Core.Logger
+﻿# Core.Logger
 
 The package provides interface and classe for **logger**.
 

@@ -1,4 +1,5 @@
 using Core.Logger;
+using Core.Logger.Serilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,32 +26,35 @@ namespace Logger
             services.LoadLogger(Configuration);
 
             // Option 2
-            //services.LoadLogger(loggers =>
-            //{
-            //    loggers.UseSerilog(Configuration);
-            //});
+            services.LoadLogger(loggers =>
+            {
+                loggers.UseSerilog(new SerilogSettings
+                {
+                    // Custom values
+                });
+            });
 
             // Option 3
-            //services.LoadLogger(loggers =>
-            //{
-            //    loggers.UseSerilog(options =>
-            //    {
-            //        options.Console = new Core.Logger.Serilog.SerilogConsoleSettings
-            //        {
-            //            // Custom values
-            //        };
+            services.LoadLogger(loggers =>
+            {
+                loggers.UseSerilog(options =>
+                {
+                    options.Console = new SerilogConsoleSettings
+                    {
+                        // Custom values
+                    };
 
-            //        options.File = new Core.Logger.Serilog.SerilogFileSettings
-            //        {
-            //            // Custom values
-            //        };
+                    options.File = new SerilogFileSettings
+                    {
+                        // Custom values
+                    };
 
-            //        options.Email = new Core.Logger.Serilog.SerilogEmailSettings()
-            //        {
-            //            // Custom values
-            //        };
-            //    });
-            //});
+                    options.Email = new SerilogEmailSettings()
+                    {
+                        // Custom values
+                    };
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
