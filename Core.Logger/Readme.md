@@ -13,7 +13,7 @@ public interface ILoggerService
 
     void CloseLogger();
 
-    LoggerService Error(string message);
+	LoggerService Error(string message);
 
     LoggerService Error(string message, object data);
 
@@ -31,7 +31,7 @@ public interface ILoggerService
 
 ## AppSettings
 
-```json
+```js
 {
     "LoggerSettings": {
         "Serilog": {
@@ -64,7 +64,9 @@ public interface ILoggerService
 }
 ```
 
-### Add Dependency Injection Logger
+## Dependency Injection Logger
+
+### Add logger
 
 **Option 1**
 
@@ -109,7 +111,7 @@ services.LoadLogger(loggers =>
 });
 ```
 
-### Use Dependency Injection Logger
+### Use logger
 
 ```cs
 private ILoggerService Logger { get; }
@@ -120,7 +122,9 @@ public WeatherForecastController(ILoggerService logger)
 }
 ```
 
-### Use Static Default Logger
+## Static Logger
+
+### Use logger
 
 **Option 1: Default logger**
 
