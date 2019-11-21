@@ -44,16 +44,18 @@ namespace Core.Logger.Serilog
         {
             if (settings != null && settings.Enabled.HasValue && settings.Enabled.Value)
             {
-                loggerConfiguration.WriteTo.File
+                loggerConfiguration.WriteTo.Async(x => x.File
                 (
-                    formatter: new Seri.Formatting.Compact.CompactJsonFormatter(),
+                    formatter: new Seri.Formatting.Compact.RenderedCompactJsonFormatter(),
 
                     path: settings.FilePath,
 
                     restrictedToMinimumLevel: settings.MinimumLevel.ToMinimumLevel(),
 
-                    rollingInterval: settings.Interval.ToRollingInterval()
-                );
+                    rollingInterval: settings.Interval.ToRollingInterval(),
+
+                    shared: true
+                ));
             }
 
             return loggerConfiguration;
