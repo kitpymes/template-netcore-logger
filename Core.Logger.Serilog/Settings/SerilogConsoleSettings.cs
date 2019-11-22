@@ -4,7 +4,7 @@ namespace Core.Logger.Serilog
 {
     public class SerilogConsoleSettings
     {
-        public const string DefaultOutputTemplate = "{SourceContext} {MachineName} {Process} {Thread}{NewLine}{Timestamp:HH:mm:ss:ff} [{Level:u3}] {Message:lj}{NewLine}";
+        public const string DefaultOutputTemplate = "{SourceContext}{NewLine}{Timestamp:HH:mm:ss:ff} [{Level:u3}] {Message:lj}{NewLine}";
 
         public const LoggerMinimumLevel DefaultMinimumLevel = LoggerMinimumLevel.Info;
 

@@ -18,7 +18,7 @@ namespace Core.Logger.Serilog
                 sourceContext = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
             }
 
-            _sourceContext = $" => {sourceContext}";
+            _sourceContext = sourceContext;
         }
 
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)

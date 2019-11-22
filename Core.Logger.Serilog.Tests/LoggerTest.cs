@@ -9,7 +9,7 @@ namespace Core.Logger.Serilog.Tests
     [TestClass]
     public class LoggerTest
     {
-        private readonly ILoggerService _loggerService;
+        private readonly LoggerService _loggerService;
 
         private dynamic Data { get; } = new { Id = 1, Name = "Name" };
 
@@ -17,15 +17,13 @@ namespace Core.Logger.Serilog.Tests
         {
             var services = new ServiceCollection();
 
-            var configuration = new ConfigurationBuilder().AddJsonFile(@"_Shared\\appSettings.json").Build();
+            var configuration = new ConfigurationBuilder().AddJsonFile("appSettings.json").Build();
 
             var settings = configuration?.GetSection("LoggerSettings:Serilog")?.Get<SerilogSettings>();
 
             if(settings != null)
             {
-                _loggerService = services.LoadSerilog(settings);
-
-                _loggerService.CreateLogger(nameof(LoggerTest));
+                _loggerService = services.LoadSerilog(settings).CreateLogger(nameof(LoggerTest));
             }
         }
 

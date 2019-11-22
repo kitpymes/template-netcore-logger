@@ -23,36 +23,31 @@ namespace Api
             services.AddControllers();
 
             // Option 1
-            services.LoadLogger(Configuration);
+            // services.LoadLogger(Configuration);
 
             // Option 2
             services.LoadLogger(loggers =>
             {
-                loggers.UseSerilog(new SerilogSettings
+                loggers.UseSerilog(serilog =>
                 {
-                    // Custom values
-                });
-            });
-
-            // Option 3
-            services.LoadLogger(loggers =>
-            {
-                loggers.UseSerilog(options =>
-                {
-                    options.Console = new SerilogConsoleSettings
-                    {
-                        // Custom values
-                    };
-
-                    options.File = new SerilogFileSettings
-                    {
-                        // Custom values
-                    };
-
-                    options.Email = new SerilogEmailSettings()
-                    {
-                        // Custom values
-                    };
+                    serilog
+                        .AddConsole
+                        (
+                            // Custom values
+                        )
+                        .AddFile
+                        (
+                            // Custom values
+                            minimumLevel: Core.Logger.Abstractions.LoggerMinimumLevel.Info
+                        );
+                        //.AddEmail
+                        //(
+                        //    userName: "admin@app.com",
+                        //    password: "password",
+                        //    server: "smtp.gmail.com",
+                        //    from: "admin@app.com",
+                        //    to: "error@app.com"
+                        //);
                 });
             });
         }

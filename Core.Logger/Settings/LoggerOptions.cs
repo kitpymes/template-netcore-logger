@@ -1,6 +1,4 @@
-﻿using Core.Logger.Abstractions;
-using Core.Logger.Serilog;
-using Microsoft.Extensions.Configuration;
+﻿using Core.Logger.Serilog;
 using System;
 
 namespace Core.Logger
@@ -10,20 +8,12 @@ namespace Core.Logger
         #region Serilog
 
         public bool IsSerilogEnabled { get; private set; } = false;
-        public SerilogSettings SerilogSettings { get; private set; } = new SerilogSettings();
-        public LoggerOptions UseSerilog(Action<SerilogSettings> settings)
+        public Action<SerilogOptions> SerilogOptions { get; private set; } = x => { };
+        public LoggerOptions UseSerilog(Action<SerilogOptions> options)
         {
-            return UseSerilog(settings.Configure());
-        }
+            SerilogOptions = options;
 
-        public LoggerOptions UseSerilog(SerilogSettings? settings)
-        {
-            if(settings != null)
-            {
-                SerilogSettings = settings;
-
-                IsSerilogEnabled = true;
-            }
+            IsSerilogEnabled = true;
 
             return this;
         }

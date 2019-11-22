@@ -12,7 +12,7 @@ namespace Core.Logger.Serilog
       
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
-            var machineName = $"| {MachineNamePropertyName}: {Environment.MachineName}";
+            var machineName = Environment.MachineName;
 
             var last = _lastValue;
 

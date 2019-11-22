@@ -6,7 +6,7 @@ using System;
 
 namespace Core.Logger
 {
-    public static class ServiceCollectionExtensions
+    public static class LoggerServiceCollectionExtensions
     {
         public static IServiceCollection LoadLogger
         (
@@ -36,7 +36,7 @@ namespace Core.Logger
 
             if (settings.IsSerilogEnabled)
             {
-                services.LoadSerilog(settings.SerilogSettings);
+                services.LoadSerilog(settings.SerilogOptions);
             }
 
             return services;

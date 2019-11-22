@@ -19,11 +19,7 @@ namespace Core.Logger.Abstractions
 
         void Error(string message, object data);
 
-        void Error(string message, string propertyName, object propertyValue);
-
         void Error(string eventName, string template, params object[] propertyValues);
-
-        void Error(string message, Exception exception);
 
         void Error(Exception exception);
     }

@@ -5,7 +5,7 @@ using System;
 
 namespace Core.Logger.Serilog
 {
-    public static class ServiceCollectionExtensions
+    public static class SerilogServiceCollectionExtensions
     {
         public static ILoggerService LoadSerilog
         (
@@ -23,8 +23,8 @@ namespace Core.Logger.Serilog
         (
             this IServiceCollection services,
 
-            Action<SerilogSettings> settings
+            Action<SerilogOptions> options
         )
-        => services.LoadSerilog(settings.Configure());
+        => services.LoadSerilog(options.Configure().SerilogSettings);
     }
 }

@@ -15,7 +15,7 @@ namespace Api.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private ILoggerService Logger { get; }
+        private LoggerService Logger { get; }
 
         public WeatherForecastController(ILoggerService logger)
         {
@@ -25,9 +25,13 @@ namespace Api.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            Logger.Info("INFO: Get()", Summaries);
-
-            Logger.Error("ERROR");
+            // Enable and customize logger in appsettings, or in Startup class.
+            Logger
+                .Info("Get Summaries")
+                .Info("Summary 1", Summaries[0])
+                .Info("Summary 2", Summaries[1])
+                .Info("Summary 3", Summaries[2])
+                .Info("All Summaries", Summaries);
 
             var rng = new Random();
 

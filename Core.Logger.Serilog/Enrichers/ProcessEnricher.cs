@@ -19,7 +19,7 @@ namespace Core.Logger.Serilog
 
             if (processId > 0)
             {
-                processValue = $"| {ProcessPropertyName}: {processId.ToString()}";
+                processValue = processId.ToString();
             }
 
             if(!string.IsNullOrWhiteSpace(processName))

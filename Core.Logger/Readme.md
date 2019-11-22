@@ -7,25 +7,32 @@ The package provides interface and classe for **logger**.
 ```cs
 public interface ILoggerService
 {
-	LoggerService CreateLogger(string sourceContext);
+    LoggerService CreateLogger(string sourceContext);
 
-	LoggerService CreateLogger<TSourceContext>();
+    LoggerService CreateLogger<TSourceContext>();
 
-	void CloseLogger();
+    void CloseLogger();
+}
+```
 
-	LoggerService Error(string message);
+## LoggerService
 
-	LoggerService Error(string message, object data);
+```cs
+public abstract class LoggerService
+{
+	public LoggerService Error(string message);
 
-	LoggerService Error(string eventName, string template, params object[] propertyValues);
+	public LoggerService Error(string message, object data);
 
-	LoggerService Error(Exception exception);
+	public LoggerService Error(string eventName, string template, params object[] propertyValues);
 
-	LoggerService Info(string message);
+	public LoggerService Error(Exception exception);
 
-	LoggerService Info(string message, object data);
+	public LoggerService Info(string message);
 
-	LoggerService Info(string eventName, string template, params object[] propertyValues);
+	public LoggerService Info(string message, object data);
+
+	public LoggerService Info(string eventName, string template, params object[] propertyValues);
 }
 ```
 
@@ -38,7 +45,7 @@ public interface ILoggerService
             "Console": {
                 "Enabled": null, // (bool) Default: false
                 "MinimumLevel": null, // (string) Default: "Info" | Options: Info, Error
-                "OutputTemplate": null // (string) Default: "{SourceContext} {MachineName} {Process} {Thread}{NewLine}{Timestamp:HH:mm:ss:ff} [{Level:u3}] {Message:lj}{NewLine}"
+                "OutputTemplate": null // (string) Default: "{SourceContext}{NewLine}{Timestamp:HH:mm:ss:ff} [{Level:u3}] {Message:lj}{NewLine}"
             },
             "File": {
                 "Enabled": null, // (bool) Default: false
@@ -56,17 +63,16 @@ public interface ILoggerService
                 "EnableSsl": null, // (bool) Default: true
                 "Port": null, // (int) Default: 465
                 "Subject": null, // (string) Default: "Log Error"
+				"IsBodyHtml": null, // (bool) Default: false
                 "MinimumLevel": null, // (string) Default: "Error" | Options: Info, Error,
-                "OutputTemplate": null // (string) Default: "{SourceContext} {MachineName} {Process} {Thread}{NewLine}{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u3}] {Message:lj}{NewLine}"
+                "OutputTemplate": null // (string) Default: "SourceContext: {SourceContext} | MachineName: {MachineName} | Process: {Process} | Thread: {Thread} => {NewLine}{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u}] {Message:lj}{NewLine}"
             }
         }
     }
 }
 ```
 
-## Dependency Injection Logger
-
-### Add logger
+## How load Dependency Injection Logger ?
 
 **Option 1**
 
@@ -79,109 +85,100 @@ services.LoadLogger(Configuration);
 ```cs
 services.LoadLogger(loggers =>
 {
-    loggers.UseSerilog(new SerilogSettings
+    loggers.UseSerilog(serilog =>
     {
-        // Custom values
-    });
-});
-```
-
-**Option 3**
-
-```cs
-services.LoadLogger(loggers =>
-{
-    loggers.UseSerilog(options =>
-    {
-        options.Console = new SerilogConsoleSettings
-        {
-            // Custom values
-        };
-
-        options.File = new SerilogFileSettings
-        {
-            // Custom values
-        };
-
-        options.Email = new SerilogEmailSettings()
-        {
-            // Custom values
-        };
-    });
-});
-```
-
-### Use logger
-
-```cs
-private ILoggerService Logger { get; }
-
-public WeatherForecastController(ILoggerService logger)
-{
-    Logger = logger.CreateLogger<WeatherForecastController>();
-}
-```
-
-## Static Logger
-
-### Use logger
-
-**Option 1: Default logger**
-
-```cs
- public class Program
-{
-    public static void Main(string[] args)
-    {	
-        var logger = Log.Serilog.CreateLogger<Program>();
-
-        try
-        {
-            logger.Info("Init Host...");
-
-            CreateHostBuilder(args).Build().Run();
-        }
-        catch (Exception ex)
-        {
-            logger.Error(ex);
-
-            throw ex;
-        }
-        finally
-        {
-            logger.CloseLogger();
-        }
-    }
-}
-```
-
-**Option 2: Custom logger**
-
-```cs
-public class Program
-{
-    public static void Main(string[] args)
-    {	
-        var logger = Log.Serilog
-			.Console(options =>
-            {
-                options.MinimumLevel = LoggerMinimumLevel.Debug.ToString();
-                options.OutputTemplate = "{SourceContext}{NewLine}[{Level}] - {Message}{NewLine}";
-            })
-            .File(options =>
-            {
-                options.FilePath = "Logs\\CUSTOM_.log";
-                options.MinimumLevel = LoggerMinimumLevel.Debug.ToString();
-                options.Interval = LoggerInterval.Hour.ToString();
-            })
-            .Email
+        serilog
+            .AddConsole
+            (
+                // Custom values
+            )
+            .AddFile
+            (
+                // Custom values
+            )
+            .AddEmail
             (
                 userName: "admin@app.com",
                 password: "password",
                 server: "smtp.gmail.com",
                 from: "admin@app.com",
                 to: "error@app.com"
-            ).CreateLogger<Program>();
+            );
+    });
+});
+```
+
+## How use Dependency Injection Logger ?
+
+```cs
+[ApiController]
+[Route("[controller]")]
+public class WeatherForecastController : ControllerBase
+{
+    private static readonly string[] Summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+
+    private LoggerService Logger { get; }
+
+    public WeatherForecastController(ILoggerService logger)
+    {
+        Logger = logger.CreateLogger<WeatherForecastController>();
+    }
+
+    [HttpGet]
+    public IEnumerable<WeatherForecast> Get()
+    {
+        // Enable and customize logger in appsettings, or in Startup class.
+        Logger
+            .Info("Get Summaries")
+            .Info("Summary 1", Summaries[0])
+            .Info("Summary 2", Summaries[1])
+            .Info("Summary 3", Summaries[2])
+            .Info("All Summaries", Summaries);
+
+        var rng = new Random();
+
+        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        {
+            Date = DateTime.Now.AddDays(index),
+            TemperatureC = rng.Next(-20, 55),
+            Summary = Summaries[rng.Next(Summaries.Length)]
+        })
+        .ToArray();
+    }
+}
+```
+
+## How use Static Logger ?
+
+```cs
+public class Program
+{
+    public static void Main(string[] args)
+    {	
+        var logger = Log.UseSerilog(serilog => 
+		{
+			serilog
+				.AddConsole
+				(
+					// Custom values
+				)
+				.AddFile
+				(
+					// Custom values
+				)
+				.AddEmail
+				(
+					userName: "admin@app.com",
+					password: "password",
+					server: "smtp.gmail.com",
+					from: "admin@app.com",
+					to: "error@app.com"
+				);
+		})
+		.CreateLogger<Program>();
 
         try
         {
@@ -194,10 +191,6 @@ public class Program
             logger.Error(ex);
 
             throw ex;
-        }
-        finally
-        {
-            logger.CloseLogger();
         }
     }
 }

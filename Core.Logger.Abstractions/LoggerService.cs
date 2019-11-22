@@ -2,12 +2,10 @@
 
 namespace Core.Logger.Abstractions
 {
-    public abstract class LoggerService : ILoggerService
+    public abstract class LoggerService : ILoggerService, ILoggerInfo<LoggerService>, ILoggerError<LoggerService>
     {
         public abstract LoggerService CreateLogger(string sourceContext);
         public abstract LoggerService CreateLogger<TSourceContext>();
-
-        public abstract void CloseLogger();
 
         public abstract LoggerService Error(string message);
         public abstract LoggerService Error(string message, object data);

@@ -8,87 +8,20 @@ namespace Core.Logger.Serilog
 
         public const bool DefaultEnableSsl = true;
 
-        public const bool DefaultIsBodyHtml = true;
+        public const bool DefaultIsBodyHtml = false;
 
         public const int DefaultPort = 465;
 
-        public const string DefaultOutputTemplate = "{SourceContext} {MachineName} {Process} {Thread}{NewLine}{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u3}] {Message:lj}{NewLine}";
+        public const string DefaultOutputTemplate = "SourceContext: {SourceContext} | MachineName: {MachineName} | Process: {Process} | Thread: {Thread} => {NewLine}{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u}] {Message:lj}{NewLine}";
 
         public const LoggerMinimumLevel DefaultMinimumLevel = LoggerMinimumLevel.Error;
 
-        public SerilogEmailSettings() { }
-
-        public SerilogEmailSettings
-        (
-            string userName,
-
-            string password,
-
-            string server,
-
-            string from,
-
-            string to,
-
-            bool enableSsl = DefaultEnableSsl,
-
-            int port = DefaultPort,
-
-            string subject = DefaultSubject,
-
-            bool isBodyHtml = DefaultIsBodyHtml,
-
-            LoggerMinimumLevel loggerMinimumLevel = DefaultMinimumLevel,
-
-            string outputTemplate = DefaultOutputTemplate
-        )
-        {
-            if (string.IsNullOrWhiteSpace(userName))
-                throw new System.ArgumentNullException(nameof(userName));
-
-            if (string.IsNullOrWhiteSpace(password))
-                throw new System.ArgumentNullException(nameof(password));
-
-            if (string.IsNullOrWhiteSpace(server))
-                throw new System.ArgumentNullException(nameof(server));
-
-            if (string.IsNullOrWhiteSpace(from))
-                throw new System.ArgumentNullException(nameof(from));
-
-            if (string.IsNullOrWhiteSpace(to))
-                throw new System.ArgumentNullException(nameof(to));
-
-            UserName = userName;
-
-            Password = password;
-
-            Server = server;
-
-            From = from;
-
-            To = to;
-
-            EnableSsl = enableSsl;
-
-            Port = port;
-
-            Subject = subject;
-
-            IsBodyHtml = isBodyHtml;
-
-            MinimumLevel = loggerMinimumLevel.ToString();
-
-            OutputTemplate = outputTemplate;
-
-            Enabled = true;
-        }
 
         public string? UserName { get; set; }
         public string? Password { get; set; }
         public string? Server { get; set; }
         public string? From { get; set; }
         public string? To { get; set; }
-
 
         private bool _enabled = false;
         public bool? Enabled
@@ -115,7 +48,6 @@ namespace Core.Logger.Serilog
                 }
             }
         }
-
 
         private int _port = DefaultPort;
         public int? Port

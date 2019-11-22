@@ -21,7 +21,7 @@ namespace Core.Logger.Serilog
 
             if (threadId > 0)
             {
-                threadValue = $"| {ThreadPropertyName}: {threadId.ToString()}";
+                threadValue = threadId.ToString();
             }
 
             if (!string.IsNullOrWhiteSpace(threadName))

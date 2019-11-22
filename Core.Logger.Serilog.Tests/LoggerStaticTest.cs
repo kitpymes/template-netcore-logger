@@ -9,84 +9,57 @@ namespace Core.Logger.Serilog.Tests
     {
         private dynamic Data { get; } = new { Id = 1, Name = "Name" };
 
-        private ILoggerService DefaultLogger => Log.Serilog.CreateLogger("Default Serilog Test");
-
-        private ILoggerService CustomLogger => Log.Serilog
-            .Console(options =>
-            {
-                options.MinimumLevel = LoggerMinimumLevel.Debug.ToString();
-                options.OutputTemplate = "{SourceContext}{NewLine}[{Level}] - {Message}{NewLine}";
-            })
-            .File(options =>
-            {
-                options.FilePath = "Logs\\CUSTOM_.log";
-                options.MinimumLevel = LoggerMinimumLevel.Debug.ToString();
-                options.Interval = LoggerInterval.Hour.ToString();
-            })
-            .Email
+        private LoggerService Logger => Log.UseSerilog(serilog => 
+        {
+            serilog.AddConsole
+            (
+                minimumLevel: LoggerMinimumLevel.Debug,
+                outputTemplate:"{SourceContext}{NewLine}[{Level}] - {Message}{NewLine}"
+            )
+            .AddFile
+            (
+                filePath: "Logs\\CUSTOM_.log",
+                minimumLevel: LoggerMinimumLevel.Debug,
+                interval: LoggerInterval.Hour
+            )
+            .AddEmail
             (
                 userName: "admin@app.com",
                 password: "password",
                 server: "smtp.gmail.com",
                 from: "admin@app.com",
                 to: "error@app.com"
-            )
-            .CreateLogger("Custom Serilog Test");
+            );
+        })
+        .CreateLogger("Custom Serilog Test");
 
         #region Info
 
         [TestMethod]
-        public void DefaultInfoWithMessage()
+        public void InfoWithMessage()
         {
-            DefaultLogger.Info(nameof(DefaultInfoWithMessage));
+            Logger.Info(nameof(InfoWithMessage));
         }
 
         [TestMethod]
-        public void DefaultInfoWithMessageWithData()
+        public void InfoWithMessageWithData()
         {
-            DefaultLogger.Info(nameof(DefaultInfoWithMessageWithData), Data);
+            Logger.Info(nameof(InfoWithMessageWithData), Data);
         }
 
         [TestMethod]
-        public void DefaultInfoWithMessageWithProperties()
+        public void InfoWithMessageWithProperties()
         {
-            DefaultLogger.Info(nameof(DefaultInfoWithMessageWithProperties), "Id: {Id} Name: {Name}", Data.Id, Data.Name);
+            Logger.Info(nameof(InfoWithMessageWithProperties), "Id: {Id} Name: {Name}", Data.Id, Data.Name);
         }
 
         [TestMethod]
-        public void DefaultInfoWithMultipleDataInline()
+        public void InfoWithMultipleDataInline()
         {
-            DefaultLogger
-                .Info("One", new { Id = 1, Name = "Name1" })
-                .Info("Two", new { Id = 2, Name = "Name2" })
-                .Info("Three", new { Id = 3, Name = "Name3" });
-        }
-
-        [TestMethod]
-        public void CustomInfoWithMessage()
-        {
-            CustomLogger.Info(nameof(CustomInfoWithMessage));
-        }
-
-        [TestMethod]
-        public void CustomInfoWithMessageWithData()
-        {
-            CustomLogger.Info(nameof(CustomInfoWithMessageWithData), Data);
-        }
-
-        [TestMethod]
-        public void CustomLoggerWithMessageWithProperties()
-        {
-            CustomLogger.Info(nameof(CustomLoggerWithMessageWithProperties), "Id: {Id} Name: {Name}", Data.Id, Data.Name);
-        }
-
-        [TestMethod]
-        public void CustomInfoWithMultipleDataInline()
-        {
-            CustomLogger
-                .Info("One", new { Id = 1, Name = "Name1" })
-                .Info("Two", new { Id = 2, Name = "Name2" })
-                .Info("Three", new { Id = 3, Name = "Name3" });
+            Logger
+                .Info(nameof(InfoWithMultipleDataInline) + " 1", new { Id = 1, Name = "Name1" })
+                .Info(nameof(InfoWithMultipleDataInline) + " 2", new { Id = 2, Name = "Name2" })
+                .Info(nameof(InfoWithMultipleDataInline) + " 3", new { Id = 3, Name = "Name3" });
         }
 
         #endregion Info
@@ -94,51 +67,27 @@ namespace Core.Logger.Serilog.Tests
         #region Error
 
         [TestMethod]
-        public void DefaultErrorWithMessage()
+        public void ErrorWithMessage()
         {
-            DefaultLogger.Error(nameof(DefaultErrorWithMessage));
+            Logger.Error(nameof(ErrorWithMessage));
         }
 
         [TestMethod]
-        public void DefaultErrorWithMessageWithData()
+        public void ErrorWithMessageWithData()
         {
-            DefaultLogger.Error(nameof(DefaultErrorWithMessageWithData), Data);
+            Logger.Error(nameof(ErrorWithMessageWithData), Data);
         }
 
         [TestMethod]
-        public void DefaultErrorWithException()
+        public void ErrorWithException()
         {
-            DefaultLogger.Error(new ArgumentNullException(nameof(DefaultErrorWithException)));
+            Logger.Error(new ArgumentNullException(nameof(ErrorWithException)));
         }
 
         [TestMethod]
-        public void DefaultErrorWithMessageWithProperties()
+        public void ErrorWithMessageWithProperties()
         {
-            DefaultLogger.Error(nameof(DefaultErrorWithMessageWithProperties), "Id: {Id} Name: {Name}", Data.Id, Data.Name);
-        }
-
-        [TestMethod]
-        public void CustomErrorWithMessage()
-        {
-            CustomLogger.Error(nameof(CustomErrorWithMessage));
-        }
-
-        [TestMethod]
-        public void CustomErrorWithMessageWithData()
-        {
-            CustomLogger.Error(nameof(CustomErrorWithMessageWithData), Data);
-        }
-
-        [TestMethod]
-        public void CustomErrorWithException()
-        {
-            CustomLogger.Error(new ArgumentNullException(nameof(CustomErrorWithException)));
-        }
-
-        [TestMethod]
-        public void CustomErrorWithMessageWithProperties()
-        {
-            CustomLogger.Error(nameof(DefaultErrorWithMessageWithProperties), "Id: {Id} Name: {Name}", Data.Id, Data.Name);
+            Logger.Error(nameof(ErrorWithMessageWithProperties), "Id: {Id} Name: {Name}", Data.Id, Data.Name);
         }
 
         #endregion Error
