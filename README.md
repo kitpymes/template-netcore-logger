@@ -10,28 +10,16 @@ Mira **Instalación** para conocer como desplegar el proyecto.
 
 ### 📋 Pre-requisitos 
 
-_- Saber sobre dependencia de injeccion_
-
 _- Tener instalado Visual Studio >= 2019_
-
-_- Tener habilitado tipos nullables_
 
 _- Tener instalada una version >= .NET Core 3_
 
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
+_- Conocer sobre inyección de dependencia_
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-</Project>
-```
 
 ### 🔧 Instalación 
 
-_Descargar ZIP_
+**Opcion 1: Descargar ZIP**
 
 ![Descargar ZIP](Github/descargar_zip.png)
 
@@ -43,7 +31,7 @@ _Descargar ZIP_
 3 - Ejecutar
 ```
 
-_Clonar_
+**Opcion 2: Clonar**
 
 ![Copiar link para clonar](Github/clonar.png)
 
@@ -57,12 +45,12 @@ _Clonar_
 3 - Ejecutar
 ```
 
-_Resultado en la consola_
+**Resultado en la consola**
 
 ![Resultado en la consola](Github/resultado_consola.png)
 
 
-_Resultado en los archivos_
+**Resultado en los archivos**
 
 ![Resultado en los archivos](Github/resultado_archivos.png)
 
@@ -146,7 +134,7 @@ public abstract class LoggerService
 }
 ```
 
-### How load Dependency Injection Logger ?
+### Como cargar el logeo de errores para ser utilizado con inyección de dependencia ?
 
 **Option 1**
 
@@ -176,7 +164,7 @@ services.LoadLogger(loggers =>
 });
 ```
 
-### How use Dependency Injection Logger ?
+### Como utilizar el logeo de errores con inyección de dependencia ?
 
 ```cs
 [ApiController]
@@ -219,7 +207,7 @@ public class WeatherForecastController : ControllerBase
 }
 ```
 
-### How load Static Logger ?
+### Como cargar el logeo de errores estático ?
 
 **Option 1**
 
@@ -251,7 +239,7 @@ var logger = Log.UseSerilog(new SerilogSettings
 }).CreateLogger<Program>();
 ```
 
-### How use Static Logger ?
+### Como utilizar el logeo de errores estático ?
 
 ```cs
 public class Program
