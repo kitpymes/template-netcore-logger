@@ -151,6 +151,44 @@ public class WeatherForecastController : ControllerBase
 }
 ```
 
+## How load Static Logger ?
+
+**Option 1**
+
+```cs
+var logger = Log.UseSerilog(serilog => 
+{
+	serilog
+		.AddConsole
+		(
+			// Custom values
+		)
+		.AddFile
+		(
+			// Custom values
+		)
+		.AddEmail
+		(
+			userName: "admin@app.com",
+			password: "password",
+			server: "smtp.gmail.com",
+			from: "admin@app.com",
+			to: "error@app.com"
+		);
+})
+.CreateLogger<Program>();
+```
+
+**Option 2**
+
+```cs
+var logger = Log.UseSerilog(new SerilogSettings 
+{
+	// Custom values
+
+}).CreateLogger<Program>();
+```
+
 ## How use Static Logger ?
 
 ```cs
