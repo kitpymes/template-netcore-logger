@@ -85,23 +85,14 @@ services.LoadLogger(loggers =>
 {
     loggers.UseSerilog(serilog =>
     {
-        serilog
-			.AddConsole
-			( 
-				// Custom values
-			)
-			.AddFile
-			(
-				// Custom values
-			)
-			.AddEmail
-			(
-				userName: "admin@app.com",
-				password: "password",
-				server: "smtp.gmail.com",
-				from: "admin@app.com",
-				to: "error@app.com"
-			);
+        serilog.AddConsole().AddFile().AddEmail
+		(
+			userName: "admin@app.com",
+			password: "password",
+			server: "smtp.gmail.com",
+			from: "admin@app.com",
+			to: "error@app.com"
+		);
     });
 });
 ```
@@ -156,23 +147,14 @@ public class WeatherForecastController : ControllerBase
 ```cs
 var logger = Log.UseSerilog(serilog => 
 {
-	serilog
-		.AddConsole
-		(
-			// Custom values
-		)
-		.AddFile
-		(
-			// Custom values
-		)
-		.AddEmail
-		(
-			userName: "admin@app.com",
-			password: "password",
-			server: "smtp.gmail.com",
-			from: "admin@app.com",
-			to: "error@app.com"
-		);
+	serilog.AddConsole().AddFile().AddEmail
+	(
+		userName: "admin@app.com",
+		password: "password",
+		server: "smtp.gmail.com",
+		from: "admin@app.com",
+		to: "error@app.com"
+	);
 })
 .CreateLogger<Program>();
 ```
@@ -196,23 +178,14 @@ public class Program
     {	
         var logger = Log.UseSerilog(serilog => 
 		{
-			serilog
-				.AddConsole
-				(
-					// Custom values
-				)
-				.AddFile
-				(
-					// Custom values
-				)
-				.AddEmail
-				(
-					userName: "admin@app.com",
-					password: "password",
-					server: "smtp.gmail.com",
-					from: "admin@app.com",
-					to: "error@app.com"
-				);
+			serilog.AddConsole().AddFile().AddEmail
+			(
+				userName: "admin@app.com",
+				password: "password",
+				server: "smtp.gmail.com",
+				from: "admin@app.com",
+				to: "error@app.com"
+			);
 		})
 		.CreateLogger<Program>();
 
