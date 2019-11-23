@@ -6,7 +6,7 @@ _Logeo de errores para multiples proveedores_
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
-Mira **Deployment** para conocer como desplegar el proyecto.
+Mira **Instalación** para conocer como desplegar el proyecto.
 
 ### 📋 Pre-requisitos 
 
@@ -313,7 +313,7 @@ _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde
 
 ## 📄 Licencia 
 
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+Este proyecto está bajo la Licencia [LICENSE.md](LICENSE.md)
 
 
 ## 🎁 Expresiones de Gratitud 
