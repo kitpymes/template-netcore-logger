@@ -7,6 +7,9 @@ namespace Core.Logger
     public class Log
     {
         public static ILoggerService UseSerilog(Action<SerilogOptions> options) 
-        => new SerilogProvider(options.Configure().SerilogSettings);
+        => UseSerilog(options.Configure().SerilogSettings);
+
+        public static ILoggerService UseSerilog(SerilogSettings settings)
+        => new SerilogProvider(settings);
     }
 }

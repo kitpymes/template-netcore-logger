@@ -25,7 +25,7 @@ namespace Api.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            // Enable and customize logger in appsettings, or in Startup class.
+            // Enable and customize logger in appsettings or in startup class.
             Logger
                 .Info("Get Summaries")
                 .Info("Summary 1", Summaries[0])
