@@ -10,8 +10,6 @@ public interface ILoggerService
     LoggerService CreateLogger(string sourceContext);
 
     LoggerService CreateLogger<TSourceContext>();
-
-    void CloseLogger();
 }
 ```
 
@@ -88,22 +86,22 @@ services.LoadLogger(loggers =>
     loggers.UseSerilog(serilog =>
     {
         serilog
-            .AddConsole
-            (
-                // Custom values
-            )
-            .AddFile
-            (
-                // Custom values
-            )
-            .AddEmail
-            (
-                userName: "admin@app.com",
-                password: "password",
-                server: "smtp.gmail.com",
-                from: "admin@app.com",
-                to: "error@app.com"
-            );
+			.AddConsole
+			( 
+				// Custom values
+			)
+			.AddFile
+			(
+				// Custom values
+			)
+			.AddEmail
+			(
+				userName: "admin@app.com",
+				password: "password",
+				server: "smtp.gmail.com",
+				from: "admin@app.com",
+				to: "error@app.com"
+			);
     });
 });
 ```
