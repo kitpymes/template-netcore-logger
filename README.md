@@ -1,8 +1,84 @@
-# Core.Logger
+﻿# Logger
 
-The package provides interface and classe for **logger**.
+_Logeo de errores para multiples proveedores_
 
-## ILoggerService
+## 🚀 Comenzando 
+
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+
+Mira **Deployment** para conocer como desplegar el proyecto.
+
+### 📋 Pre-requisitos 
+
+_- Saber sobre dependencia de injeccion_
+
+_- Tener instalado Visual Studio >= 2019_
+
+_- Tener habilitado tipos nullables_
+
+_- Tener instalada una version >= .NET Core 3_
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
+```
+
+### 🔧 Instalación 
+
+_Descargar ZIP_
+
+![Descargar ZIP](Github/descargar_zip.png)
+
+```
+1 - Descomprimir zip
+
+2 - Abrir "Solution.sln" y esperar a que visual studio cargue todas las dependencias
+
+3 - Ejecutar
+```
+
+_Clonar_
+
+![Copiar link para clonar](Github/clonar.png)
+
+![Clonamos el proyecto](Github/clonar_visualstudio.png)
+
+```
+1 - Copiamos el link para clonar el proyecto
+
+2 - Clonamos el proyecto en la ubicacion que eligamos localmente
+
+3 - Ejecutar
+```
+
+_Resultado en la consola_
+
+![Resultado en la consola](Github/resultado_consola.png)
+
+
+_Resultado en los archivos_
+
+![Resultado en los archivos](Github/resultado_archivos.png)
+
+
+**NOTAS**
+
+```
+- Si descargamos el proyecto no copiarlo en el escritorio, es posible que tengamos problemas con los permisos de escritura.
+
+- Para probar el envio de email, es posible que tengamos problemas de permisos con nuestro proveedor, eso pasa con gmail por ejemplo.
+```
+
+## ⌨️ Codigo y como utilizar
+
+
+### ILoggerService
 
 ```cs
 public interface ILoggerService
@@ -13,7 +89,7 @@ public interface ILoggerService
 }
 ```
 
-## LoggerService
+### LoggerService
 
 ```cs
 public abstract class LoggerService
@@ -34,7 +110,7 @@ public abstract class LoggerService
 }
 ```
 
-## AppSettings
+### AppSettings
 
 ```js
 {
@@ -70,7 +146,7 @@ public abstract class LoggerService
 }
 ```
 
-## How load Dependency Injection Logger ?
+### How load Dependency Injection Logger ?
 
 **Option 1**
 
@@ -85,19 +161,22 @@ services.LoadLogger(loggers =>
 {
     loggers.UseSerilog(serilog =>
     {
-        serilog.AddConsole().AddFile().AddEmail
-		(
-			userName: "admin@app.com",
-			password: "password",
-			server: "smtp.gmail.com",
-			from: "admin@app.com",
-			to: "error@app.com"
-		);
+		serilog
+			.AddConsole()
+			.AddFile()
+			.AddEmail
+			(
+				userName: "admin@app.com", 
+				password: "password",
+				server: "smtp.gmail.com",
+				from: "admin@app.com",
+				to: "error@app.com"
+			);
     });
 });
 ```
 
-## How use Dependency Injection Logger ?
+### How use Dependency Injection Logger ?
 
 ```cs
 [ApiController]
@@ -140,21 +219,24 @@ public class WeatherForecastController : ControllerBase
 }
 ```
 
-## How load Static Logger ?
+### How load Static Logger ?
 
 **Option 1**
 
 ```cs
 var logger = Log.UseSerilog(serilog => 
 {
-	serilog.AddConsole().AddFile().AddEmail
-	(
-		userName: "admin@app.com",
-		password: "password",
-		server: "smtp.gmail.com",
-		from: "admin@app.com",
-		to: "error@app.com"
-	);
+	serilog
+		.AddConsole()
+		.AddFile()
+		.AddEmail
+		(
+			userName: "admin@app.com", 
+			password: "password",
+			server: "smtp.gmail.com",
+			from: "admin@app.com",
+			to: "error@app.com"
+		);
 })
 .CreateLogger<Program>();
 ```
@@ -169,7 +251,7 @@ var logger = Log.UseSerilog(new SerilogSettings
 }).CreateLogger<Program>();
 ```
 
-## How use Static Logger ?
+### How use Static Logger ?
 
 ```cs
 public class Program
@@ -178,14 +260,17 @@ public class Program
     {	
         var logger = Log.UseSerilog(serilog => 
 		{
-			serilog.AddConsole().AddFile().AddEmail
-			(
-				userName: "admin@app.com",
-				password: "password",
-				server: "smtp.gmail.com",
-				from: "admin@app.com",
-				to: "error@app.com"
-			);
+			serilog
+				.AddConsole()
+				.AddFile()
+				.AddEmail
+				(
+					userName: "admin@app.com", 
+					password: "password",
+					server: "smtp.gmail.com",
+					from: "admin@app.com",
+					to: "error@app.com"
+				);
 		})
 		.CreateLogger<Program>();
 
@@ -204,3 +289,38 @@ public class Program
     }
 }
 ```
+
+
+## ⚙️ Ejecutando las pruebas 
+
+_Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde el "Explorador de pruebas"_
+
+![Tests](Github/tests.png)
+
+
+## 🛠️ Construido con 
+
+* [NET Core](https://dotnet.microsoft.com/download) - El framework web usado
+* [nuget](https://www.nuget.org/) - Manejador de dependencias
+* [Visual Studio](https://visualstudio.microsoft.com/) - Entorno de programacion
+* [Serilog](https://serilog.net/) - Proveedor de logeo de errores
+
+
+## ✒️ Autores 
+
+* **Kitpymes** - *Trabajo Inicial* - [kitpymes](https://github.com/kitpymes)
+
+
+## 📄 Licencia 
+
+Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+
+
+## 🎁 Expresiones de Gratitud 
+
+* Este proyecto fue diseñado para compartir, creemos que es la mejor forma de ayudar 📢
+* Cada persona que contribuya sera invitada a tomar una 🍺 
+* Gracias a todos! 🤓
+
+---
+[Kitpymes](https://github.com/kitpymes) 😊
