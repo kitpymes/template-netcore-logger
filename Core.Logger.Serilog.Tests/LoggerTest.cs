@@ -9,7 +9,7 @@ namespace Core.Logger.Serilog.Tests
     [TestClass]
     public class LoggerTest
     {
-        private readonly LoggerService _loggerService;
+        private readonly ILogger _loggerService;
 
         private dynamic Data { get; } = new { Id = 1, Name = "Name" };
 

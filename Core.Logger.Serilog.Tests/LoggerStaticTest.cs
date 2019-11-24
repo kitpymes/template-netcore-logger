@@ -9,7 +9,7 @@ namespace Core.Logger.Serilog.Tests
     {
         private dynamic Data { get; } = new { Id = 1, Name = "Name" };
 
-        private LoggerService Logger => Log.UseSerilog(serilog => 
+        private ILogger Logger => Log.UseSerilog(serilog => 
         {
             serilog.AddConsole
             (

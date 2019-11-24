@@ -15,7 +15,7 @@ namespace Api.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private LoggerService Logger { get; }
+        private ILogger Logger { get; }
 
         public WeatherForecastController(ILoggerService logger)
         {

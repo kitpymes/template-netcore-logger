@@ -2,8 +2,8 @@
 {
     public interface ILoggerService
     {
-        LoggerService CreateLogger(string sourceContext);
+        ILogger CreateLogger(string sourceContext);
 
-        LoggerService CreateLogger<TSourceContext>();
+        ILogger CreateLogger<TSourceContext>();
     }
 }

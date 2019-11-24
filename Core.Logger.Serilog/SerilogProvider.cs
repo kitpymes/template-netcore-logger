@@ -1,11 +1,11 @@
-﻿using Core.Logger.Abstractions;
-using Serilog;
+﻿using Serilog;
 using System;
 using System.Linq;
+using CoreLogger = Core.Logger.Abstractions;
 
 namespace Core.Logger.Serilog
 {
-    public class SerilogProvider : LoggerService, ILoggerService
+    public class SerilogProvider : CoreLogger.ILogger, CoreLogger.ILoggerService
     {
         private SerilogSettings SerilogSettings { get; }
 
@@ -14,7 +14,7 @@ namespace Core.Logger.Serilog
         public SerilogProvider(SerilogSettings settings)
         => SerilogSettings = settings;
 
-        public override LoggerService CreateLogger(string sourceContext)
+        public CoreLogger.ILogger CreateLogger(string sourceContext)
         {
             Logger = new LoggerConfiguration()
                 .AddDefaultSettings(sourceContext)
@@ -26,26 +26,26 @@ namespace Core.Logger.Serilog
             return this;
         }
 
-        public override LoggerService CreateLogger<TSourceContext>()
+        public CoreLogger.ILogger CreateLogger<TSourceContext>()
         => CreateLogger(typeof(TSourceContext).Name);
 
         #region Info
 
-        public override LoggerService Info(string message)
+        public CoreLogger.ILogger Info(string message)
         {
             Logger?.Information(message);
 
             return this;
         }
 
-        public override LoggerService Info(string message, object data)
+        public CoreLogger.ILogger Info(string message, object data)
         {
              Logger?.Information(message + " => {Data}", data);
 
             return this;
         }
 
-        public override LoggerService Info(string eventName, string template, params object[] propertyValues)
+        public CoreLogger.ILogger Info(string eventName, string template, params object[] propertyValues)
         {
             var messageTemplate = "{EventName} => " + template;
 
@@ -60,21 +60,21 @@ namespace Core.Logger.Serilog
 
         #region Error
 
-        public override LoggerService Error(string message)
+        public CoreLogger.ILogger Error(string message)
         {
             Logger?.Error(message);
 
             return this;
         }
 
-        public override LoggerService Error(string message, object data)
+        public CoreLogger.ILogger Error(string message, object data)
         {
             Logger?.Error(message + " => {Data}", data);
 
             return this;
         }
 
-        public override LoggerService Error(string eventName, string template, params object[] propertyValues)
+        public CoreLogger.ILogger Error(string eventName, string template, params object[] propertyValues)
         {
             var messageTemplate = "{EventName} => " + template;
 
@@ -85,7 +85,7 @@ namespace Core.Logger.Serilog
             return this;
         }
 
-        public override LoggerService Error(Exception exception)
+        public CoreLogger.ILogger Error(Exception exception)
         {
             Logger?.Error("Exception => {Exception}", exception);
 

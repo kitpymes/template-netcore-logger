@@ -71,30 +71,30 @@ _- Conocer sobre inyección de dependencia_
 ```cs
 public interface ILoggerService
 {
-    LoggerService CreateLogger(string sourceContext);
+    ILogger CreateLogger(string sourceContext);
 
-    LoggerService CreateLogger<TSourceContext>();
+    ILogger CreateLogger<TSourceContext>();
 }
 ```
 
-### LoggerService
+### ILogger
 
 ```cs
-public abstract class LoggerService
+public interface ILogger
 {
-	public LoggerService Error(string message);
+	ILogger Info(string message);
 
-	public LoggerService Error(string message, object data);
+    ILogger Info(string message, object data);
 
-	public LoggerService Error(string eventName, string template, params object[] propertyValues);
+    ILogger Info(string eventName, string template, params object[] propertyValues);
 
-	public LoggerService Error(Exception exception);
+	ILogger Error(string message);
 
-	public LoggerService Info(string message);
+    ILogger Error(string message, object data);
 
-	public LoggerService Info(string message, object data);
+    ILogger Error(string eventName, string template, params object[] propertyValues);
 
-	public LoggerService Info(string eventName, string template, params object[] propertyValues);
+    ILogger Error(Exception exception);
 }
 ```
 
@@ -176,7 +176,7 @@ public class WeatherForecastController : ControllerBase
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-    private LoggerService Logger { get; }
+    private ILogger Logger { get; }
 
     public WeatherForecastController(ILoggerService logger)
     {
