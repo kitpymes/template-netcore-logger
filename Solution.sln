@@ -11,22 +11,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Logger.Serilog", "Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Logger.Serilog.Tests", "Core.Logger.Serilog.Tests\Core.Logger.Serilog.Tests.csproj", "{756A3CBE-33DD-427D-8D06-2A99B71CF0FB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{CA10A654-5178-4A29-BCA2-00E0DF903B2E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{CA10A654-5178-4A29-BCA2-00E0DF903B2E}"
 	ProjectSection(SolutionItems) = preProject
-		LICENSE.md = LICENSE.md
-		README.md = README.md
+		docs\LICENSE.md = docs\LICENSE.md
+		docs\README.md = docs\README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{F9BDD86A-EF9F-4330-8C1F-E7F200C59FEA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screenshot", "screenshot", "{6ACA1779-CA16-4E21-8790-2D4E1326A77A}"
 	ProjectSection(SolutionItems) = preProject
-		shared\screenshot\clonar.png = shared\screenshot\clonar.png
-		shared\screenshot\clonar_visualstudio.png = shared\screenshot\clonar_visualstudio.png
-		shared\screenshot\descargar_zip.png = shared\screenshot\descargar_zip.png
-		shared\screenshot\resultado_archivos.png = shared\screenshot\resultado_archivos.png
-		shared\screenshot\resultado_consola.png = shared\screenshot\resultado_consola.png
-		shared\screenshot\tests.png = shared\screenshot\tests.png
+		docs\screenshot\clonar.png = docs\screenshot\clonar.png
+		docs\screenshot\clonar_visualstudio.png = docs\screenshot\clonar_visualstudio.png
+		docs\screenshot\descargar_zip.png = docs\screenshot\descargar_zip.png
+		docs\screenshot\resultado_archivos.png = docs\screenshot\resultado_archivos.png
+		docs\screenshot\resultado_consola.png = docs\screenshot\resultado_consola.png
+		docs\screenshot\tests.png = docs\screenshot\tests.png
 	EndProjectSection
 EndProject
 Global
