@@ -17,7 +17,7 @@ namespace Core.Logger.Serilog.Tests
         {
             var services = new ServiceCollection();
 
-            var configuration = new ConfigurationBuilder().AddJsonFile("appSettings.json").Build();
+            var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 
             var settings = configuration?.GetSection("LoggerSettings:Serilog")?.Get<SerilogSettings>();
 
