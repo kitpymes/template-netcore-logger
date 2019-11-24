@@ -285,7 +285,7 @@ public class Program
 ```
 
 
-## ⚙️ Pruebas 
+## ⚙️ Pruebas Unitarias
 
 _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde el "Explorador de pruebas"_
 
@@ -294,10 +294,10 @@ _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde
 
 ## 🛠️ Construido con 
 
-* [NET Core](https://dotnet.microsoft.com/download) - El framework usado
-* [C#](https://docs.microsoft.com/es-es/dotnet/csharp/) - El lenguaje usado para programar
-* [Inserción de dependencias](https://docs.microsoft.com/es-es/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.0) - El patrón de diseño de software utilizado
-* [MSTest](https://docs.microsoft.com/es-es/dotnet/core/testing/unit-testing-with-mstest) - Para las pruebas unitarias
+* [NET Core](https://dotnet.microsoft.com/download) - Framework de trabajo
+* [C#](https://docs.microsoft.com/es-es/dotnet/csharp/) - Lenguaje de programación
+* [Inserción de dependencias](https://docs.microsoft.com/es-es/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.0) - Patrón de diseño de software
+* [MSTest](https://docs.microsoft.com/es-es/dotnet/core/testing/unit-testing-with-mstest) - Pruebas unitarias
 * [Nuget](https://www.nuget.org/) - Manejador de dependencias
 * [Visual Studio](https://visualstudio.microsoft.com/) - Entorno de programacion
 * [Serilog](https://serilog.net/) - Proveedor de logeo de errores
