@@ -27,13 +27,13 @@ _- Conocer sobre inyección de dependencia_
 
 **Opcion 1: Descargar ZIP**
 
-![Descargar ZIP](screenshot/descargar_zip.png)
+![Descargar ZIP](screenshot/instalacion_zip.png)
 
 **Opcion 2: Clonar**
 
 | Copiar link | Clonar proyecto |
 | :---: | :---: |
-| ![Copiar link para clonar](screenshot/clonar.png)  |  ![Clonamos el proyecto](screenshot/clonar_visualstudio.png)  |
+| ![Copiar link para clonar](screenshot/instalacion_clonar.png)  |  ![Clonamos el proyecto](screenshot/instalacion_clonar_visualstudio.png)  |
 
 
 **NOTAS**
@@ -262,19 +262,19 @@ public class Program
 
 **Resultado en la consola**
 
-![Resultado en la consola](screenshot/resultado_consola.png)
+![Resultado en la consola](screenshot/resultados_consola.png)
 
 
 **Resultado en los archivos**
 
-![Resultado en los archivos](screenshot/resultado_archivos.png)
+![Resultado en los archivos](screenshot/resultados_archivos.png)
 
 
 ## ⚙️ Pruebas Unitarias
 
 _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde el "Explorador de pruebas"_
 
-![Tests](screenshot/tests.png)
+![Tests](screenshot/pruebas_unitarias_serilog.png)
 
 
 ## 🛠️ Construido con 
