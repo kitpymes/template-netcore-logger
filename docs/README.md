@@ -1,15 +1,9 @@
-﻿# Logger
+﻿# <img src="/docs/icon.png" height="30px"> Logger
 
 _Logeo de errores para multiples proveedores_
 
-<p align="left">
-  <a href="https://github.com/kitpymes/netcore-logger/actions">
-	<img alt="GitHub Actions status" src="https://github.com/actions/setup-dotnet/workflows/Main%20workflow/badge.svg">
-  </a>
-</p>
-
-### Published
-https://www.nuget.org/packages/Kitpymes.Core.Logger/
+[![Build Status](https://github.com/actions/setup-dotnet/workflows/Main%20workflow/badge.svg)](https://github.com/kitpymes/netcore-logger/actions)
+[![NuGet Status](https://img.shields.io/nuget/v/XunitContext.svg?cacheSeconds=86400)](https://www.nuget.org/packages/Kitpymes.Core.Logger/)
 
 ## 🚀 Comenzando 
 
