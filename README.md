@@ -84,17 +84,17 @@ public interface ILogger
 {
 	ILogger Info(string message);
 
-    ILogger Info(string message, object data);
+	ILogger Info(string message, object data);
 
-    ILogger Info(string eventName, string template, params object[] propertyValues);
+	ILogger Info(string eventName, string template, params object[] propertyValues);
 
 	ILogger Error(string message);
 
-    ILogger Error(string message, object data);
+	ILogger Error(string message, object data);
 
-    ILogger Error(string eventName, string template, params object[] propertyValues);
+	ILogger Error(string eventName, string template, params object[] propertyValues);
 
-    ILogger Error(Exception exception);
+	ILogger Error(Exception exception);
 }
 ```
 
