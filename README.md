@@ -63,7 +63,7 @@ _- Conocer sobre inyección de dependencia_
 - Para probar el envio de email, es posible que tengamos problemas de permisos con nuestro proveedor, eso pasa con gmail por ejemplo.
 ```
 
-## ⌨️ Codigo y como utilizar
+## ⌨️ Código
 
 
 ### ILoggerService
@@ -279,7 +279,7 @@ public class Program
 ```
 
 
-## ⚙️ Ejecutando las pruebas 
+## ⚙️ Pruebas 
 
 _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde el "Explorador de pruebas"_
 
@@ -288,8 +288,11 @@ _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde
 
 ## 🛠️ Construido con 
 
-* [NET Core](https://dotnet.microsoft.com/download) - El framework web usado
-* [nuget](https://www.nuget.org/) - Manejador de dependencias
+* [NET Core](https://dotnet.microsoft.com/download) - El framework usado
+* [C#](https://docs.microsoft.com/es-es/dotnet/csharp/) - El lenguaje usado para programar
+* [Inserción de dependencias](https://docs.microsoft.com/es-es/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.0) - El patrón de diseño de software utilizado
+* [MSTest](https://docs.microsoft.com/es-es/dotnet/core/testing/unit-testing-with-mstest) - Para las pruebas unitarias
+* [Nuget](https://www.nuget.org/) - Manejador de dependencias
 * [Visual Studio](https://visualstudio.microsoft.com/) - Entorno de programacion
 * [Serilog](https://serilog.net/) - Proveedor de logeo de errores
 
@@ -304,7 +307,7 @@ _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde
 Este proyecto está bajo la Licencia [LICENSE.md](LICENSE.md)
 
 
-## 🎁 Expresiones de Gratitud 
+## 🎁 Gratitud 
 
 * Este proyecto fue diseñado para compartir, creemos que es la mejor forma de ayudar 📢
 * Cada persona que contribuya sera invitada a tomar una 🍺 
