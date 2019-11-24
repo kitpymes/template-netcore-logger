@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screenshot", "screenshot", 
 		docs\screenshot\instalacion_clonar_github.png = docs\screenshot\instalacion_clonar_github.png
 		docs\screenshot\instalacion_clonar_visualstudio.png = docs\screenshot\instalacion_clonar_visualstudio.png
 		docs\screenshot\instalacion_zip.png = docs\screenshot\instalacion_zip.png
-		docs\screenshot\pruebas_unitarias_serilog.png = docs\screenshot\pruebas_unitarias_serilog.png
+		docs\screenshot\pruebas_unitarias.png = docs\screenshot\pruebas_unitarias.png
 		docs\screenshot\resultados_archivos.png = docs\screenshot\resultados_archivos.png
 		docs\screenshot\resultados_consola.png = docs\screenshot\resultados_consola.png
 	EndProjectSection

@@ -274,7 +274,7 @@ public class Program
 
 _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde el "Explorador de pruebas"_
 
-![Tests](screenshot/pruebas_unitarias_serilog.png)
+![Tests](screenshot/pruebas_unitarias.png)
 
 
 ## 🛠️ Construido con 
