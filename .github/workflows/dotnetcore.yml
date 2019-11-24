@@ -1,19 +1,18 @@
 name: Logger
- 
+
 on: [push]
- 
+
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        dotnet: [ '3.0.100', '3.0.101'] 
-        os: ['ubuntu-latest']
+        dotnet: [ '3.0.100', '3.0.101' ]
     
     name: Build for .NET ${{ matrix.dotnet }}
 
-steps:  
+    steps:  
     - uses: actions/checkout@v1
      
     - name: Setup .NET Core
