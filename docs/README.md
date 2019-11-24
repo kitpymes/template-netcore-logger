@@ -51,16 +51,6 @@ _- Conocer sobre inyección de dependencia_
 3 - Ejecutar
 ```
 
-**Resultado en la consola**
-
-![Resultado en la consola](screenshot/resultado_consola.png)
-
-
-**Resultado en los archivos**
-
-![Resultado en los archivos](screenshot/resultado_archivos.png)
-
-
 **NOTAS**
 
 ```
@@ -70,7 +60,6 @@ _- Conocer sobre inyección de dependencia_
 ```
 
 ## ⌨️ Código
-
 
 ### ILoggerService
 
@@ -283,6 +272,17 @@ public class Program
     }
 }
 ```
+
+## 🔩 Resultados
+
+**Resultado en la consola**
+
+![Resultado en la consola](screenshot/resultado_consola.png)
+
+
+**Resultado en los archivos**
+
+![Resultado en los archivos](screenshot/resultado_archivos.png)
 
 
 ## ⚙️ Pruebas Unitarias
