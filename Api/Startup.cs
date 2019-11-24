@@ -1,5 +1,5 @@
-using Core.Logger;
-using Core.Logger.Serilog;
+using Kitpymes.Core.Logger;
+using Kitpymes.Core.Logger.Serilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -38,7 +38,7 @@ namespace Api
                         .AddFile
                         (
                             // Custom values
-                            minimumLevel: Core.Logger.Abstractions.LoggerMinimumLevel.Info
+                            minimumLevel: Kitpymes.Core.Logger.Abstractions.LoggerMinimumLevel.Info
                         );
                         //.AddEmail
                         //(

@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.Logger\Core.Logger.csproj" />
+    <Folder Include="Logs\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Logs\" />
+    <ProjectReference Include="..\Kitpymes.Core.Logger\Kitpymes.Core.Logger.csproj" />
   </ItemGroup>
 
 </Project>

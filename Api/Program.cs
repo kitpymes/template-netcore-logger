@@ -1,5 +1,5 @@
-using Core.Logger;
-using Core.Logger.Abstractions;
+using Kitpymes.Core.Logger;
+using Kitpymes.Core.Logger.Abstractions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;

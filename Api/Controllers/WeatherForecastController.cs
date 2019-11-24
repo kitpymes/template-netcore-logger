@@ -1,4 +1,4 @@
-﻿using Core.Logger.Abstractions;
+﻿using Kitpymes.Core.Logger.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

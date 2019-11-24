@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Company>Kitpymes</Company>
+    <Authors>Kitpymes</Authors>
+    <Product>Logger</Product>
+    <Description>Logeo de errores para multiples proveedores.</Description>
+    <PackageProjectUrl>https://kitpymes.github.io/netcore-logger/</PackageProjectUrl>
+    <PackageTags>Net Core Logger</PackageTags>
+    <RepositoryUrl>https://github.com/kitpymes/netcore-logger</RepositoryUrl>
+    <Copyright></Copyright>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <NeutralLanguage></NeutralLanguage>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageIcon>icon.png</PackageIcon>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Kitpymes.Core.Logger.Abstractions\Kitpymes.Core.Logger.Abstractions.csproj" />
+    <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\docs\LICENSE.md" Pack="true"  PackagePath=""/>
+    <None Include="..\docs\icon.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+</Project>

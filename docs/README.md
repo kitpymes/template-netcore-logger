@@ -8,6 +8,9 @@ _Logeo de errores para multiples proveedores_
   </a>
 </p>
 
+### Published
+https://www.nuget.org/packages/Kitpymes.Core.Logger/
+
 ## 🚀 Comenzando 
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
