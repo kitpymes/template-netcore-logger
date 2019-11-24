@@ -3,7 +3,7 @@
 _Logeo de errores para multiples proveedores_
 
 [![Build Status](https://github.com/actions/setup-dotnet/workflows/Main%20workflow/badge.svg)](https://github.com/kitpymes/netcore-logger/actions)
-[![NuGet Status](https://img.shields.io/nuget/v/XunitContext.svg?cacheSeconds=86400)](https://www.nuget.org/packages/Kitpymes.Core.Logger/)
+[![NuGet Status](https://img.shields.io/nuget/v/Kitpymes.Core.Logger)](https://www.nuget.org/packages/Kitpymes.Core.Logger/)
 
 ## 🚀 Comenzando 
 
