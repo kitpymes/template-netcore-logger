@@ -21,7 +21,7 @@ _- Conocer sobre inyección de dependencia_
 
 **Opcion 1: Descargar ZIP**
 
-![Descargar ZIP](Github/descargar_zip.png)
+![Descargar ZIP](shared/screenshot/descargar_zip.png)
 
 ```
 1 - Descomprimir zip
@@ -33,9 +33,9 @@ _- Conocer sobre inyección de dependencia_
 
 **Opcion 2: Clonar**
 
-![Copiar link para clonar](Github/clonar.png)
+![Copiar link para clonar](shared/screenshot/clonar.png)
 
-![Clonamos el proyecto](Github/clonar_visualstudio.png)
+![Clonamos el proyecto](shared/screenshot/clonar_visualstudio.png)
 
 ```
 1 - Copiamos el link para clonar el proyecto
@@ -47,12 +47,12 @@ _- Conocer sobre inyección de dependencia_
 
 **Resultado en la consola**
 
-![Resultado en la consola](Github/resultado_consola.png)
+![Resultado en la consola](shared/screenshot/resultado_consola.png)
 
 
 **Resultado en los archivos**
 
-![Resultado en los archivos](Github/resultado_archivos.png)
+![Resultado en los archivos](shared/screenshot/resultado_archivos.png)
 
 
 **NOTAS**
@@ -283,7 +283,7 @@ public class Program
 
 _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde el "Explorador de pruebas"_
 
-![Tests](Github/tests.png)
+![Tests](shared/screenshot/tests.png)
 
 
 ## 🛠️ Construido con 
