@@ -1,4 +1,4 @@
-﻿# Logger
+﻿﻿# Logger
 
 _Logeo de errores para multiples proveedores_
 
@@ -29,27 +29,12 @@ _- Conocer sobre inyección de dependencia_
 
 ![Descargar ZIP](screenshot/descargar_zip.png)
 
-```
-1 - Descomprimir zip
-
-2 - Abrir "Solution.sln" y esperar a que visual studio cargue todas las dependencias
-
-3 - Ejecutar
-```
-
 **Opcion 2: Clonar**
 
-![Copiar link para clonar](screenshot/clonar.png)
+| Copiar link | Clonar proyecto |
+| :---: | :---: |
+| ![Copiar link para clonar](screenshot/clonar.png)  |  ![Clonamos el proyecto](screenshot/clonar_visualstudio.png)  |
 
-![Clonamos el proyecto](screenshot/clonar_visualstudio.png)
-
-```
-1 - Copiamos el link para clonar el proyecto
-
-2 - Clonamos el proyecto en la ubicacion que eligamos localmente
-
-3 - Ejecutar
-```
 
 **NOTAS**
 
