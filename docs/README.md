@@ -2,6 +2,12 @@
 
 _Logeo de errores para multiples proveedores_
 
+<p align="left">
+  <a href="https://github.com/kitpymes/netcore-logger/actions">
+	<img alt="GitHub Actions status" src="https://github.com/actions/setup-dotnet/workflows/Main%20workflow/badge.svg">
+  </a>
+</p>
+
 ## 🚀 Comenzando 
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
