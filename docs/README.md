@@ -33,7 +33,7 @@ _- Conocer sobre inyección de dependencia_
 
 | Copiar link | Clonar proyecto |
 | :---: | :---: |
-| ![Copiar link para clonar](screenshot/instalacion_clonar.png)  |  ![Clonamos el proyecto](screenshot/instalacion_clonar_visualstudio.png)  |
+| ![Copiar link para clonar](screenshot/instalacion_clonar_github.png)  |  ![Clonamos el proyecto](screenshot/instalacion_clonar_visualstudio.png)  |
 
 
 **NOTAS**

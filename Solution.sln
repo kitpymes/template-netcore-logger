@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screenshot", "screenshot", "{6ACA1779-CA16-4E21-8790-2D4E1326A77A}"
 	ProjectSection(SolutionItems) = preProject
-		docs\screenshot\instalacion_clonar.png = docs\screenshot\instalacion_clonar.png
+		docs\screenshot\instalacion_clonar_github.png = docs\screenshot\instalacion_clonar_github.png
 		docs\screenshot\instalacion_clonar_visualstudio.png = docs\screenshot\instalacion_clonar_visualstudio.png
 		docs\screenshot\instalacion_zip.png = docs\screenshot\instalacion_zip.png
 		docs\screenshot\pruebas_unitarias_serilog.png = docs\screenshot\pruebas_unitarias_serilog.png
