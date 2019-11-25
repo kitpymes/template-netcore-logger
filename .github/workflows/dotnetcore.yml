@@ -24,4 +24,4 @@ jobs:
       run: dotnet build Solution.sln --configuration Release
      
     - name: Run Tests - Serilog
-      run: dotnet test Core.Logger.Serilog.Tests/Core.Logger.Serilog.Tests.csproj --configuration Release --no-build
+      run: dotnet test Kitpymes.Core.Logger.Serilog.Tests/Kitpymes.Core.Logger.Serilog.Tests.csproj --configuration Release --no-build
