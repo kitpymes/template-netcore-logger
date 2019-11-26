@@ -14,7 +14,7 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 Mira **Instalación** para conocer como desplegar el proyecto.
 
-### 📋 Pre-requisitos 
+## 📋 Requerimientos 
 
 _- Tener instalado Visual Studio >= 2019_
 
@@ -25,8 +25,6 @@ _- Conocer sobre inyección de dependencia_
 
 ## ⌨️ Código
 
-### ILoggerService
-
 ```cs
 public interface ILoggerService
 {
@@ -35,8 +33,6 @@ public interface ILoggerService
     ILogger CreateLogger<TSourceContext>();
 }
 ```
-
-### ILogger
 
 ```cs
 public interface ILogger
@@ -56,8 +52,6 @@ public interface ILogger
 	ILogger Error(Exception exception);
 }
 ```
-
-### AppSettings
 
 ```js
 {
@@ -93,7 +87,7 @@ public interface ILogger
 }
 ```
 
-### Como cargar el logeo de errores para ser utilizado con inyección de dependencia ?
+### Para utilizarlo con inyección de dependencia
 
 **Option 1**
 
@@ -123,7 +117,7 @@ services.LoadLogger(loggers =>
 });
 ```
 
-### Como utilizar el logeo de errores con inyección de dependencia ?
+**Ejemplo**
 
 ```cs
 [ApiController]
@@ -166,7 +160,7 @@ public class WeatherForecastController : ControllerBase
 }
 ```
 
-### Como cargar el logeo de errores estático ?
+### Para utilizarlo de manera estatica
 
 **Option 1**
 
@@ -198,7 +192,7 @@ var logger = Log.UseSerilog(new SerilogSettings
 }).CreateLogger<Program>();
 ```
 
-### Como utilizar el logeo de errores estático ?
+**Ejemplo**
 
 ```cs
 public class Program
