@@ -23,27 +23,6 @@ _- Tener instalada una version >= .NET Core 3_
 _- Conocer sobre inyección de dependencia_
 
 
-### 🔧 Instalación 
-
-**Opcion 1: Descargar ZIP**
-
-![Descargar ZIP](screenshot/instalacion_zip.png)
-
-**Opcion 2: Clonar**
-
-| Copiar link | Clonar proyecto |
-| :---: | :---: |
-| ![Copiar link para clonar](screenshot/instalacion_clonar_github.png)  |  ![Clonamos el proyecto](screenshot/instalacion_clonar_visualstudio.png)  |
-
-
-**NOTAS**
-
-```
-- Si descargamos el proyecto no copiarlo en el escritorio, es posible que tengamos problemas con los permisos de escritura.
-
-- Para probar el envio de email, es posible que tengamos problemas de permisos con nuestro proveedor, eso pasa con gmail por ejemplo.
-```
-
 ## ⌨️ Código
 
 ### ILoggerService
