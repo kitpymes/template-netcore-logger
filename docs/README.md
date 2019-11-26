@@ -10,11 +10,11 @@ _Logeo de errores para multiples proveedores_
 
 ## 📋 Requerimientos 
 
-_- Tener instalado Visual Studio >= 2019_
+* Tener instalado Visual Studio >= 2019
 
-_- Tener instalada una version >= .NET Core 3_
+* Tener instalada una version >= .NET Core 3
 
-_- Conocer sobre inyección de dependencia_
+* Conocer sobre inyección de dependencia
 
 
 ## ⌨️ Código
