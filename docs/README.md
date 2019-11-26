@@ -2,17 +2,13 @@
 
 _Logeo de errores para multiples proveedores_
 
+## 🚀 Status 
+
 [![Build Status](https://github.com/actions/setup-dotnet/workflows/Main%20workflow/badge.svg)](https://github.com/kitpymes/netcore-logger/actions)
 [![NuGet Status](https://img.shields.io/nuget/v/Kitpymes.Core.Logger)](https://www.nuget.org/packages/Kitpymes.Core.Logger/)
 [![License](https://img.shields.io/github/license/kitpymes/netcore-logger)](https://github.com/kitpymes/netcore-logger/blob/master/docs/LICENSE.md)
 [![Size Repo](https://img.shields.io/github/repo-size/kitpymes/netcore-logger)](https://github.com/kitpymes/netcore-logger/)
 [![Last Commit](https://img.shields.io/github/last-commit/kitpymes/netcore-logger)](https://github.com/kitpymes/netcore-logger/)
-
-## 🚀 Comenzando 
-
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
-
-Mira **Instalación** para conocer como desplegar el proyecto.
 
 ## 📋 Requerimientos 
 
