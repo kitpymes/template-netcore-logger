@@ -5,7 +5,8 @@ VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{CA10A654-5178-4A29-BCA2-00E0DF903B2E}"
 	ProjectSection(SolutionItems) = preProject
-		docs\icon.png = docs\icon.png
+		docs\_config.yml = docs\_config.yml
+		docs\Directory.build.props = docs\Directory.build.props
 		docs\LICENSE.md = docs\LICENSE.md
 		docs\README.md = docs\README.md
 	EndProjectSection
@@ -14,9 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screenshot", "screenshot", "{6ACA1779-CA16-4E21-8790-2D4E1326A77A}"
 	ProjectSection(SolutionItems) = preProject
-		docs\screenshot\pruebas_unitarias.png = docs\screenshot\pruebas_unitarias.png
-		docs\screenshot\resultados_archivos.png = docs\screenshot\resultados_archivos.png
-		docs\screenshot\resultados_consola.png = docs\screenshot\resultados_consola.png
+		docs\images\screenshot\instalacion_clonar_github.png = docs\images\screenshot\instalacion_clonar_github.png
+		docs\images\screenshot\instalacion_clonar_visualstudio.png = docs\images\screenshot\instalacion_clonar_visualstudio.png
+		docs\images\screenshot\instalacion_zip.png = docs\images\screenshot\instalacion_zip.png
+		docs\images\screenshot\pruebas_unitarias.png = docs\images\screenshot\pruebas_unitarias.png
+		docs\images\screenshot\resultados_archivos.png = docs\images\screenshot\resultados_archivos.png
+		docs\images\screenshot\resultados_consola.png = docs\images\screenshot\resultados_consola.png
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kitpymes.Core.Logger", "Kitpymes.Core.Logger\Kitpymes.Core.Logger.csproj", "{3265C0BE-85B4-4D72-BC20-3DBFF64BC3D5}"
@@ -25,7 +29,24 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kitpymes.Core.Logger.Abstra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kitpymes.Core.Logger.Serilog", "Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj", "{FE640C4E-F993-4CCB-89FE-4A91CE2EC7B8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kitpymes.Core.Logger.Serilog.Tests", "Kitpymes.Core.Logger.Serilog.Tests\Kitpymes.Core.Logger.Serilog.Tests.csproj", "{06BEC01F-11E2-49E8-A635-3CBE2A8C6D69}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{215718F9-C3BE-445D-9DC5-2BBBB5241BD9}"
+	ProjectSection(SolutionItems) = preProject
+		docs\images\logo.ico = docs\images\logo.ico
+		docs\images\logo.png = docs\images\logo.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "analyzers", "analyzers", "{915A7562-25C7-4A2E-B655-9419262205FD}"
+	ProjectSection(SolutionItems) = preProject
+		docs\analyzers\CodeAnalysis.ruleset = docs\analyzers\CodeAnalysis.ruleset
+		docs\analyzers\stylecop.json = docs\analyzers\stylecop.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signassembly", "signassembly", "{3289D48F-BC52-4244-90E0-92A0FF4FD299}"
+	ProjectSection(SolutionItems) = preProject
+		docs\signassembly\SignStrong.snk = docs\signassembly\SignStrong.snk
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B56AC596-D457-44B1-9ADB-55402B0E3F3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,16 +70,16 @@ Global
 		{FE640C4E-F993-4CCB-89FE-4A91CE2EC7B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE640C4E-F993-4CCB-89FE-4A91CE2EC7B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE640C4E-F993-4CCB-89FE-4A91CE2EC7B8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06BEC01F-11E2-49E8-A635-3CBE2A8C6D69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06BEC01F-11E2-49E8-A635-3CBE2A8C6D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06BEC01F-11E2-49E8-A635-3CBE2A8C6D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06BEC01F-11E2-49E8-A635-3CBE2A8C6D69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6ACA1779-CA16-4E21-8790-2D4E1326A77A} = {CA10A654-5178-4A29-BCA2-00E0DF903B2E}
+		{6ACA1779-CA16-4E21-8790-2D4E1326A77A} = {215718F9-C3BE-445D-9DC5-2BBBB5241BD9}
+		{215718F9-C3BE-445D-9DC5-2BBBB5241BD9} = {CA10A654-5178-4A29-BCA2-00E0DF903B2E}
+		{915A7562-25C7-4A2E-B655-9419262205FD} = {CA10A654-5178-4A29-BCA2-00E0DF903B2E}
+		{3289D48F-BC52-4244-90E0-92A0FF4FD299} = {CA10A654-5178-4A29-BCA2-00E0DF903B2E}
+		{B56AC596-D457-44B1-9ADB-55402B0E3F3C} = {CA10A654-5178-4A29-BCA2-00E0DF903B2E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D1FAED4-9FFC-4037-BCBB-B3A1149047B3}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+  "settings": {
+    "documentationRules": {
+        "companyName": "Kitpymes",
+        "copyrightText": "Copyright (c) Kitpymes. All rights reserved.\nLicensed under the MIT license. See LICENSE file in the project docs folder for full license information.",
+        "xmlHeader": false,
+        "documentInternalElements": false
+    }
+  }
+}

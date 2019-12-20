@@ -1,32 +1,51 @@
-﻿using Serilog.Core;
-using Serilog.Events;
-using System;
-using System.Threading;
+﻿// Copyright (c) Kitpymes. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
 
 namespace Kitpymes.Core.Logger.Serilog
 {
+    using System;
+    using System.Threading;
+    using global::Serilog.Core;
+    using global::Serilog.Events;
+    using Kitpymes.Core.Logger.Abstractions;
+
+    /*
+        Clase para enriquecer el logeo de errores ThreadEnricher
+        Contiene el id y el nombre del hilo para mostrar en el logeo de errores
+    */
+
+    /// <summary>
+    /// Clase para enriquecer el logeo de errores <c>ProcessEnricher</c>.
+    /// Contiene el id y el nombre del hilo para mostrar en el logeo de errores.
+    /// </summary>
     public class ThreadEnricher : ILogEventEnricher
     {
+        /// <summary>
+        /// Nombre de la propiedad donde se va a indexar el id y nombre del hilo.
+        /// </summary>
         public const string ThreadPropertyName = "Thread";
 
         private LogEventProperty? _lastValue;
-      
+
+        /// <summary>
+        /// Enriquecer el evento de registro.
+        /// </summary>
+        /// <param name="logEvent">El evento de registro para enriquecer.</param>
+        /// <param name="propertyFactory">Fábrica para crear nuevas propiedades para agregar al evento.</param>
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
-            var threadId = Environment.CurrentManagedThreadId;
+            var thread = Thread.CurrentThread;
 
-            var threadName = Thread.CurrentThread.Name;
+            string threadValue = string.Empty;
 
-            string threadValue = "";
-
-            if (threadId > 0)
+            if (thread?.ManagedThreadId > 0)
             {
-                threadValue = threadId.ToString();
+                threadValue = thread.ManagedThreadId.ToStringFormat();
             }
 
-            if (!string.IsNullOrWhiteSpace(threadName))
+            if (!string.IsNullOrWhiteSpace(thread?.Name))
             {
-                threadValue += $" - {threadName}";
+                threadValue += thread?.ManagedThreadId > 0 ? $" - {thread.Name}" : thread?.Name;
             }
 
             var last = _lastValue;
@@ -35,7 +54,7 @@ namespace Kitpymes.Core.Logger.Serilog
             {
                 _lastValue = last = new LogEventProperty(ThreadPropertyName, new ScalarValue(threadValue));
 
-                logEvent.AddPropertyIfAbsent(last);
+                logEvent?.AddPropertyIfAbsent(last);
             }
         }
     }

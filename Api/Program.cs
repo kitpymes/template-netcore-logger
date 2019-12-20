@@ -20,7 +20,7 @@ namespace Api
                     )
                     .AddFile
                     (
-                        minimumLevel: LoggerMinimumLevel.Info
+                        minimumLevel: LoggerLevel.Info
                     );
                     //.AddEmail
                     //(

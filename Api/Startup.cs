@@ -38,7 +38,7 @@ namespace Api
                         .AddFile
                         (
                             // Custom values
-                            minimumLevel: Kitpymes.Core.Logger.Abstractions.LoggerMinimumLevel.Info
+                            minimumLevel: Kitpymes.Core.Logger.Abstractions.LoggerLevel.Info
                         );
                         //.AddEmail
                         //(

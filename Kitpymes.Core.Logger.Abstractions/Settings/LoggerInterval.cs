@@ -1,41 +1,50 @@
-﻿namespace Kitpymes.Core.Logger.Abstractions
+﻿// Copyright (c) Kitpymes. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+
+namespace Kitpymes.Core.Logger.Abstractions
 {
+    /*
+        Enumeración de LoggerInterval
+        Contiene los intervalos de creación de los archivos del logeo de errores
+    */
+
+    /// <summary>
+    /// Enumeración de <c>LoggerInterval</c>.
+    /// Contiene los intervalos de creación de los archivos del logeo de errores.
+    /// </summary>
+    /// <remarks>
+    /// <para>En esta enumeración se pueden agregar todos los intervalos de creación de archivos del logeo de errores.</para>
+    /// </remarks>
     public enum LoggerInterval
     {
-        //
-        // Resumen:
-        //     The log file will never roll; no time period information will be appended to
-        //     the log file name.
+        /// <summary>
+        /// El archivo de registro nunca cambiara; no se agregará información de período de tiempo a el nombre del archivo de registro.
+        /// </summary>
         Infinite = 0,
-        //
-        // Resumen:
-        //     Roll every year. Filenames will have a four-digit year appended in the pattern
-        //     yyyy
-        //     .
+
+        /// <summary>
+        /// El archivo de registro cambiará todos los años. Los nombres de archivo tendrán el patrón yyyy anexados.
+        /// </summary>
         Year = 1,
-        //
-        // Resumen:
-        //     Roll every calendar month. Filenames will have
-        //     yyyyMM
-        //     appended.
+
+        /// <summary>
+        /// El archivo de registro cambiará cada mes calendario. Los nombres de archivo tendrán el patrón yyyyMM anexados.
+        /// </summary>
         Month = 2,
-        //
-        // Resumen:
-        //     Roll every day. Filenames will have
-        //     yyyyMMdd
-        //     appended.
+
+        /// <summary>
+        /// El archivo de registro cambiará todos los días. Los nombres de archivo tendrán el patrón yyyyMMdd anexados.
+        /// </summary>
         Day = 3,
-        //
-        // Resumen:
-        //     Roll every hour. Filenames will have
-        //     yyyyMMddHH
-        //     appended.
+
+        /// <summary>
+        /// El archivo de registro cambiará cada hora. Los nombres de archivo tendrán el patrón yyyyMMddHH anexados.
+        /// </summary>
         Hour = 4,
-        //
-        // Resumen:
-        //     Roll every minute. Filenames will have
-        //     yyyyMMddHHmm
-        //     appended.
-        Minute = 5
+
+        /// <summary>
+        /// El archivo de registro cambiará cada minuto. Los nombres de archivo tendrán el patrón yyyyMMddHHmm anexados.
+        /// </summary>
+        Minute = 5,
     }
 }

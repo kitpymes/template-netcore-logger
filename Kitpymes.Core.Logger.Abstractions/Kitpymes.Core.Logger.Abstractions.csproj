@@ -1,8 +1,3 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
+  <Import Project="..\docs\Directory.build.props" Condition="Exists('..\docs\Directory.build.props')" />
 </Project>

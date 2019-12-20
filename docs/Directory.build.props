@@ -1,0 +1,99 @@
+<Project>
+
+  <!-- Conditionals -->
+  <PropertyGroup>
+    <IsTestProject>$(MSBuildProjectName.Contains('Tests'))</IsTestProject>
+    <IsDebug>$(Configuration.StartsWith('Debug'))</IsDebug>
+    <IsRelease>$(Configuration.StartsWith('Release'))</IsRelease>
+  </PropertyGroup>
+
+  <!-- Default rules -->
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ApplicationIcon>..\docs\images\logo.ico</ApplicationIcon>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <!-- Packaging -->
+  <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
+    <Authors>Kitpymes</Authors>
+    <Company>Kitpymes</Company>
+    <Product>Logger</Product>
+    <Title>Kitpymes Logger</Title>
+    <Version>1.0.3</Version>
+    <Copyright>(c) Kitpymes and Contributors.  All rights reserved.</Copyright>
+    <Description>Logeo de errores para multi proveedores.</Description>
+    <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageIcon>..\docs\images\logo.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/kitpymes/template-netcore-logger</PackageProjectUrl>
+    <PackageReleaseNotes>v1.0 release https://github.com/kitpymes/template-netcore-logger/docs/releases</PackageReleaseNotes>
+    <PackageOutputPath>..\docs\releases</PackageOutputPath>
+  </PropertyGroup>
+
+  <!-- Documentation -->
+  <PropertyGroup Condition=" '$(IsTestProject)' != 'true' ">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <!-- SignAssembly -->
+  <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>..\docs\signassembly\SignStrong.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <!-- Optimize -->
+  <Choose>
+    <When Condition=" '$(IsDebug)' == 'true' ">
+      <PropertyGroup>
+        <DebugSymbols>true</DebugSymbols>
+        <DefineConstants>$(DefineContants);DEBUG</DefineConstants>
+        <Optimize>false</Optimize>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <Optimize>true</Optimize>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  
+  <!-- Analyzers -->
+  <Choose>
+    <When Condition=" '$(IsRelease)' != 'true' and '$(IsTestProject)' != 'true' ">
+      <PropertyGroup>
+        <CodeAnalysisRuleSet>..\docs\analyzers\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+      </PropertyGroup>
+
+      <ItemGroup>
+        <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="16.4.33" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
+        <AdditionalFiles Include="..\docs\analyzers\stylecop.json">
+          <Visible>false</Visible>
+        </AdditionalFiles>
+      </ItemGroup>
+    </When>
+  </Choose>
+    
+  <!-- Source Link (https://github.com/dotnet/sourcelink) -->
+  <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19554-01" PrivateAssets="All"/>
+  </ItemGroup>
+
+</Project>
