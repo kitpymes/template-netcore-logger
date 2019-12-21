@@ -7,7 +7,7 @@
     <IsRelease>$(Configuration.StartsWith('Release'))</IsRelease>
   </PropertyGroup>
 
-  <!-- Default rules -->
+  <!-- Default properties -->
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -16,26 +16,6 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-  </PropertyGroup>
-
-  <!-- Packaging -->
-  <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
-    <Authors>Kitpymes</Authors>
-    <Company>Kitpymes</Company>
-    <Product>Logger</Product>
-    <Title>Kitpymes Logger</Title>
-    <Version>1.0.3</Version>
-    <Copyright>(c) Kitpymes and Contributors.  All rights reserved.</Copyright>
-    <Description>Logeo de errores para multi proveedores.</Description>
-    <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageIcon>..\docs\images\logo.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/kitpymes/template-netcore-logger</PackageProjectUrl>
-    <PackageReleaseNotes>v1.0 release https://github.com/kitpymes/template-netcore-logger/docs/releases</PackageReleaseNotes>
-    <PackageOutputPath>..\docs\releases</PackageOutputPath>
   </PropertyGroup>
 
   <!-- Documentation -->
@@ -68,7 +48,7 @@
   
   <!-- Analyzers -->
   <Choose>
-    <When Condition=" '$(IsRelease)' != 'true' and '$(IsTestProject)' != 'true' ">
+    <When Condition=" '$(IsTestProject)' != 'true' ">
       <PropertyGroup>
         <CodeAnalysisRuleSet>..\docs\analyzers\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
       </PropertyGroup>
@@ -82,18 +62,11 @@
         </AdditionalFiles>
       </ItemGroup>
     </When>
+    <Otherwise>
+      <PropertyGroup>
+        <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+      </PropertyGroup>
+    </Otherwise>
   </Choose>
     
-  <!-- Source Link (https://github.com/dotnet/sourcelink) -->
-  <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19554-01" PrivateAssets="All"/>
-  </ItemGroup>
-
 </Project>

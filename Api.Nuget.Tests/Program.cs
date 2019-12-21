@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 
-namespace Api
+namespace Api.Nuget.Tests
 {
     public class Program
     {

@@ -1,19 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Logs\" />
-  </ItemGroup>
-
-  <!-- Local Package -->
+  <!-- Common Props -->
+  <Import Project="..\docs\Directory.build.props" Condition="Exists('..\docs\Directory.build.props')" />
+  
+  <!-- Local Packages -->
   <ItemGroup>
     <ProjectReference Include="..\Kitpymes.Core.Logger.Abstractions\Kitpymes.Core.Logger.Abstractions.csproj" />
     <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj" />
     <ProjectReference Include="..\Kitpymes.Core.Logger\Kitpymes.Core.Logger.csproj" />
   </ItemGroup>
+
+  <!-- Local Resources -->
 
 </Project>

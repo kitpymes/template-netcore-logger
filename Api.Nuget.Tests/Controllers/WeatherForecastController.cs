@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Api.Controllers
+namespace Api.Nuget.Tests.Controllers
 {
     [ApiController]
     [Route("[controller]")]

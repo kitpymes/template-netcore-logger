@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{CA10A654-5
 		docs\README.md = docs\README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{F9BDD86A-EF9F-4330-8C1F-E7F200C59FEA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screenshot", "screenshot", "{6ACA1779-CA16-4E21-8790-2D4E1326A77A}"
 	ProjectSection(SolutionItems) = preProject
 		docs\images\screenshot\instalacion_clonar_github.png = docs\images\screenshot\instalacion_clonar_github.png
@@ -47,6 +45,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signassembly", "signassembl
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B56AC596-D457-44B1-9ADB-55402B0E3F3C}"
+	ProjectSection(SolutionItems) = preProject
+		docs\packages\notes_1.0.4.txt = docs\packages\notes_1.0.4.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kitpymes.Core.Logger.Serilog.Tests", "Kitpymes.Core.Logger.Serilog.Tests\Kitpymes.Core.Logger.Serilog.Tests.csproj", "{0FB9F618-E024-4B66-B4AA-78DB95F52C39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Tests", "Api.Tests\Api.Tests.csproj", "{475AB8C6-74D6-497D-B8DC-309EA8D90E58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Nuget.Tests", "Api.Nuget.Tests\Api.Nuget.Tests.csproj", "{3561FE05-20EB-4E27-AAF5-1A55A4BA08CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,10 +61,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F9BDD86A-EF9F-4330-8C1F-E7F200C59FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9BDD86A-EF9F-4330-8C1F-E7F200C59FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9BDD86A-EF9F-4330-8C1F-E7F200C59FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9BDD86A-EF9F-4330-8C1F-E7F200C59FEA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3265C0BE-85B4-4D72-BC20-3DBFF64BC3D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3265C0BE-85B4-4D72-BC20-3DBFF64BC3D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3265C0BE-85B4-4D72-BC20-3DBFF64BC3D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -70,6 +73,18 @@ Global
 		{FE640C4E-F993-4CCB-89FE-4A91CE2EC7B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE640C4E-F993-4CCB-89FE-4A91CE2EC7B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE640C4E-F993-4CCB-89FE-4A91CE2EC7B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{475AB8C6-74D6-497D-B8DC-309EA8D90E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{475AB8C6-74D6-497D-B8DC-309EA8D90E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{475AB8C6-74D6-497D-B8DC-309EA8D90E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{475AB8C6-74D6-497D-B8DC-309EA8D90E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3561FE05-20EB-4E27-AAF5-1A55A4BA08CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3561FE05-20EB-4E27-AAF5-1A55A4BA08CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3561FE05-20EB-4E27-AAF5-1A55A4BA08CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3561FE05-20EB-4E27-AAF5-1A55A4BA08CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

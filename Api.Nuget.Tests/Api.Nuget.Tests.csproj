@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Common Props -->
+  <Import Project="..\docs\Directory.build.props" Condition="Exists('..\docs\Directory.build.props')" />
+
+  <!-- Nuget Packages -->
+  <ItemGroup>
+    <PackageReference Include="Kitpymes.Core.Logger" Version="1.0.4" />
+  </ItemGroup>
+
+</Project>

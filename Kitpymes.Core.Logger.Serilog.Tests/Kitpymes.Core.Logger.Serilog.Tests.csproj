@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Common Props -->
+  <Import Project="..\docs\Directory.build.props" Condition="Exists('..\docs\Directory.build.props')" />
+
+  <!-- Nuget Packages -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <PackageReference Include="coverlet.collector" Version="1.0.1" />
+  </ItemGroup>
+
+  <!-- Local Packages -->
+  <ItemGroup>
+    <ProjectReference Include="..\Kitpymes.Core.Logger.Abstractions\Kitpymes.Core.Logger.Abstractions.csproj" />
+    <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj" />
+    <ProjectReference Include="..\Kitpymes.Core.Logger\Kitpymes.Core.Logger.csproj" />
+  </ItemGroup>
+
+  <!-- Local Resources -->
+  <ItemGroup>
+    <None Remove="appsettings.json" />
+    <EmbeddedResource Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -4,12 +4,12 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:65053",
-      "sslPort": 44365
+      "applicationUrl": "http://localhost:54470",
+      "sslPort": 44326
     }
   },
   "profiles": {
-    "Logger": {
+    "Api.Tests": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

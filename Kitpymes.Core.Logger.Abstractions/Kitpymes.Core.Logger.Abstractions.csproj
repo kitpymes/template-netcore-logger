@@ -1,3 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Common Props -->
   <Import Project="..\docs\Directory.build.props" Condition="Exists('..\docs\Directory.build.props')" />
+  
 </Project>
