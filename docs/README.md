@@ -1,4 +1,4 @@
-﻿# <img src="/docs/images/icon.png" height="30px"> Logger
+﻿# <img src="/docs/images/logo.png" height="30px"> Logger
 
 _Logeo de errores para multiples proveedores_
 
