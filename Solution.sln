@@ -51,10 +51,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kitpymes.Core.Logger.Serilog.Tests", "Kitpymes.Core.Logger.Serilog.Tests\Kitpymes.Core.Logger.Serilog.Tests.csproj", "{0FB9F618-E024-4B66-B4AA-78DB95F52C39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Tests", "Api.Tests\Api.Tests.csproj", "{475AB8C6-74D6-497D-B8DC-309EA8D90E58}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Nuget.Tests", "Api.Nuget.Tests\Api.Nuget.Tests.csproj", "{3561FE05-20EB-4E27-AAF5-1A55A4BA08CE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,14 +73,6 @@ Global
 		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Release|Any CPU.Build.0 = Release|Any CPU
-		{475AB8C6-74D6-497D-B8DC-309EA8D90E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{475AB8C6-74D6-497D-B8DC-309EA8D90E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{475AB8C6-74D6-497D-B8DC-309EA8D90E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{475AB8C6-74D6-497D-B8DC-309EA8D90E58}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3561FE05-20EB-4E27-AAF5-1A55A4BA08CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3561FE05-20EB-4E27-AAF5-1A55A4BA08CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3561FE05-20EB-4E27-AAF5-1A55A4BA08CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3561FE05-20EB-4E27-AAF5-1A55A4BA08CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

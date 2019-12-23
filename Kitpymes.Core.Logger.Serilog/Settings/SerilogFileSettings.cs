@@ -32,7 +32,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <summary>
         /// Intervalo de creación de archivos por defecto.
         /// </summary>
-        public const LoggerInterval DefaultLoggerInterval = LoggerInterval.Day;
+        public const LoggerFileInterval DefaultLoggerInterval = LoggerFileInterval.Day;
 
         private bool _enabled = false;
 

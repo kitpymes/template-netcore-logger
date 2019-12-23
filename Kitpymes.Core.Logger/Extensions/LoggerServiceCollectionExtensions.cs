@@ -58,5 +58,18 @@ namespace Kitpymes.Core.Logger
 
             return services;
         }
+
+        /// <summary>
+        /// Carga el servicio de logeo de errores.
+        /// </summary>
+        /// <param name="services">Colección de servicios.</param>
+        /// <param name="settings">La configuración personalizada.</param>
+        /// <returns>La interface IServiceCollection.</returns>
+        public static IServiceCollection LoadLogger(this IServiceCollection services, SerilogSettings settings)
+        {
+            services.LoadSerilog(settings);
+
+            return services;
+        }
     }
 }

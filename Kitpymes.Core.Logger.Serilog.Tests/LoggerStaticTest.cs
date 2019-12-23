@@ -20,7 +20,7 @@ namespace Kitpymes.Core.Logger.Serilog.Tests
             (
                 filePath: "Logs\\CUSTOM_.log",
                 minimumLevel: LoggerLevel.Debug,
-                interval: LoggerInterval.Hour
+                interval: LoggerFileInterval.Hour
             )
             .AddEmail
             (

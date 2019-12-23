@@ -38,12 +38,12 @@
     <Description>Logeo de errores para multi proveedores.</Description>
     <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageIcon>logo.png</PackageIcon>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://kitpymes.github.io/template-netcore-logger/</PackageProjectUrl>
-    <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/docs/packages</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/packages</PackageReleaseNotes>
     <PackageOutputPath>..\docs\packages</PackageOutputPath>
 
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
@@ -52,6 +52,7 @@
 
   <ItemGroup>
     <None Include="..\docs\images\logo.png" Pack="true" PackagePath=""/>
+    <None Include="..\docs\LICENSE.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 
   <!-- Source Link (https://github.com/dotnet/sourcelink) -->

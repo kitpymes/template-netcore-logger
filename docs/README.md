@@ -1,4 +1,4 @@
-﻿# <img src="/docs/images/logo.png" height="30px"> Logger
+﻿# <img src="https://github.com/kitpymes/template-netcore-logger/blob/master/docs/images/logo.png" height="30px"> Logger
 
 _Logeo de errores para multiples proveedores_
 
@@ -10,11 +10,11 @@ _Logeo de errores para multiples proveedores_
 
 ## 📋 Requerimientos 
 
-* Tener instalado Visual Studio >= 2019
+* Visual Studio >= 2019
 
-* Tener instalada una version >= .NET Core 3
+* NET Core >= 3
 
-* Conocer sobre inyección de dependencia
+* Conocimientos sobre inyección de dependencia
 
 
 ## ⌨️ Código
@@ -22,28 +22,66 @@ _Logeo de errores para multiples proveedores_
 ```cs
 public interface ILoggerService
 {
-    ILogger CreateLogger(string sourceContext);
+    ILogger CreateLogger(string title);
 
-    ILogger CreateLogger<TSourceContext>();
+    ILogger CreateLogger<TTitle>();
 }
 ```
 
 ```cs
 public interface ILogger
 {
+	ILogger Trace(string message);
+
+	ILogger Trace(string message, object data);
+
+	ILogger Debug(string message);
+
+	ILogger Debug(string message, object data);
+
 	ILogger Info(string message);
 
 	ILogger Info(string message, object data);
 
-	ILogger Info(string eventName, string template, params object[] propertyValues);
+	ILogger Info(string eventName, string templateMessage, params object[] propertyValues);
 
 	ILogger Error(string message);
 
 	ILogger Error(string message, object data);
 
-	ILogger Error(string eventName, string template, params object[] propertyValues);
+	ILogger Error(string eventName, string templateMessage, params object[] propertyValues);
 
 	ILogger Error(Exception exception);
+}
+```
+
+```cs
+public enum LoggerLevel
+{
+    Trace = 0,
+
+    Debug = 1,
+
+    Info = 2,
+
+    Error = 3,
+}
+```
+
+```cs
+public enum LoggerFileInterval
+{
+    Infinite = 0,
+
+    Year = 1,
+
+    Month = 2,
+
+    Day = 3,
+
+    Hour = 4,
+
+    Minute = 5,
 }
 ```
 
@@ -111,6 +149,16 @@ services.LoadLogger(loggers =>
 });
 ```
 
+**Option 3**
+
+```cs
+services.LoadLogger(new SerilogSettings 
+{
+	// Custom values
+
+});
+```
+
 **Ejemplo**
 
 ```cs
@@ -154,9 +202,15 @@ public class WeatherForecastController : ControllerBase
 }
 ```
 
-### Para utilizarlo de manera estatica
+### Para utilizarlo de forma estatica
 
 **Option 1**
+
+```cs
+var logger = Log.UseSerilog(Configuration).CreateLogger<Program>();
+```
+
+**Option 2**
 
 ```cs
 var logger = Log.UseSerilog(serilog => 
@@ -176,7 +230,7 @@ var logger = Log.UseSerilog(serilog =>
 .CreateLogger<Program>();
 ```
 
-**Option 2**
+**Option 3**
 
 ```cs
 var logger = Log.UseSerilog(new SerilogSettings 

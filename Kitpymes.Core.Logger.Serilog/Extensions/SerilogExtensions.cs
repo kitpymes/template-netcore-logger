@@ -202,7 +202,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         /// <param name="loggerInterval">El intervalo génerico para la creación de archivos.</param>
         /// <returns>El intervalo de Serilog RollingInterval.</returns>
-        public static RollingInterval ToRollingInterval(this Abstractions.LoggerInterval loggerInterval)
+        public static RollingInterval ToRollingInterval(this Abstractions.LoggerFileInterval loggerInterval)
         {
             return loggerInterval.ToString().ToRollingInterval();
         }

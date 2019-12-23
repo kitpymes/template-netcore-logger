@@ -62,7 +62,7 @@ namespace Kitpymes.Core.Logger.Serilog
 
             LoggerLevel minimumLevel = SerilogFileSettings.DefaultMinimumLevel,
 
-            LoggerInterval interval = SerilogFileSettings.DefaultLoggerInterval
+            LoggerFileInterval interval = SerilogFileSettings.DefaultLoggerInterval
         )
         {
             SerilogSettings.File = new SerilogFileSettings

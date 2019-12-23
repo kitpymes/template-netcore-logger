@@ -6,6 +6,7 @@ namespace Kitpymes.Core.Logger
     using System;
     using Kitpymes.Core.Logger.Abstractions;
     using Kitpymes.Core.Logger.Serilog;
+    using Microsoft.Extensions.Configuration;
 
     /*
       Clase de opciones para el logeo de errores estático
@@ -21,6 +22,20 @@ namespace Kitpymes.Core.Logger
     /// </remarks>
     public static class Log
     {
+        /// <summary>
+        /// Habilita el proveedor de errores Serilog.
+        /// </summary>
+        /// <param name="configuration">El appsettings con su configuración.</param>
+        /// <returns>La interface ILoggerService.</returns>
+        public static ILoggerService UseSerilog(IConfiguration configuration)
+        {
+            var settings = configuration?.GetSection(nameof(LoggerSettings))?.Get<LoggerSettings>();
+
+            var serilog = settings?.Serilog;
+
+            return new SerilogProvider(serilog ??= new SerilogSettings());
+        }
+
         /// <summary>
         /// Habilita el proveedor de errores Serilog.
         /// </summary>

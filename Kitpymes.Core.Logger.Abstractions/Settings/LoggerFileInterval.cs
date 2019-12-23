@@ -15,7 +15,7 @@ namespace Kitpymes.Core.Logger.Abstractions
     /// <remarks>
     /// <para>En esta enumeración se pueden agregar todos los intervalos de creación de archivos del logeo de errores.</para>
     /// </remarks>
-    public enum LoggerInterval
+    public enum LoggerFileInterval
     {
         /// <summary>
         /// El archivo de registro nunca cambiara; no se agregará información de período de tiempo a el nombre del archivo de registro.
