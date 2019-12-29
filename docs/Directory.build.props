@@ -12,7 +12,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
-    <ApplicationIcon>..\docs\images\logo.ico</ApplicationIcon>
+    <ApplicationIcon>$(SolutionDir)docs\images\logo.ico</ApplicationIcon>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -23,11 +23,50 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <!-- Packaging -->
+ 
+
+  <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
+    <Authors>Kitpymes</Authors>
+    <Company>Kitpymes</Company>
+    <Product>Logger</Product>
+    <Title>Logger</Title>
+    <Version>1.0.4</Version>
+    <Copyright>(c) Kitpymes and Contributors.  All rights reserved.</Copyright>
+    <Description>Logeo de errores para multi proveedores.</Description>
+    <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://kitpymes.github.io/template-netcore-logger/</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/packages</PackageReleaseNotes>
+    <PackageOutputPath>$(SolutionDir)docs\packages</PackageOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup  Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
+    <None Include="$(SolutionDir)docs\images\logo.png" Pack="true" Visible="false" PackagePath=""/>
+    <None Include="$(SolutionDir)docs\LICENSE.txt" Pack="true" Visible="false" PackagePath=""/>
+  </ItemGroup>
+
+  <!-- Source Link (https://github.com/dotnet/sourcelink) -->
+  <PropertyGroup  Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19554-01" PrivateAssets="All"/>
+  </ItemGroup>
+
   <!-- SignAssembly -->
   <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
     <SignAssembly>true</SignAssembly>
     <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile>..\docs\signassembly\SignStrong.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)docs\signassembly\SignStrong.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <!-- Optimize -->
@@ -48,16 +87,16 @@
   
   <!-- Analyzers -->
   <Choose>
-    <When Condition=" '$(IsTestProject)' != 'true' ">
+    <When Condition=" '$(IsDebug)' == 'true' and '$(IsTestProject)' != 'true' ">
       <PropertyGroup>
-        <CodeAnalysisRuleSet>..\docs\analyzers\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+        <CodeAnalysisRuleSet>$(SolutionDir)docs\analyzers\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
       </PropertyGroup>
 
       <ItemGroup>
         <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="16.4.33" PrivateAssets="All" />
         <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
         <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
-        <AdditionalFiles Include="..\docs\analyzers\stylecop.json">
+        <AdditionalFiles Include="$(SolutionDir)docs\analyzers\stylecop.json">
           <Visible>false</Visible>
         </AdditionalFiles>
       </ItemGroup>

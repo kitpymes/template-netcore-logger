@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+  
+  <!-- Local Packages -->
+  <ItemGroup>
+    <ProjectReference Include="..\Kitpymes.Core.Logger.Abstractions\Kitpymes.Core.Logger.Abstractions.csproj" />
+    <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj" />
+    <ProjectReference Include="..\Kitpymes.Core.Logger\Kitpymes.Core.Logger.csproj" />
+  </ItemGroup>
+
+</Project>

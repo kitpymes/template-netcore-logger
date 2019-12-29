@@ -3,68 +3,36 @@
   <!-- Common Props -->
   <Import Project="..\docs\Directory.build.props" Condition="Exists('..\docs\Directory.build.props')" />
 
+  <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
+    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+  
+  <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+    <ItemGroup>
+      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+    </ItemGroup>
+  </Target>
+
   <!-- Nuget Packages -->
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
+    <PackageReference Include="Serilog.Sinks.Email" Version="2.3.0" />
   </ItemGroup>
 
   <!-- Local Packages -->
   <ItemGroup>
-    <ProjectReference Include="..\Kitpymes.Core.Logger.Abstractions\Kitpymes.Core.Logger.Abstractions.csproj">
-      <PrivateAssets>all</PrivateAssets>
-    </ProjectReference>
+    <ProjectReference Include="..\Kitpymes.Core.Logger.Abstractions\Kitpymes.Core.Logger.Abstractions.csproj" PrivateAssets="All" />
 
     <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj">
-      <PrivateAssets>all</PrivateAssets>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <IncludeAssets>Kitpymes.Core.Logger.Serilog.dll</IncludeAssets>
     </ProjectReference>
+
   </ItemGroup>
 
-  <!-- Packaging -->
-  <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
-    <ItemGroup>
-      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'all'))" />
-    </ItemGroup>
-  </Target>
-  
-  <PropertyGroup>
-    <Authors>Kitpymes</Authors>
-    <Company>Kitpymes</Company>
-    <Product>Logger</Product>
-    <Title>Kitpymes Logger</Title>
-    <Version>1.0.4</Version>
-    <Copyright>(c) Kitpymes and Contributors.  All rights reserved.</Copyright>
-    <Description>Logeo de errores para multi proveedores.</Description>
-    <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageIcon>logo.png</PackageIcon>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <PackageProjectUrl>https://kitpymes.github.io/template-netcore-logger/</PackageProjectUrl>
-    <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/packages</PackageReleaseNotes>
-    <PackageOutputPath>..\docs\packages</PackageOutputPath>
-
-    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\docs\images\logo.png" Pack="true" PackagePath=""/>
-    <None Include="..\docs\LICENSE.md" Pack="true" PackagePath=""/>
-  </ItemGroup>
-
-  <!-- Source Link (https://github.com/dotnet/sourcelink) -->
-  <PropertyGroup Condition=" '$(IsRelease)' == 'true' ">
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
-
-  <ItemGroup Condition=" '$(IsRelease)' == 'true' ">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19554-01" PrivateAssets="All"/>
-  </ItemGroup>
-  
 </Project>

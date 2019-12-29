@@ -2,5 +2,5 @@
 
   <!-- Common Props -->
   <Import Project="..\docs\Directory.build.props" Condition="Exists('..\docs\Directory.build.props')" />
-  
+
 </Project>

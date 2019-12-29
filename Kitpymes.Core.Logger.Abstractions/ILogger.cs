@@ -107,5 +107,14 @@ namespace Kitpymes.Core.Logger.Abstractions
         /// <returns>La interface ILogger.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1716:Los identificadores no deben coincidir con palabras clave", Justification = "<pendiente>")]
         ILogger Error(Exception exception);
+
+        /// <summary>
+        /// Loguea los errores customizados o cuando surge alguna excepción no controlada del sistema.
+        /// </summary>
+        /// <param name="message">El mensaje personalizado a mostrar.</param>
+        /// <param name="exception">La excepción ocurrida a mostrar.</param>
+        /// <returns>La interface ILogger.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1716:Los identificadores no deben coincidir con palabras clave", Justification = "<pendiente>")]
+        ILogger Error(string message, Exception exception);
     }
 }

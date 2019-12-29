@@ -207,7 +207,8 @@ public class WeatherForecastController : ControllerBase
 **Option 1**
 
 ```cs
-var logger = Log.UseSerilog(Configuration).CreateLogger<Program>();
+var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+var logger1 = Log.UseSerilog(configuration).CreateLogger<Program>();
 ```
 
 **Option 2**
@@ -235,7 +236,18 @@ var logger = Log.UseSerilog(serilog =>
 ```cs
 var logger = Log.UseSerilog(new SerilogSettings 
 {
-	// Custom values
+	Console = new SerilogConsoleSettings
+    {
+        Enabled = true
+    },
+    File = new SerilogFileSettings
+    {
+        Enabled = true
+    },
+    Email = new SerilogEmailSettings
+    {
+        Enabled = false
+    }
 
 }).CreateLogger<Program>();
 ```
@@ -246,22 +258,23 @@ var logger = Log.UseSerilog(new SerilogSettings
 public class Program
 {
     public static void Main(string[] args)
-    {	
-        var logger = Log.UseSerilog(serilog => 
-		{
-			serilog
+    {
+        // Test
+        var logger = Log.UseSerilog(serilog =>
+        {
+            serilog
 				.AddConsole()
-				.AddFile()
+				.AddFile(minimumLevel: LoggerLevel.Info)
 				.AddEmail
 				(
-					userName: "admin@app.com", 
+					userName: "admin@app.com",
 					password: "password",
 					server: "smtp.gmail.com",
 					from: "admin@app.com",
 					to: "error@app.com"
 				);
-		})
-		.CreateLogger<Program>();
+        })
+        .CreateLogger<Program>();
 
         try
         {
@@ -276,6 +289,15 @@ public class Program
             throw ex;
         }
     }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            // (OPTIONAL) Clear default logging
+            .ConfigureLogging(providers => providers.ClearProviders())
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
 }
 ```
 
@@ -283,19 +305,19 @@ public class Program
 
 **Resultado en la consola**
 
-![Resultado en la consola](screenshot/resultados_consola.png)
+![Resultado en la consola](images/screenshot/resultados_consola.png)
 
 
 **Resultado en los archivos**
 
-![Resultado en los archivos](screenshot/resultados_archivos.png)
+![Resultado en los archivos](images/screenshot/resultados_archivos.png)
 
 
 ## ⚙️ Pruebas Unitarias
 
 _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde el "Explorador de pruebas"_
 
-![Tests](screenshot/pruebas_unitarias.png)
+![Tests](images/screenshot/pruebas_unitarias.png)
 
 
 ## 🛠️ Construido con 

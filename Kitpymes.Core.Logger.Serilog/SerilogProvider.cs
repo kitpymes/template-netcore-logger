@@ -204,5 +204,18 @@ namespace Kitpymes.Core.Logger.Serilog
 
             return this;
         }
+
+        /// <summary>
+        /// Loguea los errores customizados o cuando surge alguna excepción no controlada del sistema.
+        /// </summary>
+        /// <param name="message">El mensaje personalizado a mostrar.</param>
+        /// <param name="exception">La excepción ocurrida a mostrar.</param>
+        /// <returns>La interface ILogger.</returns>
+        public Abstractions.ILogger Error(string message, Exception exception)
+        {
+            Logger?.Error(message + " => {Exception}", exception);
+
+            return this;
+        }
     }
 }
