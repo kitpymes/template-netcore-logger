@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <!-- Common Props -->
-  <Import Project="..\docs\Directory.build.props" Condition="Exists('..\docs\Directory.build.props')" />
+  <Import Project="$(SolutionDir)docs\Directory.build.props" Condition="Exists('$(SolutionDir)docs\Directory.build.props')" />
 
   <!-- Nuget Packages -->
   <ItemGroup>

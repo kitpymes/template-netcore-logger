@@ -1,111 +1,128 @@
-<Project>
+  <Project>
 
-  <!-- Conditionals -->
-  <PropertyGroup>
-    <IsTestProject>$(MSBuildProjectName.Contains('Tests'))</IsTestProject>
-    <IsDebug>$(Configuration.StartsWith('Debug'))</IsDebug>
-    <IsRelease>$(Configuration.StartsWith('Release'))</IsRelease>
-  </PropertyGroup>
+    <!-- Default properties -->
+    <PropertyGroup>
+      <IsTestProject>$(MSBuildProjectName.Contains('Tests'))</IsTestProject>
 
-  <!-- Default properties -->
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
-    <ApplicationIcon>$(SolutionDir)docs\images\logo.ico</ApplicationIcon>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-  </PropertyGroup>
+      <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+      <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+      <TargetFramework>netcoreapp3.0</TargetFramework>
+      <Nullable>enable</Nullable>
+      <LangVersion>latest</LangVersion>
+      <ApplicationIcon>$(SolutionDir)docs\images\logo.ico</ApplicationIcon>
+      <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
+      <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
 
-  <!-- Documentation -->
-  <PropertyGroup Condition=" '$(IsTestProject)' != 'true' ">
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
+    <!-- Documentation -->
+    <PropertyGroup Condition=" '$(IsTestProject)' != 'true' ">
+      <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
 
-  <!-- Packaging -->
- 
+    <!-- Packaging -->
+    <!-- https://github.com/NuGet/Home/wiki/Adding-nuget-pack-as-a-msbuild-target -->
+    <!-- https://github.com/NuGet/docs.microsoft.com-nuget/blob/master/docs/reference/msbuild-targets.md -->
+    <Choose>
+      <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
+        <PropertyGroup>
+          <PackageId>Kitpymes.Core.Logger</PackageId>
+          <Version>1.0.5</Version>
+          <Authors>Kitpymes</Authors>
+          <Owners>Kitpymes</Owners>
+          <Title>Logger</Title>
+          <Copyright>(c) Kitpymes and Contributors.  All rights reserved.</Copyright>
+          <Description>Logeo de errores para multi proveedores.</Description>
+          <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+          <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+          <PackageLicenseType>file</PackageLicenseType>
+          <PackageIcon>logo.png</PackageIcon>
+          <PackageProjectUrl>https://kitpymes.github.io/template-netcore-logger/</PackageProjectUrl>
+          <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/packages/notes_$(Version).txt</PackageReleaseNotes>
+          <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
+          <RepositoryType>git</RepositoryType>
+          <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>
+          <PackageOutputPath>$(SolutionDir)docs\packages</PackageOutputPath>
+        </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
-    <Authors>Kitpymes</Authors>
-    <Company>Kitpymes</Company>
-    <Product>Logger</Product>
-    <Title>Logger</Title>
-    <Version>1.0.4</Version>
-    <Copyright>(c) Kitpymes and Contributors.  All rights reserved.</Copyright>
-    <Description>Logeo de errores para multi proveedores.</Description>
-    <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageIcon>logo.png</PackageIcon>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageProjectUrl>https://kitpymes.github.io/template-netcore-logger/</PackageProjectUrl>
-    <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/packages</PackageReleaseNotes>
-    <PackageOutputPath>$(SolutionDir)docs\packages</PackageOutputPath>
-  </PropertyGroup>
+        <!-- SignAssembly -->
+        <PropertyGroup>
+          <SignAssembly>true</SignAssembly>
+          <DelaySign>false</DelaySign>
+          <AssemblyOriginatorKeyFile>$(SolutionDir)docs\signassembly\SignStrong.snk</AssemblyOriginatorKeyFile>
+        </PropertyGroup>
+      </When>
+    </Choose>
 
-  <ItemGroup  Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
-    <None Include="$(SolutionDir)docs\images\logo.png" Pack="true" Visible="false" PackagePath=""/>
-    <None Include="$(SolutionDir)docs\LICENSE.txt" Pack="true" Visible="false" PackagePath=""/>
-  </ItemGroup>
+    <!-- Source Link (https://github.com/dotnet/sourcelink) 
+    Usar un paquete NuGet es una forma muy conveniente de agregar una dependencia a su proyecto. 
+    Sin embargo, cuando tiene un problema con un paquete NuGet y desea depurarlo, es difícil porque no tiene el código fuente.
+    Muchos paquetes de NuGet tienen su código fuente en GitHub, por lo que sería muy conveniente obtener automáticamente el código del repositorio de GitHub. 
+    Esto es lo que proporciona SourceLink. 
+    Agrega algunos metadatos al archivo pdb para reasignar los archivos locales a los archivos en GitHub, para que Visual Studio pueda descargar los archivos cuando sea necesario.
+  -->
+    <Choose>
+      <When Condition=" '$(IsTestProject)' != 'true' ">
+        <PropertyGroup>
+          <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+          <PublishRepositoryUrl>true</PublishRepositoryUrl>
+          <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
+          <EmbedUntrackedSources>true</EmbedUntrackedSources>
+          <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
+          <IncludeSymbols>true</IncludeSymbols>
+          <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        </PropertyGroup>
 
-  <!-- Source Link (https://github.com/dotnet/sourcelink) -->
-  <PropertyGroup  Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
+        <ItemGroup>
+          <!-- Required if your repository is on Github -->
+          <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All"/>
+        </ItemGroup>
+      </When>
+    </Choose>
 
-  <ItemGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19554-01" PrivateAssets="All"/>
-  </ItemGroup>
+    <!-- Optimize -->
+    <Choose>
+      <When Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PropertyGroup>
+          <DebugSymbols>true</DebugSymbols>
+          <DebugType>full</DebugType>
+          <Optimize>false</Optimize>
+          <DefineConstants>DEBUG,TRACE</DefineConstants>
+        </PropertyGroup>
+      </When>
+      <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PropertyGroup>
+          <Optimize>true</Optimize>
+          <DefineConstants>TRACE</DefineConstants>
+        </PropertyGroup>
+      </When>
+      <Otherwise>
+        <PropertyGroup>
+          <ConfigurationErrorMsg>Falta configurar el tipo [$(Configuration)] en su solución.</ConfigurationErrorMsg>
+        </PropertyGroup>
+      </Otherwise>
+    </Choose>
 
-  <!-- SignAssembly -->
-  <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
-    <SignAssembly>true</SignAssembly>
-    <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile>$(SolutionDir)docs\signassembly\SignStrong.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
+    <!-- Analyzers -->
+    <Choose>
+      <When Condition=" '$(IsTestProject)' != 'true' ">
+        <PropertyGroup>
+          <CodeAnalysisRuleSet>$(SolutionDir)docs\analyzers\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+        </PropertyGroup>
 
-  <!-- Optimize -->
-  <Choose>
-    <When Condition=" '$(IsDebug)' == 'true' ">
-      <PropertyGroup>
-        <DebugSymbols>true</DebugSymbols>
-        <DefineConstants>$(DefineContants);DEBUG</DefineConstants>
-        <Optimize>false</Optimize>
-      </PropertyGroup>
-    </When>
-    <Otherwise>
-      <PropertyGroup>
-        <Optimize>true</Optimize>
-      </PropertyGroup>
-    </Otherwise>
-  </Choose>
-  
-  <!-- Analyzers -->
-  <Choose>
-    <When Condition=" '$(IsDebug)' == 'true' and '$(IsTestProject)' != 'true' ">
-      <PropertyGroup>
-        <CodeAnalysisRuleSet>$(SolutionDir)docs\analyzers\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
-      </PropertyGroup>
+        <ItemGroup>
+          <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="16.4.33" PrivateAssets="All" />
+          <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
+          <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
+          <AdditionalFiles Include="$(SolutionDir)docs\analyzers\stylecop.json">
+            <Visible>false</Visible>
+          </AdditionalFiles>
+        </ItemGroup>
+      </When>
+      <Otherwise>
+        <PropertyGroup>
+          <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+        </PropertyGroup>
+      </Otherwise>
+    </Choose>
 
-      <ItemGroup>
-        <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="16.4.33" PrivateAssets="All" />
-        <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
-        <AdditionalFiles Include="$(SolutionDir)docs\analyzers\stylecop.json">
-          <Visible>false</Visible>
-        </AdditionalFiles>
-      </ItemGroup>
-    </When>
-    <Otherwise>
-      <PropertyGroup>
-        <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-      </PropertyGroup>
-    </Otherwise>
-  </Choose>
-    
-</Project>
+  </Project>

@@ -6,9 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{CA10A654-5178-4A29-BCA2-00E0DF903B2E}"
 	ProjectSection(SolutionItems) = preProject
 		docs\_config.yml = docs\_config.yml
-		docs\Directory.build.props = docs\Directory.build.props
+		docs\Directory.Build.props = docs\Directory.Build.props
+		docs\Directory.Build.targets = docs\Directory.Build.targets
 		docs\LICENSE.txt = docs\LICENSE.txt
 		docs\README.md = docs\README.md
+		docs\README_NUGET.md = docs\README_NUGET.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screenshot", "screenshot", "{6ACA1779-CA16-4E21-8790-2D4E1326A77A}"
@@ -46,6 +48,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signassembly", "signassembl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B56AC596-D457-44B1-9ADB-55402B0E3F3C}"
 	ProjectSection(SolutionItems) = preProject
+		docs\packages\Kitpymes.Core.Logger.nuspec = docs\packages\Kitpymes.Core.Logger.nuspec
 		docs\packages\notes_1.0.4.txt = docs\packages\notes_1.0.4.txt
 	EndProjectSection
 EndProject

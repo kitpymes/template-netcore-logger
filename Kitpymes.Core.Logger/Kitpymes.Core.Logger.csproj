@@ -1,38 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <!-- Common Props -->
-  <Import Project="..\docs\Directory.build.props" Condition="Exists('..\docs\Directory.build.props')" />
+  <Import Project="$(SolutionDir)docs\Directory.build.props" Condition="Exists('$(SolutionDir)docs\Directory.build.props')" />
 
-  <PropertyGroup Condition=" '$(IsRelease)' == 'true' and '$(IsTestProject)' != 'true' ">
-    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+
+  <!-- Copy local assemblies -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
-  
-  <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
-    <ItemGroup>
-      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
-    </ItemGroup>
-  </Target>
 
   <!-- Nuget Packages -->
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.1" />
-    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
-    <PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
-    <PackageReference Include="Serilog.Sinks.Email" Version="2.3.0" />
   </ItemGroup>
 
   <!-- Local Packages -->
   <ItemGroup>
-    <ProjectReference Include="..\Kitpymes.Core.Logger.Abstractions\Kitpymes.Core.Logger.Abstractions.csproj" PrivateAssets="All" />
-
-    <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj">
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-      <IncludeAssets>Kitpymes.Core.Logger.Serilog.dll</IncludeAssets>
-    </ProjectReference>
-
+    <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj" PrivateAssets="All" />
   </ItemGroup>
+
+  <!-- Import parent targets -->
+  <Import Project="$(SolutionDir)docs\Directory.Build.targets"/>
 
 </Project>

@@ -1,0 +1,32 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <NuspecFile Condition=" Exists('$(SolutionDir)docs\packages\$(PackageId).$(PackageVersion)nuspec') ">$(SolutionDir)docs\packages\$(PackageId).$(PackageVersion)nuspec</NuspecFile>
+    <GenerateNuspecDependsOn>$(GenerateNuspecDependsOn);SetNuspecProperties</GenerateNuspecDependsOn>
+  </PropertyGroup>
+
+  <Target Name="SetNuspecProperties" BeforeTargets="GenerateNuspec">
+    <PropertyGroup>
+      <NuspecProperties>
+        id=$(PackageId);
+        version=$(Version);
+        authors=$(Authors);
+        owners=$(Owners);
+        title=$(Title);
+        copyright=$(Copyright);
+        description=$(PackageDescription);
+        requireLicenseAcceptance=$(PackageRequireLicenseAcceptance);
+        license=$(PackageLicenseFile);
+        licenseType=$(PackageLicenseType);
+        icon=$(PackageIcon);
+        projectUrl=$(PackageProjectUrl);
+        releaseNotes=$(PackageReleaseNotes);
+        tags=$(PackageTags);
+        repositoryUrl=$(RepositoryUrl);
+        repositoryType=$(RepositoryType);
+      </NuspecProperties>
+    </PropertyGroup>
+    <Message Importance="high" Text="NuspecProperties: $(NuspecProperties)" />
+  </Target>
+
+</Project>
