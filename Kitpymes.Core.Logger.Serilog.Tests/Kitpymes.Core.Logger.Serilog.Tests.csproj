@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <!-- Common Props -->
-  <Import Project="$(SolutionDir)docs\Directory.build.props" Condition="Exists('$(SolutionDir)docs\Directory.build.props')" />
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
 
   <!-- Nuget Packages -->
   <ItemGroup>
