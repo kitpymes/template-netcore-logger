@@ -25,7 +25,7 @@
     <Choose>
       <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
         <PropertyGroup>
-          <PackageId>Kitpymes.Core.Logger</PackageId>
+          <PackageId>$(AssemblyName)</PackageId>
           <Version>1.0.5</Version>
           <Authors>Kitpymes</Authors>
           <Owners>Kitpymes</Owners>
