@@ -1,9 +1,8 @@
   <Project>
 
-    <!-- Default properties -->
+    <!-- Default -->
     <PropertyGroup>
       <IsTestProject>$(MSBuildProjectName.Contains('Tests'))</IsTestProject>
-
       <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
       <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
       <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -19,65 +18,12 @@
       <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
-    <!-- Packaging -->
-    <!-- https://github.com/NuGet/Home/wiki/Adding-nuget-pack-as-a-msbuild-target -->
-    <!-- https://github.com/NuGet/docs.microsoft.com-nuget/blob/master/docs/reference/msbuild-targets.md -->
-    <Choose>
-      <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
-        <PropertyGroup>
-          <PackageId>$(AssemblyName)</PackageId>
-          <Version>1.0.5</Version>
-          <Authors>Kitpymes</Authors>
-          <Owners>Kitpymes</Owners>
-          <Title>Logger</Title>
-          <Copyright>(c) Kitpymes and Contributors.  All rights reserved.</Copyright>
-          <Description>Logeo de errores para multi proveedores.</Description>
-          <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-          <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-          <PackageLicenseType>file</PackageLicenseType>
-          <PackageIcon>logo.png</PackageIcon>
-          <PackageProjectUrl>https://kitpymes.github.io/template-netcore-logger/</PackageProjectUrl>
-          <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/packages/notes_$(Version).txt</PackageReleaseNotes>
-          <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
-          <RepositoryType>git</RepositoryType>
-          <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>
-          <PackageOutputPath>$(SolutionDir)docs\packages</PackageOutputPath>
-        </PropertyGroup>
-
-        <!-- SignAssembly -->
-        <PropertyGroup>
-          <SignAssembly>true</SignAssembly>
-          <DelaySign>false</DelaySign>
-          <AssemblyOriginatorKeyFile>$(SolutionDir)docs\signassembly\SignStrong.snk</AssemblyOriginatorKeyFile>
-        </PropertyGroup>
-      </When>
-    </Choose>
-
-    <!-- Source Link (https://github.com/dotnet/sourcelink) 
-    Usar un paquete NuGet es una forma muy conveniente de agregar una dependencia a su proyecto. 
-    Sin embargo, cuando tiene un problema con un paquete NuGet y desea depurarlo, es difícil porque no tiene el código fuente.
-    Muchos paquetes de NuGet tienen su código fuente en GitHub, por lo que sería muy conveniente obtener automáticamente el código del repositorio de GitHub. 
-    Esto es lo que proporciona SourceLink. 
-    Agrega algunos metadatos al archivo pdb para reasignar los archivos locales a los archivos en GitHub, para que Visual Studio pueda descargar los archivos cuando sea necesario.
-  -->
-    <Choose>
-      <When Condition=" '$(IsTestProject)' != 'true' ">
-        <PropertyGroup>
-          <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
-          <PublishRepositoryUrl>true</PublishRepositoryUrl>
-          <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
-          <EmbedUntrackedSources>true</EmbedUntrackedSources>
-          <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
-          <IncludeSymbols>true</IncludeSymbols>
-          <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        </PropertyGroup>
-
-        <ItemGroup>
-          <!-- Required if your repository is on Github -->
-          <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
-        </ItemGroup>
-      </When>
-    </Choose>
+    <!-- SignAssembly -->
+    <PropertyGroup>
+      <SignAssembly>true</SignAssembly>
+      <DelaySign>false</DelaySign>
+      <AssemblyOriginatorKeyFile>$(SolutionDir)docs\signassembly\SignStrong.snk</AssemblyOriginatorKeyFile>
+    </PropertyGroup>
 
     <!-- Optimize -->
     <Choose>

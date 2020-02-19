@@ -14,7 +14,7 @@ _Logeo de errores para multiples proveedores_
 
 * NET Core >= 3
 
-* Conocimientos sobre inyección de dependencia
+* Conocimientos sobre Inyección de Dependencias
 
 
 ## ⌨️ Código
@@ -208,7 +208,7 @@ public class WeatherForecastController : ControllerBase
 
 ```cs
 var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-var logger1 = Log.UseSerilog(configuration).CreateLogger<Program>();
+var logger = Log.UseSerilog(configuration).CreateLogger<Program>();
 ```
 
 **Option 2**

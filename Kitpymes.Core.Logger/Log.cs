@@ -31,9 +31,9 @@ namespace Kitpymes.Core.Logger
         {
             var settings = configuration?.GetSection(nameof(LoggerSettings))?.Get<LoggerSettings>();
 
-            var serilog = settings?.Serilog;
+            var serilog = settings?.Serilog ?? new SerilogSettings();
 
-            return new SerilogProvider(serilog ??= new SerilogSettings());
+            return UseSerilog(serilog);
         }
 
         /// <summary>

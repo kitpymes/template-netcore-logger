@@ -1,7 +1,9 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <NuspecFile Condition=" Exists('$(SolutionDir)docs\packages\$(PackageId).$(PackageVersion)nuspec') ">$(SolutionDir)docs\packages\$(PackageId).$(PackageVersion)nuspec</NuspecFile>
+    <NuspecFile Condition=" Exists('$(SolutionDir)docs\packages\$(PackageId).$(PackageVersion)nuspec') ">
+      $(SolutionDir)docs\packages\$(PackageId).$(PackageVersion)nuspec
+    </NuspecFile>
     <GenerateNuspecDependsOn>$(GenerateNuspecDependsOn);SetNuspecProperties</GenerateNuspecDependsOn>
   </PropertyGroup>
 
@@ -28,5 +30,64 @@
     </PropertyGroup>
     <Message Importance="high" Text="NuspecProperties: $(NuspecProperties)" />
   </Target>
+  
+<!-- Packaging -->
+  <!-- https://github.com/NuGet/Home/wiki/Adding-nuget-pack-as-a-msbuild-target -->
+  <!-- https://github.com/NuGet/docs.microsoft.com-nuget/blob/master/docs/reference/msbuild-targets.md -->
+  <Choose>
+    <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
+      <PropertyGroup>
+        <PackageId>$(AssemblyName)</PackageId>
+        <Version>1.0.6</Version>
+        <Authors>Kitpymes, Sebastian R Ferrari</Authors>
+        <Owners>Kitpymes</Owners>
+        <Title>Logger</Title>
+        <Copyright>Copyright © $([System.DateTime]::Now.Year) by Kitpymes and Contributors. All rights reserved.</Copyright>
+        <Description>Logeo de errores para multi proveedores.</Description>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageLicenseType>file</PackageLicenseType>
+        <PackageIcon>logo.png</PackageIcon>
+        <PackageProjectUrl>https://kitpymes.github.io/template-netcore-logger/</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/packages/$(Version)/notes_$(Version).txt</PackageReleaseNotes>
+        <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>
+        <PackageOutputPath>$(SolutionDir)docs\packages\$(Version)</PackageOutputPath>
+      </PropertyGroup>
+    
+      <ItemGroup>
+        <None Include="$(SolutionDir)docs\LICENSE.txt" Pack="true" PackagePath="." />
+        <None Include="$(SolutionDir)docs\images\logo.png" Pack="true" PackagePath="." />
+      </ItemGroup>
+  
+    </When>
+  </Choose>
+
+  <!-- Source Link (https://github.com/dotnet/sourcelink) 
+    Usar un paquete NuGet es una forma muy conveniente de agregar una dependencia a su proyecto. 
+    Sin embargo, cuando tiene un problema con un paquete NuGet y desea depurarlo, es difícil porque no tiene el código fuente.
+    Muchos paquetes de NuGet tienen su código fuente en GitHub, por lo que sería muy conveniente obtener automáticamente el código del repositorio de GitHub. 
+    Esto es lo que proporciona SourceLink. 
+    Agrega algunos metadatos al archivo pdb para reasignar los archivos locales a los archivos en GitHub, para que Visual Studio pueda descargar los archivos cuando sea necesario.
+  -->
+  <Choose>
+    <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
+      <PropertyGroup>
+        <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+      </PropertyGroup>
+
+      <ItemGroup>
+        <!-- Required if your repository is on Github -->
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+      </ItemGroup>
+    </When>
+  </Choose>
 
 </Project>

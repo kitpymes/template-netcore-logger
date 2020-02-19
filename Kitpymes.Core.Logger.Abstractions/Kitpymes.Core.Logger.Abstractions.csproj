@@ -1,6 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <!-- Common Props -->
-  <Import Project="$(SolutionDir)docs\Directory.build.props" Condition="Exists('$(SolutionDir)docs\Directory.build.props')" />
+  <Import Project="$(SolutionDir)docs\Directory.Build.props" Condition="Exists('$(SolutionDir)docs\Directory.Build.props')" />
 
+  <!-- Import parent targets -->
+  <Import Project="$(SolutionDir)docs\Directory.Build.targets" Condition="Exists('$(SolutionDir)docs\Directory.Build.targets')" />
+  
 </Project>

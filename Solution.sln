@@ -48,8 +48,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signassembly", "signassembl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B56AC596-D457-44B1-9ADB-55402B0E3F3C}"
 	ProjectSection(SolutionItems) = preProject
+		docs\packages\Kitpymes.Core.Logger.Abstractions.nuspec = docs\packages\Kitpymes.Core.Logger.Abstractions.nuspec
 		docs\packages\Kitpymes.Core.Logger.nuspec = docs\packages\Kitpymes.Core.Logger.nuspec
-		docs\packages\notes_1.0.4.txt = docs\packages\notes_1.0.4.txt
+		docs\packages\Kitpymes.Core.Logger.Serilog.nuspec = docs\packages\Kitpymes.Core.Logger.Serilog.nuspec
+		docs\packages\notes_1.0.5.txt = docs\packages\notes_1.0.5.txt
+		docs\packages\notes_1.0.6.txt = docs\packages\notes_1.0.6.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kitpymes.Core.Logger.Serilog.Tests", "Kitpymes.Core.Logger.Serilog.Tests\Kitpymes.Core.Logger.Serilog.Tests.csproj", "{0FB9F618-E024-4B66-B4AA-78DB95F52C39}"

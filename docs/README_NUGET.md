@@ -1,4 +1,4 @@
-﻿Logeo de errores para multiples proveedores
+﻿Logeo de errores para múltiples proveedores
 
 [![Build Status](https://github.com/actions/setup-dotnet/workflows/Main%20workflow/badge.svg)](https://github.com/kitpymes/netcore-logger/actions)
 [![NuGet Status](https://img.shields.io/nuget/v/Kitpymes.Core.Logger)](https://www.nuget.org/packages/Kitpymes.Core.Logger/)
@@ -27,7 +27,7 @@
 
 ✒️ Autores 
 
-* **Kitpymes** - *Trabajo Inicial* - [kitpymes](https://github.com/kitpymes)
+**Kitpymes** - *Trabajo Inicial* - [kitpymes](https://github.com/kitpymes)
 
 
 📄 Licencia 
@@ -38,7 +38,7 @@ Este proyecto está bajo la Licencia [LICENSE.md](LICENSE.md)
 🎁 Gratitud 
 
 * Este proyecto fue diseñado para compartir, creemos que es la mejor forma de ayudar 📢
-* Cada persona que contribuya sera invitada a tomar una 🍺 
+* Cada persona que contribuya será invitada a tomar una 🍺 
 * Gracias a todos! 🤓
 
 ---

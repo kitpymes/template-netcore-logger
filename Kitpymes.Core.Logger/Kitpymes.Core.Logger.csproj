@@ -1,13 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <!-- Common Props -->
-  <Import Project="$(SolutionDir)docs\Directory.build.props" Condition="Exists('$(SolutionDir)docs\Directory.build.props')" />
-
-
-  <!-- Copy local assemblies -->
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-  </PropertyGroup>
+  <Import Project="$(SolutionDir)docs\Directory.Build.props" Condition="Exists('$(SolutionDir)docs\Directory.Build.props')" />
 
   <!-- Nuget Packages -->
   <ItemGroup>
@@ -18,10 +12,20 @@
 
   <!-- Local Packages -->
   <ItemGroup>
-    <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj" IncludeAssets="All" />
   </ItemGroup>
 
+  <!-- Logger Props -->
+  <Choose>
+    <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
+      <PropertyGroup>
+        <IncludeBuildOutput>true</IncludeBuildOutput>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+      </PropertyGroup>
+    </When>
+  </Choose>
+
   <!-- Import parent targets -->
-  <Import Project="$(SolutionDir)docs\Directory.Build.targets"/>
+  <Import Project="$(SolutionDir)docs\Directory.Build.targets" Condition="Exists('$(SolutionDir)docs\Directory.Build.targets')" />
 
 </Project>
