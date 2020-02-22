@@ -8,8 +8,8 @@ jobs:
 
     strategy:
       matrix:
-        dotnet: [ '3.0.100', '3.0.101' ]
-    
+        dotnet: [ '3.0.100', '3.0.101', '3.1.100' ]
+
     name: Build for .NET ${{ matrix.dotnet }}
 
     steps:  
