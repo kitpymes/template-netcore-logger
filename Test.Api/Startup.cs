@@ -21,7 +21,6 @@ namespace Tests.Api
         {
             services.AddControllers();
 
-            // Test
             services.LoadLogger(loggers =>
             {
                 loggers.UseSerilog(serilog =>

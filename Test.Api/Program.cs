@@ -1,8 +1,6 @@
 using Kitpymes.Core.Logger;
 using Kitpymes.Core.Logger.Abstractions;
-using Kitpymes.Core.Logger.Serilog;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -52,7 +50,7 @@ namespace Tests.Api
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                // (OPTIONAL) Clear default logging
+                // (OPCIONAL)
                 .ConfigureLogging(providers => providers.ClearProviders())
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

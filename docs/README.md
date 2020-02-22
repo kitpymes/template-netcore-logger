@@ -16,7 +16,6 @@ _Logeo de errores para multiples proveedores_
 
 * Conocimientos sobre Inyección de Dependencias
 
-
 ## ⌨️ Código
 
 ```cs
@@ -31,7 +30,7 @@ public interface ILoggerService
 ```cs
 public interface ILogger
 {
-	ILogger Trace(string message);
+    ILogger Trace(string message);
 
 	ILogger Trace(string message, object data);
 
@@ -91,7 +90,7 @@ public enum LoggerFileInterval
         "Serilog": {
             "Console": {
                 "Enabled": null, // (bool) Default: false
-                "MinimumLevel": null, // (string) Default: "Info" | Options: Info, Error
+                "MinimumLevel": null, // (string) Default: "Info" | Options: Trace, Debug, Info, Error
                 "OutputTemplate": null // (string) Default: "{SourceContext}{NewLine}{Timestamp:HH:mm:ss:ff} [{Level:u3}] {Message:lj}{NewLine}"
             },
             "File": {
@@ -155,49 +154,63 @@ services.LoadLogger(loggers =>
 services.LoadLogger(new SerilogSettings 
 {
 	// Custom values
-
 });
 ```
 
 **Ejemplo**
 
 ```cs
-[ApiController]
-[Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+using Kitpymes.Core.Logger.Abstractions;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Tests.Api.Controllers
 {
-    private static readonly string[] Summaries = new[]
+    [ApiController]
+    [Route("[controller]")]
+    public class WeatherForecastController : ControllerBase
     {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
-    private ILogger Logger { get; }
-
-    public WeatherForecastController(ILoggerService logger)
-    {
-        Logger = logger.CreateLogger<WeatherForecastController>();
-    }
-
-    [HttpGet]
-    public IEnumerable<WeatherForecast> Get()
-    {
-        // Enable and customize logger in appsettings, or in Startup class.
-        Logger
-            .Info("Get Summaries")
-            .Info("Summary 1", Summaries[0])
-            .Info("Summary 2", Summaries[1])
-            .Info("Summary 3", Summaries[2])
-            .Info("All Summaries", Summaries);
-
-        var rng = new Random();
-
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        private static readonly string[] Summaries = new[]
         {
-            Date = DateTime.Now.AddDays(index),
-            TemperatureC = rng.Next(-20, 55),
-            Summary = Summaries[rng.Next(Summaries.Length)]
-        })
-        .ToArray();
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
+
+        //private readonly ILogger<WeatherForecastController> _logger;
+
+        //public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        private ILogger Logger { get; }
+
+        public WeatherForecastController(ILoggerService logger)
+        {
+            Logger = logger.CreateLogger<WeatherForecastController>();
+        }
+
+        [HttpGet]
+        public IEnumerable<WeatherForecast> Get()
+        {
+            // Test
+            Logger
+               .Info("Get Summaries")
+               .Info("Summary 1", Summaries[0])
+               .Info("Summary 2", Summaries[1])
+               .Info("Summary 3", Summaries[2])
+               .Info("All Summaries", Summaries);
+
+            var rng = new Random();
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            })
+            .ToArray();
+        }
     }
 }
 ```
@@ -255,50 +268,66 @@ var logger = Log.UseSerilog(new SerilogSettings
 **Ejemplo**
 
 ```cs
-public class Program
+using Kitpymes.Core.Logger;
+using Kitpymes.Core.Logger.Abstractions;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System;
+
+namespace Tests.Api
 {
-    public static void Main(string[] args)
+    public class Program
     {
-        // Test
-        var logger = Log.UseSerilog(serilog =>
+        public static void Main(string[] args)
         {
-            serilog
-				.AddConsole()
-				.AddFile(minimumLevel: LoggerLevel.Info)
-				.AddEmail
-				(
-					userName: "admin@app.com",
-					password: "password",
-					server: "smtp.gmail.com",
-					from: "admin@app.com",
-					to: "error@app.com"
-				);
-        })
-        .CreateLogger<Program>();
-
-        try
-        {
-            logger.Info("Init Host...");
-
-            CreateHostBuilder(args).Build().Run();
-        }
-        catch (Exception ex)
-        {
-            logger.Error(ex);
-
-            throw ex;
-        }
-    }
-
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            // (OPTIONAL) Clear default logging
-            .ConfigureLogging(providers => providers.ClearProviders())
-            .ConfigureWebHostDefaults(webBuilder =>
+            var logger = Log.UseSerilog(serilog =>
             {
-                webBuilder.UseStartup<Startup>();
-            });
+                serilog
+                    .AddConsole
+                    (
+                        
+                    )
+                    .AddFile
+                    (
+                        minimumLevel: LoggerLevel.Info
+                    )
+                    .AddEmail
+                    (
+                        userName: "admin@app.com",
+                        password: "password",
+                        server: "smtp.gmail.com",
+                        from: "admin@app.com",
+                        to: "error@app.com"
+                    );
+            })
+           .CreateLogger<Program>();
+
+            try
+            {
+                logger.Info("Init Host...");
+
+                CreateHostBuilder(args).Build().Run();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+
+                throw ex;
+            }
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                // (OPCIONAL)
+                .ConfigureLogging(providers => providers.ClearProviders())
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+    }
 }
+
 ```
 
 ## 🔩 Resultados
