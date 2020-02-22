@@ -32,7 +32,7 @@
 
 📄 Licencia 
 
-Este proyecto está bajo la Licencia [LICENSE.txt](LICENSE.md)
+Este proyecto está bajo la Licencia [LICENSE](LICENSE.txt)
 
 
 🎁 Gratitud 
