@@ -1,0 +1,6 @@
+{
+    "sdk": {
+        "version": "3.0.101",
+        "rollForward": "latestMajor" // usa la versión superior instalada que es mayor o igual que la versión especificada
+    }
+}
