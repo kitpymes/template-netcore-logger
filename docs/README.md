@@ -12,9 +12,9 @@ _Logeo de errores para multiples proveedores_
 
 * Visual Studio >= 2019 (v16.3)
 
-* NET Core Runtime >= 3
+* NET TargetFramework >= netcoreapp3.0
 
-* Net Core SDK >= 3.0.101
+* Net Core SDK >= 3.0.100
 
 * C# >= 8.0
 
