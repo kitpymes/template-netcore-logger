@@ -10,9 +10,13 @@ _Logeo de errores para multiples proveedores_
 
 📋 Requerimientos 
 
-* Visual Studio >= 2019
+* Visual Studio >= 2019 (v16.3)
 
-* NET Core >= 3
+* NET Core Runtime >= 3
+
+* Net Core SDK >= 3.0.101
+
+* C# >= 8.0
 
 * Conocimientos sobre inyección de dependencia
 
