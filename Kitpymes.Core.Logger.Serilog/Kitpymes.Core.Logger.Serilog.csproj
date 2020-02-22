@@ -14,6 +14,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Kitpymes.Core.Logger.Abstractions\Kitpymes.Core.Logger.Abstractions.csproj" IncludeAssets="All" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="16.5.132" />
+  </ItemGroup>
 
   <!-- Import parent targets -->
   <Import Project="$(SolutionDir)docs\Directory.Build.targets" Condition="Exists('$(SolutionDir)docs\Directory.Build.targets')" />

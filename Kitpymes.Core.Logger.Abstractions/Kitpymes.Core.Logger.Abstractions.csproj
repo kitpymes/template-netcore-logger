@@ -5,5 +5,8 @@
 
   <!-- Import parent targets -->
   <Import Project="$(SolutionDir)docs\Directory.Build.targets" Condition="Exists('$(SolutionDir)docs\Directory.Build.targets')" />
+  <ItemGroup>
+    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="16.5.132" />
+  </ItemGroup>
   
 </Project>
