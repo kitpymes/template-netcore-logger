@@ -367,7 +367,7 @@ _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde
 
 ## 📄 Licencia 
 
-Este proyecto está bajo la Licencia [LICENSE.md](LICENSE.md)
+Este proyecto está bajo la Licencia [LICENSE.txt](LICENSE)
 
 
 ## 🎁 Gratitud 
