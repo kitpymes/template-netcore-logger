@@ -9,8 +9,6 @@ jobs:
 
             name: Execute steps for NET Core ${{ matrix.dotnet }}
                 steps:  
-                
-                - name: Start
                 - uses: actions/checkout@v1
      
                 - name: Setup
