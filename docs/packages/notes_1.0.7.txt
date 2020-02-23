@@ -1,0 +1,3 @@
+# Se organizaron las propiedades cómunes.
+# Se agreagron nuevos analziadores de código.
+# Se actualziaron librerías.
