@@ -28,3 +28,5 @@ jobs:
      
     - name: Run Tests - Serilog
       run: dotnet test Kitpymes.Core.Logger.Serilog.Tests/Kitpymes.Core.Logger.Serilog.Tests.csproj --configuration Release --no-build
+      with:
+        dotnet-version: ${{ matrix.dotnet }}
