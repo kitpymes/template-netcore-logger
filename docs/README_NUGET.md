@@ -30,7 +30,7 @@
 
 ## 📄 Licencia 
 
-* Este proyecto está bajo la Licencia [LICENSE](LICENSE.txt)
+* Este proyecto está bajo la Licencia [LICENSE](https://raw.githubusercontent.com/kitpymes/template-netcore-logger/master/docs/LICENSE.txt)
 
 
 ## 🎁 Gratitud 
