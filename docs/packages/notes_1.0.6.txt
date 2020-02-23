@@ -1,1 +1,1 @@
-# Se corrigieron errores de dependencias.
+# Se agregaron los comentarios al logeo de errores.

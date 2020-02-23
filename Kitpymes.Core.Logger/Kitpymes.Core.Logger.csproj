@@ -1,34 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(SolutionDir)Common.Build.props" Condition="Exists('$(SolutionDir)Common.Build.props')" />
+  <Import Project="$(SolutionDir)Pack.Build.props" Condition="Exists('$(SolutionDir)Pack.Build.props')" />
 
-  <!-- Common Props -->
-  <Import Project="$(SolutionDir)docs\Directory.Build.props" Condition="Exists('$(SolutionDir)docs\Directory.Build.props')" />
-
-  <!-- Nuget Packages -->
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.2" />
   </ItemGroup>
 
-  <!-- Local Packages -->
   <ItemGroup>
     <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj" IncludeAssets="All" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="16.5.132" />
-  </ItemGroup>
-
-  <!-- Logger Props -->
-  <Choose>
-    <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
-      <PropertyGroup>
-        <IncludeBuildOutput>true</IncludeBuildOutput>
-        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-      </PropertyGroup>
-    </When>
-  </Choose>
-
-  <!-- Import parent targets -->
-  <Import Project="$(SolutionDir)docs\Directory.Build.targets" Condition="Exists('$(SolutionDir)docs\Directory.Build.targets')" />
-
 </Project>

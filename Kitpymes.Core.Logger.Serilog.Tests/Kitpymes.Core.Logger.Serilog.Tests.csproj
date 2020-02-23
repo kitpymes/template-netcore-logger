@@ -1,12 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(SolutionDir)Common.Build.props" Condition="Exists('$(SolutionDir)Common.Build.props')" />
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-
-  <!-- Nuget Packages -->
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.2" />
@@ -19,14 +13,12 @@
     </PackageReference>
   </ItemGroup>
 
-  <!-- Local Packages -->
   <ItemGroup>
     <ProjectReference Include="..\Kitpymes.Core.Logger.Abstractions\Kitpymes.Core.Logger.Abstractions.csproj" />
-    <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj" />
-    <ProjectReference Include="..\Kitpymes.Core.Logger\Kitpymes.Core.Logger.csproj" />
+    <ProjectReference Include="..\Kitpymes.Core.Logger.Serilog\Kitpymes.Core.Logger.Serilog.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Kitpymes.Core.Logger\Kitpymes.Core.Logger.csproj" PrivateAssets="All" />
   </ItemGroup>
 
-  <!-- Local Resources -->
   <ItemGroup>
     <None Remove="appsettings.json" />
     <EmbeddedResource Include="appsettings.json">

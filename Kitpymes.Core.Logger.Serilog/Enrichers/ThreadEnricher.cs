@@ -25,7 +25,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public const string ThreadPropertyName = "Thread";
 
-        private LogEventProperty? _lastValue;
+        private LogEventProperty? lastValue;
 
         /// <summary>
         /// Enriquecer el evento de registro.
@@ -48,11 +48,11 @@ namespace Kitpymes.Core.Logger.Serilog
                 threadValue += thread?.ManagedThreadId > 0 ? $" - {thread.Name}" : thread?.Name;
             }
 
-            var last = _lastValue;
+            var last = this.lastValue;
 
             if (last is null || (string)((ScalarValue)last.Value).Value != threadValue)
             {
-                _lastValue = last = new LogEventProperty(ThreadPropertyName, new ScalarValue(threadValue));
+                this.lastValue = last = new LogEventProperty(ThreadPropertyName, new ScalarValue(threadValue));
 
                 logEvent?.AddPropertyIfAbsent(last);
             }

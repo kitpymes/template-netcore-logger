@@ -49,19 +49,19 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public const LoggerLevel DefaultMinimumLevel = LoggerLevel.Error;
 
-        private bool _enabled = false;
+        private bool enabled = false;
 
-        private bool _enableSsl = DefaultEnableSsl;
+        private bool enableSsl = DefaultEnableSsl;
 
-        private int _port = DefaultPort;
+        private int port = DefaultPort;
 
-        private bool _isBodyHtml = DefaultIsBodyHtml;
+        private bool isBodyHtml = DefaultIsBodyHtml;
 
-        private string _subject = DefaultSubject;
+        private string subject = DefaultSubject;
 
-        private string _minimumLevel = DefaultMinimumLevel.ToString();
+        private string minimumLevel = DefaultMinimumLevel.ToString();
 
-        private string _outputTemplate = DefaultOutputTemplate;
+        private string outputTemplate = DefaultOutputTemplate;
 
         /// <summary>
         /// Propiedad donde se setea el nombre del usuario para el envio de email.
@@ -93,12 +93,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public bool? Enabled
         {
-            get => _enabled;
+            get => this.enabled;
             set
             {
                 if (value.HasValue)
                 {
-                    _enabled = value.Value;
+                    this.enabled = value.Value;
                 }
             }
         }
@@ -108,12 +108,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public bool? EnableSsl
         {
-            get => _enableSsl;
+            get => this.enableSsl;
             set
             {
                 if (value.HasValue)
                 {
-                    _enableSsl = value.Value;
+                    this.enableSsl = value.Value;
                 }
             }
         }
@@ -123,12 +123,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public int? Port
         {
-            get => _port;
+            get => this.port;
             set
             {
                 if (value.HasValue)
                 {
-                    _port = value.Value;
+                    this.port = value.Value;
                 }
             }
         }
@@ -138,12 +138,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public bool? IsBodyHtml
         {
-            get => _isBodyHtml;
+            get => this.isBodyHtml;
             set
             {
                 if (value.HasValue)
                 {
-                    _isBodyHtml = value.Value;
+                    this.isBodyHtml = value.Value;
                 }
             }
         }
@@ -153,12 +153,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public string? Subject
         {
-            get => _subject;
+            get => this.subject;
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    _subject = value;
+                    this.subject = value;
                 }
             }
         }
@@ -168,12 +168,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public string? MinimumLevel
         {
-            get => _minimumLevel;
+            get => this.minimumLevel;
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    _minimumLevel = value;
+                    this.minimumLevel = value;
                 }
             }
         }
@@ -183,12 +183,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public string? OutputTemplate
         {
-            get => _outputTemplate;
+            get => this.outputTemplate;
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    _outputTemplate = value;
+                    this.outputTemplate = value;
                 }
             }
         }

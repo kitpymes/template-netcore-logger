@@ -26,7 +26,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         /// <param name="settings">Configuración de Serilog.</param>
         public SerilogProvider(SerilogSettings settings)
-        => SerilogSettings = settings;
+        => this.SerilogSettings = settings;
 
         private SerilogSettings SerilogSettings { get; }
 
@@ -39,11 +39,11 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger CreateLogger(string title)
         {
-            Logger = new LoggerConfiguration()
+            this.Logger = new LoggerConfiguration()
                 .AddDefaultSettings(title)
-                .AddConsole(SerilogSettings.Console)
-                .AddFile(SerilogSettings.File)
-                .AddEmail(SerilogSettings.Email)
+                .AddConsole(this.SerilogSettings.Console)
+                .AddFile(this.SerilogSettings.File)
+                .AddEmail(this.SerilogSettings.Email)
                 .CreateLogger();
 
             return this;
@@ -55,7 +55,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <typeparam name="TSourceContext">Título del log.</typeparam>
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger CreateLogger<TSourceContext>()
-        => CreateLogger(typeof(TSourceContext).Name);
+        => this.CreateLogger(typeof(TSourceContext).Name);
 
         /// <summary>
         /// Logea cualquier cosa que ocurra, es el nivel mas bajo.
@@ -64,7 +64,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger Trace(string message)
         {
-            Logger?.Verbose(message);
+            this.Logger?.Verbose(message);
 
             return this;
         }
@@ -77,7 +77,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger Trace(string message, object data)
         {
-            Logger?.Verbose(message + " => {Data}", data);
+            this.Logger?.Verbose(message + " => {Data}", data);
 
             return this;
         }
@@ -89,7 +89,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger Debug(string message)
         {
-            Logger?.Debug(message);
+            this.Logger?.Debug(message);
 
             return this;
         }
@@ -102,7 +102,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger Debug(string message, object data)
         {
-            Logger?.Debug(message + " => {Data}", data);
+            this.Logger?.Debug(message + " => {Data}", data);
 
             return this;
         }
@@ -114,7 +114,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger Info(string message)
         {
-            Logger?.Information(message);
+            this.Logger?.Information(message);
 
             return this;
         }
@@ -127,9 +127,9 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger Info(string message, object data)
         {
-             Logger?.Information(message + " => {Data}", data);
+            this.Logger?.Information(message + " => {Data}", data);
 
-             return this;
+            return this;
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace Kitpymes.Core.Logger.Serilog
 
             var values = new object[] { eventName }.Concat(propertyValues).ToArray();
 
-            Logger?.Information(message, values);
+            this.Logger?.Information(message, values);
 
             return this;
         }
@@ -157,7 +157,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger Error(string message)
         {
-            Logger?.Error(message);
+            this.Logger?.Error(message);
 
             return this;
         }
@@ -170,7 +170,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger Error(string message, object data)
         {
-            Logger?.Error(message + " => {Data}", data);
+            this.Logger?.Error(message + " => {Data}", data);
 
             return this;
         }
@@ -188,7 +188,7 @@ namespace Kitpymes.Core.Logger.Serilog
 
             var values = new object[] { eventName }.Concat(propertyValues).ToArray();
 
-            Logger?.Error(message, values);
+            this.Logger?.Error(message, values);
 
             return this;
         }
@@ -200,7 +200,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger Error(Exception exception)
         {
-            Logger?.Error("Exception => {Exception}", exception);
+            this.Logger?.Error("Exception => {Exception}", exception);
 
             return this;
         }
@@ -213,7 +213,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La interface ILogger.</returns>
         public Abstractions.ILogger Error(string message, Exception exception)
         {
-            Logger?.Error(message + " => {Exception}", exception);
+            this.Logger?.Error(message + " => {Exception}", exception);
 
             return this;
         }

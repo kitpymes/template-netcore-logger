@@ -29,23 +29,23 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public const LoggerLevel DefaultMinimumLevel = LoggerLevel.Info;
 
-        private bool _enabled = false;
+        private bool enabled = false;
 
-        private string _minimumLevel = DefaultMinimumLevel.ToString();
+        private string minimumLevel = DefaultMinimumLevel.ToString();
 
-        private string _outputTemplate = DefaultOutputTemplate;
+        private string outputTemplate = DefaultOutputTemplate;
 
         /// <summary>
         /// Propiedad donde se setea si el logeo de errores de consola esta habiliato.
         /// </summary>
         public bool? Enabled
         {
-            get => _enabled;
+            get => this.enabled;
             set
             {
                 if (value.HasValue)
                 {
-                    _enabled = value.Value;
+                    this.enabled = value.Value;
                 }
             }
         }
@@ -55,12 +55,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public string MinimumLevel
         {
-            get => _minimumLevel;
+            get => this.minimumLevel;
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    _minimumLevel = value;
+                    this.minimumLevel = value;
                 }
             }
         }
@@ -70,12 +70,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public string? OutputTemplate
         {
-            get => _outputTemplate;
+            get => this.outputTemplate;
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    _outputTemplate = value;
+                    this.outputTemplate = value;
                 }
             }
         }

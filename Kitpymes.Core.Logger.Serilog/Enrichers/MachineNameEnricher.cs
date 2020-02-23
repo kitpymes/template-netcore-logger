@@ -23,7 +23,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public const string MachineNamePropertyName = "MachineName";
 
-        private LogEventProperty? _lastValue;
+        private LogEventProperty? lastValue;
 
         /// <summary>
         /// Enriquecer el evento de registro.
@@ -34,11 +34,11 @@ namespace Kitpymes.Core.Logger.Serilog
         {
             var machineName = Environment.MachineName;
 
-            var last = _lastValue;
+            var last = this.lastValue;
 
             if (last is null || (string)((ScalarValue)last.Value).Value != machineName)
             {
-                _lastValue = last = new LogEventProperty(MachineNamePropertyName, new ScalarValue(machineName));
+                this.lastValue = last = new LogEventProperty(MachineNamePropertyName, new ScalarValue(machineName));
 
                 logEvent?.AddPropertyIfAbsent(last);
             }

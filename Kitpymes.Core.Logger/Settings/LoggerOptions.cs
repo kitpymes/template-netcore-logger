@@ -37,9 +37,9 @@ namespace Kitpymes.Core.Logger
         /// <returns>La clase LoggerOptions.</returns>
         public LoggerOptions UseSerilog(Action<SerilogOptions> options)
         {
-            SerilogOptions = options;
+            this.SerilogOptions = options;
 
-            IsSerilogEnabled = true;
+            this.IsSerilogEnabled = true;
 
             return this;
         }

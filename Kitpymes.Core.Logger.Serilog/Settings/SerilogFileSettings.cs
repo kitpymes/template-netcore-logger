@@ -34,25 +34,25 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public const LoggerFileInterval DefaultLoggerInterval = LoggerFileInterval.Day;
 
-        private bool _enabled = false;
+        private bool enabled = false;
 
-        private string _filePath = DefaultFilePath;
+        private string filePath = DefaultFilePath;
 
-        private string _minimumLevel = DefaultMinimumLevel.ToString();
+        private string minimumLevel = DefaultMinimumLevel.ToString();
 
-        private string _interval = DefaultLoggerInterval.ToString();
+        private string interval = DefaultLoggerInterval.ToString();
 
         /// <summary>
         /// Propiedad donde se setea si el logeo de errores de archivos esta habiliato.
         /// </summary>
         public bool? Enabled
         {
-            get => _enabled;
+            get => this.enabled;
             set
             {
                 if (value.HasValue)
                 {
-                    _enabled = value.Value;
+                    this.enabled = value.Value;
                 }
             }
         }
@@ -62,12 +62,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public string? FilePath
         {
-            get => _filePath;
+            get => this.filePath;
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    _filePath = value;
+                    this.filePath = value;
                 }
             }
         }
@@ -77,12 +77,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public string? MinimumLevel
         {
-            get => _minimumLevel;
+            get => this.minimumLevel;
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    _minimumLevel = value;
+                    this.minimumLevel = value;
                 }
             }
         }
@@ -92,12 +92,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public string? Interval
         {
-            get => _interval;
+            get => this.interval;
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    _interval = value;
+                    this.interval = value;
                 }
             }
         }

@@ -23,7 +23,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public const string ProcessPropertyName = "Process";
 
-        private LogEventProperty? _lastValue;
+        private LogEventProperty? lastValue;
 
         /// <summary>
         /// Enriquecer el evento de registro.
@@ -46,11 +46,11 @@ namespace Kitpymes.Core.Logger.Serilog
                 processValue += process?.Id > 0 ? $" - {process.ProcessName}" : process?.ProcessName;
             }
 
-            var last = _lastValue;
+            var last = this.lastValue;
 
             if (last is null || (string)((ScalarValue)last.Value).Value != processValue)
             {
-                _lastValue = last = new LogEventProperty(ProcessPropertyName, new ScalarValue(processValue));
+                this.lastValue = last = new LogEventProperty(ProcessPropertyName, new ScalarValue(processValue));
 
                 logEvent?.AddPropertyIfAbsent(last);
             }

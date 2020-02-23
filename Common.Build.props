@@ -1,28 +1,11 @@
   <Project>
-
-    <!-- Default -->
     <PropertyGroup>
-      <IsTestProject>$(MSBuildProjectName.Contains('Tests'))</IsTestProject>
-      <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-      <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+      <IsTestsProject>$(MSBuildProjectName.Contains('Tests'))</IsTestsProject>
       <TargetFramework>netcoreapp3.0</TargetFramework>
       <Nullable>enable</Nullable>
       <LangVersion>latest</LangVersion>
-      <ApplicationIcon>$(SolutionDir)docs\images\logo.ico</ApplicationIcon>
       <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
       <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    </PropertyGroup>
-
-    <!-- Documentation -->
-    <PropertyGroup Condition=" '$(IsTestProject)' != 'true' ">
-      <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    </PropertyGroup>
-
-    <!-- SignAssembly -->
-    <PropertyGroup>
-      <SignAssembly>true</SignAssembly>
-      <DelaySign>false</DelaySign>
-      <AssemblyOriginatorKeyFile>$(SolutionDir)docs\signassembly\SignStrong.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
 
     <!-- Optimize -->
@@ -50,13 +33,13 @@
 
     <!-- Analyzers -->
     <Choose>
-      <When Condition=" '$(IsTestProject)' != 'true' ">
+      <When Condition=" '$(IsTestsProject)' != 'true' ">
         <PropertyGroup>
           <CodeAnalysisRuleSet>$(SolutionDir)docs\analyzers\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
         </PropertyGroup>
 
         <ItemGroup>
-          <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="16.4.33" PrivateAssets="All" />
+          <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="16.5.132" PrivateAssets="All" />
           <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
           <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
           <AdditionalFiles Include="$(SolutionDir)docs\analyzers\stylecop.json">
@@ -71,4 +54,15 @@
       </Otherwise>
     </Choose>
 
+    <!-- Documentation -->
+    <PropertyGroup Condition=" '$(IsTestsProject)' != 'true' ">
+      <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <!-- SignAssembly -->
+    <PropertyGroup Condition=" '$(IsTestsProject)' != 'true' ">
+      <SignAssembly>true</SignAssembly>
+      <DelaySign>false</DelaySign>
+      <AssemblyOriginatorKeyFile>$(SolutionDir)docs\signassembly\SignStrong.snk</AssemblyOriginatorKeyFile>
+    </PropertyGroup>
   </Project>

@@ -22,9 +22,9 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public const string TitlePropertyName = "Title";
 
-        private LogEventProperty? _lastValue;
+        private readonly string? title;
 
-        private string? _title;
+        private LogEventProperty? lastValue;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="TitleEnricher"/>.
@@ -37,7 +37,7 @@ namespace Kitpymes.Core.Logger.Serilog
                 title = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
             }
 
-            _title = title;
+            this.title = title;
         }
 
         /// <summary>
@@ -47,11 +47,11 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="propertyFactory">Fábrica para crear nuevas propiedades para agregar al evento.</param>
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
-            var last = _lastValue;
+            var last = this.lastValue;
 
-            if (last is null || (string)((ScalarValue)last.Value).Value != _title)
+            if (last is null || (string)((ScalarValue)last.Value).Value != this.title)
             {
-                _lastValue = last = new LogEventProperty(TitlePropertyName, new ScalarValue(_title));
+                this.lastValue = last = new LogEventProperty(TitlePropertyName, new ScalarValue(this.title));
 
                 logEvent?.AddPropertyIfAbsent(last);
             }

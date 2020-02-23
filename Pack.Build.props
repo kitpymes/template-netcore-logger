@@ -1,44 +1,13 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
-  <PropertyGroup>
-    <NuspecFile Condition=" Exists('$(SolutionDir)docs\packages\$(PackageId).$(PackageVersion)nuspec') ">
-      $(SolutionDir)docs\packages\$(PackageId).$(PackageVersion)nuspec
-    </NuspecFile>
-    <GenerateNuspecDependsOn>$(GenerateNuspecDependsOn);SetNuspecProperties</GenerateNuspecDependsOn>
-  </PropertyGroup>
-
-  <Target Name="SetNuspecProperties" BeforeTargets="GenerateNuspec">
-    <PropertyGroup>
-      <NuspecProperties>
-        id=$(PackageId);
-        version=$(Version);
-        authors=$(Authors);
-        owners=$(Owners);
-        title=$(Title);
-        copyright=$(Copyright);
-        description=$(PackageDescription);
-        requireLicenseAcceptance=$(PackageRequireLicenseAcceptance);
-        license=$(PackageLicenseFile);
-        licenseType=$(PackageLicenseType);
-        icon=$(PackageIcon);
-        projectUrl=$(PackageProjectUrl);
-        releaseNotes=$(PackageReleaseNotes);
-        tags=$(PackageTags);
-        repositoryUrl=$(RepositoryUrl);
-        repositoryType=$(RepositoryType);
-      </NuspecProperties>
-    </PropertyGroup>
-    <Message Importance="high" Text="NuspecProperties: $(NuspecProperties)" />
-  </Target>
-  
-<!-- Packaging -->
+<Project>
+  <!-- Packaging -->
   <!-- https://github.com/NuGet/Home/wiki/Adding-nuget-pack-as-a-msbuild-target -->
   <!-- https://github.com/NuGet/docs.microsoft.com-nuget/blob/master/docs/reference/msbuild-targets.md -->
   <Choose>
-    <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
+    <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
       <PropertyGroup>
+        <Version>1.0.7</Version>
+        <ApplicationIcon>$(SolutionDir)docs\images\logo.ico</ApplicationIcon>
         <PackageId>$(AssemblyName)</PackageId>
-        <Version>1.0.6</Version>
         <Authors>Kitpymes, Sebastian R Ferrari</Authors>
         <Owners>Kitpymes</Owners>
         <Title>Logger</Title>
@@ -49,7 +18,7 @@
         <PackageLicenseType>file</PackageLicenseType>
         <PackageIcon>logo.png</PackageIcon>
         <PackageProjectUrl>https://kitpymes.github.io/template-netcore-logger/</PackageProjectUrl>
-        <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/packages/$(Version)/notes_$(Version).txt</PackageReleaseNotes>
+        <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/packages/notes_$(Version).txt</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>
@@ -72,7 +41,7 @@
     Agrega algunos metadatos al archivo pdb para reasignar los archivos locales a los archivos en GitHub, para que Visual Studio pueda descargar los archivos cuando sea necesario.
   -->
   <Choose>
-    <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' and '$(IsTestProject)' != 'true' ">
+    <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
       <PropertyGroup>
         <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
         <PublishRepositoryUrl>true</PublishRepositoryUrl>

@@ -37,7 +37,7 @@ namespace Kitpymes.Core.Logger.Serilog
             string outputTemplate = SerilogConsoleSettings.DefaultOutputTemplate
         )
         {
-            SerilogSettings.Console = new SerilogConsoleSettings
+            this.SerilogSettings.Console = new SerilogConsoleSettings
             {
                 MinimumLevel = minimumLevel.ToString(),
 
@@ -65,7 +65,7 @@ namespace Kitpymes.Core.Logger.Serilog
             LoggerFileInterval interval = SerilogFileSettings.DefaultLoggerInterval
         )
         {
-            SerilogSettings.File = new SerilogFileSettings
+            this.SerilogSettings.File = new SerilogFileSettings
             {
                 FilePath = filePath,
 
@@ -144,7 +144,7 @@ namespace Kitpymes.Core.Logger.Serilog
                 throw new System.ArgumentNullException(nameof(to));
             }
 
-            SerilogSettings.Email = new SerilogEmailSettings
+            this.SerilogSettings.Email = new SerilogEmailSettings
             {
                 UserName = userName,
 

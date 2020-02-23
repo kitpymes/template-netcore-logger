@@ -33,12 +33,12 @@ _Logeo de errores para multiples proveedores_
 
 ✒️ Autores 
 
-**Kitpymes** - *Trabajo Inicial* - [kitpymes](https://github.com/kitpymes)
+* [kitpymes](https://github.com/kitpymes)
 
 
 📄 Licencia 
 
-Este proyecto está bajo la Licencia [LICENSE](LICENSE.txt)
+* Este proyecto está bajo la Licencia [LICENSE](LICENSE.txt)
 
 
 🎁 Gratitud 

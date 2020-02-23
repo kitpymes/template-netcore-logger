@@ -6,8 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{CA10A654-5178-4A29-BCA2-00E0DF903B2E}"
 	ProjectSection(SolutionItems) = preProject
 		docs\_config.yml = docs\_config.yml
-		docs\Directory.Build.props = docs\Directory.Build.props
-		docs\Directory.Build.targets = docs\Directory.Build.targets
+		.github\workflows\dotnetcore.yml = .github\workflows\dotnetcore.yml
 		docs\LICENSE.txt = docs\LICENSE.txt
 		docs\README.md = docs\README.md
 		docs\README_NUGET.md = docs\README_NUGET.md
@@ -48,11 +47,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signassembly", "signassembl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B56AC596-D457-44B1-9ADB-55402B0E3F3C}"
 	ProjectSection(SolutionItems) = preProject
-		docs\packages\Kitpymes.Core.Logger.Abstractions.nuspec = docs\packages\Kitpymes.Core.Logger.Abstractions.nuspec
-		docs\packages\Kitpymes.Core.Logger.nuspec = docs\packages\Kitpymes.Core.Logger.nuspec
-		docs\packages\Kitpymes.Core.Logger.Serilog.nuspec = docs\packages\Kitpymes.Core.Logger.Serilog.nuspec
 		docs\packages\notes_1.0.5.txt = docs\packages\notes_1.0.5.txt
 		docs\packages\notes_1.0.6.txt = docs\packages\notes_1.0.6.txt
+		docs\packages\notes_1.0.7.txt = docs\packages\notes_1.0.7.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kitpymes.Core.Logger.Serilog.Tests", "Kitpymes.Core.Logger.Serilog.Tests\Kitpymes.Core.Logger.Serilog.Tests.csproj", "{0FB9F618-E024-4B66-B4AA-78DB95F52C39}"
@@ -63,8 +60,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Api.Nuget", "Tests.Ap
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9DB7E48A-CBA7-4207-BF12-6DFA43A525CD}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\dotnetcore.yml = .github\workflows\dotnetcore.yml
+		.editorconfig = .editorconfig
+		Common.Build.props = Common.Build.props
 		global.json = global.json
+		Pack.Build.props = Pack.Build.props
 	EndProjectSection
 EndProject
 Global
