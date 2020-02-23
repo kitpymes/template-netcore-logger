@@ -1,14 +1,8 @@
-﻿# <img src="https://github.com/kitpymes/template-netcore-logger/raw/master/docs/images/logo.png" height="30px"> Logger
+﻿**Logeo de errores para múltiples proveedores**
 
-_Logeo de errores para multiples proveedores_
+[![Build Status](https://github.com/kitpymes/template-netcore-logger/workflows/Logger/badge.svg)](https://github.com/kitpymes/template-netcore-logger/actions) [![NuGet Status](https://img.shields.io/nuget/v/Kitpymes.Core.Logger)](https://www.nuget.org/packages/Kitpymes.Core.Logger/) [![License](https://img.shields.io/github/license/kitpymes/template-netcore-logger)](https://github.com/kitpymes/template-netcore-logger/blob/master/docs/LICENSE.txt) [![Size Repo](https://img.shields.io/github/repo-size/kitpymes/template-netcore-logger)](https://github.com/kitpymes/template-netcore-logger/) [![Last Commit](https://img.shields.io/github/last-commit/kitpymes/template-netcore-logger)](https://github.com/kitpymes/template-netcore-logger/)
 
-[![Build Status](https://github.com/kitpymes/template-netcore-logger/workflows/Logger/badge.svg)](https://github.com/kitpymes/template-netcore-logger/actions)
-[![NuGet Status](https://img.shields.io/nuget/v/Kitpymes.Core.Logger)](https://www.nuget.org/packages/Kitpymes.Core.Logger/)
-[![License](https://img.shields.io/github/license/kitpymes/template-netcore-logger)](https://github.com/kitpymes/template-netcore-logger/blob/master/docs/LICENSE.txt)
-[![Size Repo](https://img.shields.io/github/repo-size/kitpymes/template-netcore-logger)](https://github.com/kitpymes/template-netcore-logger/)
-[![Last Commit](https://img.shields.io/github/last-commit/kitpymes/template-netcore-logger)](https://github.com/kitpymes/template-netcore-logger/)
-
-📋 Requerimientos 
+## 📋 Requerimientos 
 
 * Visual Studio >= 2019 (v16.3)
 
@@ -18,9 +12,7 @@ _Logeo de errores para multiples proveedores_
 
 * C# >= 8.0
 
-* Conocimientos sobre Inyección de Dependencias
-
-🛠️ Construido con 
+## 🛠️ Construido con 
 
 * [NET Core](https://dotnet.microsoft.com/download) - Framework de trabajo
 * [C#](https://docs.microsoft.com/es-es/dotnet/csharp/) - Lenguaje de programación
@@ -31,20 +23,20 @@ _Logeo de errores para multiples proveedores_
 * [Serilog](https://serilog.net/) - Proveedor de logeo de errores
 
 
-✒️ Autores 
+## ✒️ Autores 
 
-* [kitpymes](https://github.com/kitpymes)
+* **Kitpymes** - *Trabajo Inicial* - [kitpymes](https://github.com/kitpymes)
 
 
-📄 Licencia 
+## 📄 Licencia 
 
 * Este proyecto está bajo la Licencia [LICENSE](LICENSE.txt)
 
 
-🎁 Gratitud 
+## 🎁 Gratitud 
 
 * Este proyecto fue diseñado para compartir, creemos que es la mejor forma de ayudar 📢
-* Cada persona que contribuya será invitada a tomar una 🍺 
+* Cada persona que contribuye será invitada a tomar una 🍺 
 * Gracias a todos! 🤓
 
 ---

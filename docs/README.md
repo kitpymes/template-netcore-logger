@@ -1,6 +1,6 @@
 ﻿# <img src="https://github.com/kitpymes/template-netcore-logger/raw/master/docs/images/logo.png" height="30px"> Logger
 
-_Logeo de errores para multiples proveedores_
+**Logeo de errores para multiples proveedores**
 
 [![Build Status](https://github.com/kitpymes/template-netcore-logger/workflows/Logger/badge.svg)](https://github.com/kitpymes/template-netcore-logger/actions)
 [![NuGet Status](https://img.shields.io/nuget/v/Kitpymes.Core.Logger)](https://www.nuget.org/packages/Kitpymes.Core.Logger/)
@@ -371,7 +371,7 @@ _Cada proveedor de logeo de errores tiene su proyecto de test, se ejecutan desde
 
 ## 📄 Licencia 
 
-Este proyecto está bajo la Licencia [LICENSE](LICENSE.txt)
+* Este proyecto está bajo la Licencia [LICENSE](LICENSE.txt)
 
 
 ## 🎁 Gratitud 
