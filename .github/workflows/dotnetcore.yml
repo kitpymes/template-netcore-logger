@@ -3,25 +3,25 @@ name: Logger
 on: [push]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        strategy:
-            matrix: 
-                dotnet: [ '3.0.100','3.0.101', '3.1.100' ]
+    strategy:
+      matrix:
+        dotnet: [ '3.0.100','3.0.101', '3.1.100' ]
 
-            name: Execute steps for NET Core ${{ matrix.dotnet }}
+    name: Build for .NET Core ${{ matrix.dotnet }}
 
-            steps:  
-            - uses: actions/checkout@v1
+    steps:  
+    - uses: actions/checkout@v1
      
-            - name: Setup
-                uses: actions/setup-dotnet@v1
-                with: 
-                    dotnet-version: ${{ matrix.dotnet }}
+    - name: Setup
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ matrix.dotnet }}
        
-            - name: Build 
-              run: dotnet build Solution.sln --configuration Release
+    - name: Build 
+      run: dotnet build Solution.sln --configuration Release
      
-            - name: Tests
-              run: dotnet test --configuration Release --no-build
+    - name: Tests
+      run: dotnet test --configuration Release --no-build
