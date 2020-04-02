@@ -20,6 +20,22 @@
 
 * Conocimientos sobre Inyección de Dependencias
 
+## 🔧 Instalación 
+
+_Logger se puede instalar usando el administrador de paquetes Nuget o CLI dotnet._
+
+_Nuget_
+
+```
+Install-Package Kitpymes.Core.Logger
+```
+
+_CLI dotnet_
+
+```
+dotnet add package Kitpymes.Core.Logger
+```
+
 ## ⌨️ Código
 
 ```cs
