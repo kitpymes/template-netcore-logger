@@ -1,3 +1,3 @@
-# Se organizaron las propiedades cómunes.
+# Se organizaron las propiedades comunes.
 # Se agregaron nuevos analizadores de código.
-# Se actualziaron librerías.
+# Se actualizaron librerías.
