@@ -1,5 +1,9 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="SerilogFileSettings.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger.Serilog
 {
@@ -34,7 +38,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public const LoggerFileInterval DefaultLoggerInterval = LoggerFileInterval.Day;
 
-        private bool enabled = false;
+        private bool enabled;
 
         private string filePath = DefaultFilePath;
 
@@ -43,7 +47,7 @@ namespace Kitpymes.Core.Logger.Serilog
         private string interval = DefaultLoggerInterval.ToString();
 
         /// <summary>
-        /// Propiedad donde se setea si el logeo de errores de archivos esta habiliato.
+        /// Obtiene o establece si el logeo de errores de archivos esta habiliato.
         /// </summary>
         public bool? Enabled
         {
@@ -58,7 +62,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea la ruta donde se generaran los archivos de errores.
+        /// Obtiene o establece la ruta donde se generaran los archivos de errores.
         /// </summary>
         public string? FilePath
         {
@@ -73,7 +77,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea si el nivel mínimo de error.
+        /// Obtiene o establece el nivel mínimo de error.
         /// </summary>
         public string? MinimumLevel
         {
@@ -88,7 +92,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea el intervalo para la creación de archivos.
+        /// Obtiene o establece el intervalo para la creación de archivos.
         /// </summary>
         public string? Interval
         {

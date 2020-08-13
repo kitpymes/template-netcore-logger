@@ -1,13 +1,16 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="ThreadEnricher.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger.Serilog
 {
-    using System;
     using System.Threading;
     using global::Serilog.Core;
     using global::Serilog.Events;
-    using Kitpymes.Core.Logger.Abstractions;
+    using Kitpymes.Core.Shared;
 
     /*
         Clase para enriquecer el logeo de errores ThreadEnricher

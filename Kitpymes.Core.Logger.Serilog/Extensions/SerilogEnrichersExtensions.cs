@@ -1,11 +1,15 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="SerilogEnrichersExtensions.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger.Serilog
 {
-    using System;
     using global::Serilog;
     using global::Serilog.Configuration;
+    using Kitpymes.Core.Shared;
 
     /*
         Clase de extensión SerilogEnrichersExtensions
@@ -27,14 +31,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="enrichmentConfiguration">Controla la configuración de las propiedades.</param>
         /// <returns>La clase LoggerConfiguration.</returns>
         public static LoggerConfiguration WithThread(this LoggerEnrichmentConfiguration enrichmentConfiguration)
-        {
-            if (enrichmentConfiguration is null)
-            {
-                throw new ArgumentNullException(nameof(enrichmentConfiguration));
-            }
-
-            return enrichmentConfiguration.With<ThreadEnricher>();
-        }
+        => enrichmentConfiguration.ToThrowIfNullOrEmpty(nameof(enrichmentConfiguration)).With<ThreadEnricher>();
 
         /// <summary>
         /// Agrega una propiedad con el nombre de la máquina.
@@ -42,14 +39,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="enrichmentConfiguration">Controla la configuración de las propiedades.</param>
         /// <returns>La clase LoggerConfiguration.</returns>
         public static LoggerConfiguration WithMachineName(this LoggerEnrichmentConfiguration enrichmentConfiguration)
-        {
-            if (enrichmentConfiguration is null)
-            {
-                throw new ArgumentNullException(nameof(enrichmentConfiguration));
-            }
-
-            return enrichmentConfiguration.With<MachineNameEnricher>();
-        }
+            => enrichmentConfiguration.ToThrowIfNullOrEmpty(nameof(enrichmentConfiguration)).With<MachineNameEnricher>();
 
         /// <summary>
         /// Agrega una propiedad con el id y el nombre del proceso.
@@ -57,14 +47,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="enrichmentConfiguration">Controla la configuración de las propiedades.</param>
         /// <returns>La clase LoggerConfiguration.</returns>
         public static LoggerConfiguration WithProcess(this LoggerEnrichmentConfiguration enrichmentConfiguration)
-        {
-            if (enrichmentConfiguration is null)
-            {
-                throw new ArgumentNullException(nameof(enrichmentConfiguration));
-            }
-
-            return enrichmentConfiguration.With<ProcessEnricher>();
-        }
+        => enrichmentConfiguration.ToThrowIfNullOrEmpty(nameof(enrichmentConfiguration)).With<ProcessEnricher>();
 
         /// <summary>
         /// Agrega una propiedad con el título del log.
@@ -73,13 +56,6 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="title">El título del log.</param>
         /// <returns>La clase LoggerConfiguration.</returns>
         public static LoggerConfiguration WithTitle(this LoggerEnrichmentConfiguration enrichmentConfiguration, string title)
-        {
-            if (enrichmentConfiguration is null)
-            {
-                throw new ArgumentNullException(nameof(enrichmentConfiguration));
-            }
-
-            return enrichmentConfiguration.With(new TitleEnricher(title));
-        }
+        => enrichmentConfiguration.ToThrowIfNullOrEmpty(nameof(enrichmentConfiguration)).With(new TitleEnricher(title));
     }
 }

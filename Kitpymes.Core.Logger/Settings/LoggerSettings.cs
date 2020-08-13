@@ -1,5 +1,9 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="LoggerSettings.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger
 {
@@ -15,8 +19,8 @@ namespace Kitpymes.Core.Logger
     public class LoggerSettings
     {
         /// <summary>
-        /// Propiedad donde se setea la configuración del logeo de errores de Serilog.
+        /// Obtiene o establece la configuración del logeo de errores de Serilog.
         /// </summary>
-        public SerilogSettings? Serilog { get; set; } = new SerilogSettings();
+        public SerilogSettings? SerilogSettings { get; set; } = new SerilogSettings();
     }
 }

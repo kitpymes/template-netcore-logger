@@ -5,11 +5,10 @@ VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{CA10A654-5178-4A29-BCA2-00E0DF903B2E}"
 	ProjectSection(SolutionItems) = preProject
-		docs\_config.yml = docs\_config.yml
-		.github\workflows\dotnetcore.yml = .github\workflows\dotnetcore.yml
 		docs\LICENSE.txt = docs\LICENSE.txt
 		docs\README.md = docs\README.md
 		docs\README_NUGET.md = docs\README_NUGET.md
+		docs\RELEASE_NOTES.txt = docs\RELEASE_NOTES.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screenshot", "screenshot", "{6ACA1779-CA16-4E21-8790-2D4E1326A77A}"
@@ -36,6 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{215718
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "analyzers", "analyzers", "{915A7562-25C7-4A2E-B655-9419262205FD}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		docs\analyzers\CodeAnalysis.ruleset = docs\analyzers\CodeAnalysis.ruleset
 		docs\analyzers\stylecop.json = docs\analyzers\stylecop.json
 	EndProjectSection
@@ -46,25 +46,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signassembly", "signassembl
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B56AC596-D457-44B1-9ADB-55402B0E3F3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{CAF41BEE-8705-4791-99A4-49C5B94885C5}"
 	ProjectSection(SolutionItems) = preProject
-		docs\packages\notes_1.0.5.txt = docs\packages\notes_1.0.5.txt
-		docs\packages\notes_1.0.6.txt = docs\packages\notes_1.0.6.txt
-		docs\packages\notes_1.0.7.txt = docs\packages\notes_1.0.7.txt
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kitpymes.Core.Logger.Serilog.Tests", "Kitpymes.Core.Logger.Serilog.Tests\Kitpymes.Core.Logger.Serilog.Tests.csproj", "{0FB9F618-E024-4B66-B4AA-78DB95F52C39}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Api", "Test.Api\Tests.Api.csproj", "{B75270D3-2127-4434-8313-EFFE2CE7A4CD}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Api.Nuget", "Tests.Api.Nuget\Tests.Api.Nuget.csproj", "{9F3BA6F6-7A19-4A3D-BF61-88206E3E893A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9DB7E48A-CBA7-4207-BF12-6DFA43A525CD}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		Common.Build.props = Common.Build.props
+		docs\_config.yml = docs\_config.yml
+		docs\props\Common.Build.props = docs\props\Common.Build.props
+		.github\workflows\dotnetcore.yml = .github\workflows\dotnetcore.yml
 		global.json = global.json
-		Pack.Build.props = Pack.Build.props
+		docs\props\Pack.Build.props = docs\props\Pack.Build.props
+		docs\props\tests.runsettings = docs\props\tests.runsettings
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{94B2B749-37E6-4BD8-B9A3-CC7C8C3444EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Api", "tests\Test.Api\Tests.Api.csproj", "{6153C9E9-71E4-40AE-AD08-0A22F8D7F1DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Api.Nuget", "tests\Tests.Api.Nuget\Tests.Api.Nuget.csproj", "{B5521E02-9237-4F47-8967-5CD33272AC2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kitpymes.Core.Logger.Serilog.Tests", "Kitpymes.Core.Logger.Serilog.Tests\Kitpymes.Core.Logger.Serilog.Tests.csproj", "{5F677C57-2789-46D0-9D28-E79326388C22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,18 +83,18 @@ Global
 		{FE640C4E-F993-4CCB-89FE-4A91CE2EC7B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE640C4E-F993-4CCB-89FE-4A91CE2EC7B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE640C4E-F993-4CCB-89FE-4A91CE2EC7B8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0FB9F618-E024-4B66-B4AA-78DB95F52C39}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B75270D3-2127-4434-8313-EFFE2CE7A4CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B75270D3-2127-4434-8313-EFFE2CE7A4CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B75270D3-2127-4434-8313-EFFE2CE7A4CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B75270D3-2127-4434-8313-EFFE2CE7A4CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9F3BA6F6-7A19-4A3D-BF61-88206E3E893A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F3BA6F6-7A19-4A3D-BF61-88206E3E893A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F3BA6F6-7A19-4A3D-BF61-88206E3E893A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F3BA6F6-7A19-4A3D-BF61-88206E3E893A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6153C9E9-71E4-40AE-AD08-0A22F8D7F1DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6153C9E9-71E4-40AE-AD08-0A22F8D7F1DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6153C9E9-71E4-40AE-AD08-0A22F8D7F1DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6153C9E9-71E4-40AE-AD08-0A22F8D7F1DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5521E02-9237-4F47-8967-5CD33272AC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5521E02-9237-4F47-8967-5CD33272AC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5521E02-9237-4F47-8967-5CD33272AC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5521E02-9237-4F47-8967-5CD33272AC2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F677C57-2789-46D0-9D28-E79326388C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F677C57-2789-46D0-9D28-E79326388C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F677C57-2789-46D0-9D28-E79326388C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F677C57-2789-46D0-9D28-E79326388C22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +105,9 @@ Global
 		{915A7562-25C7-4A2E-B655-9419262205FD} = {CA10A654-5178-4A29-BCA2-00E0DF903B2E}
 		{3289D48F-BC52-4244-90E0-92A0FF4FD299} = {CA10A654-5178-4A29-BCA2-00E0DF903B2E}
 		{B56AC596-D457-44B1-9ADB-55402B0E3F3C} = {CA10A654-5178-4A29-BCA2-00E0DF903B2E}
+		{CAF41BEE-8705-4791-99A4-49C5B94885C5} = {CA10A654-5178-4A29-BCA2-00E0DF903B2E}
+		{6153C9E9-71E4-40AE-AD08-0A22F8D7F1DE} = {94B2B749-37E6-4BD8-B9A3-CC7C8C3444EC}
+		{B5521E02-9237-4F47-8967-5CD33272AC2F} = {94B2B749-37E6-4BD8-B9A3-CC7C8C3444EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D1FAED4-9FFC-4037-BCBB-B3A1149047B3}

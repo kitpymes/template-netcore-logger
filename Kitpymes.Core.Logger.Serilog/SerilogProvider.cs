@@ -1,5 +1,9 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="SerilogProvider.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger.Serilog
 {
@@ -22,7 +26,7 @@ namespace Kitpymes.Core.Logger.Serilog
     public class SerilogProvider : Abstractions.ILogger, Abstractions.ILoggerService
     {
         /// <summary>
-        /// Implementación de la clase <c>SerilogProvider</c>.
+        /// Inicializa una nueva instancia de la clase <see cref="SerilogProvider"/>.
         /// </summary>
         /// <param name="settings">Configuración de Serilog.</param>
         public SerilogProvider(SerilogSettings settings)

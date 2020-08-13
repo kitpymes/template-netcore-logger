@@ -1,5 +1,9 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="LoggerOptions.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger
 {
@@ -21,12 +25,12 @@ namespace Kitpymes.Core.Logger
     public class LoggerOptions
     {
         /// <summary>
-        /// Propiedad donde se setea si el proveedor de errores Serilog esta habiliato.
+        /// Obtiene un valor que indica si el proveedor de errores Serilog esta habiliato.
         /// </summary>
-        public bool IsSerilogEnabled { get; private set; } = false;
+        public bool IsSerilogEnabled { get; private set; }
 
         /// <summary>
-        /// Propiedad donde se setea si las opciones del proveedor de errores Serilog.
+        /// Obtiene un valor que indica si las opciones del proveedor de errores Serilog.
         /// </summary>
         public Action<SerilogOptions> SerilogOptions { get; private set; } = x => { };
 

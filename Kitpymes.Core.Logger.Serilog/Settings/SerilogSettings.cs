@@ -1,5 +1,9 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="SerilogSettings.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger.Serilog
 {
@@ -18,17 +22,17 @@ namespace Kitpymes.Core.Logger.Serilog
     public class SerilogSettings
     {
         /// <summary>
-        /// Propiedad donde se setea la configuración del logeo de errores de consola.
+        /// Obtiene o establece la configuración del logeo de errores de consola.
         /// </summary>
         public SerilogConsoleSettings Console { get; set; } = new SerilogConsoleSettings();
 
         /// <summary>
-        /// Propiedad donde se setea la configuración del logeo de errores de archivos.
+        /// Obtiene o establece la configuración del logeo de errores de archivos.
         /// </summary>
         public SerilogFileSettings File { get; set; } = new SerilogFileSettings();
 
         /// <summary>
-        /// Propiedad donde se setea la configuración del logeo de errores de email.
+        /// Obtiene o establece la configuración del logeo de errores de email.
         /// </summary>
         public SerilogEmailSettings Email { get; set; } = new SerilogEmailSettings();
     }

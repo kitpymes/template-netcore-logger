@@ -1,11 +1,16 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="Log.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger
 {
     using System;
     using Kitpymes.Core.Logger.Abstractions;
     using Kitpymes.Core.Logger.Serilog;
+    using Kitpymes.Core.Shared;
     using Microsoft.Extensions.Configuration;
 
     /*
@@ -31,7 +36,7 @@ namespace Kitpymes.Core.Logger
         {
             var settings = configuration?.GetSection(nameof(LoggerSettings))?.Get<LoggerSettings>();
 
-            var serilog = settings?.Serilog ?? new SerilogSettings();
+            var serilog = settings?.SerilogSettings ?? new SerilogSettings();
 
             return UseSerilog(serilog);
         }
@@ -41,7 +46,7 @@ namespace Kitpymes.Core.Logger
         /// </summary>
         /// <param name="options">Las opciones del proveedor de errores Serilog.</param>
         /// <returns>La interface ILoggerService.</returns>
-        public static ILoggerService UseSerilog(Action<SerilogOptions> options) 
+        public static ILoggerService UseSerilog(Action<SerilogOptions> options)
         => UseSerilog(options.ToConfigureOrDefault().SerilogSettings);
 
         /// <summary>
@@ -49,7 +54,7 @@ namespace Kitpymes.Core.Logger
         /// </summary>
         /// <param name="settings">La configuración del proveedor de errores Serilog.</param>
         /// <returns>La interface ILoggerService.</returns>
-        public static ILoggerService UseSerilog(SerilogSettings settings)
+        private static ILoggerService UseSerilog(SerilogSettings settings)
         => new SerilogProvider(settings);
     }
 }

@@ -1,5 +1,9 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="SerilogEmailSettings.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger.Serilog
 {
@@ -49,7 +53,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public const LoggerLevel DefaultMinimumLevel = LoggerLevel.Error;
 
-        private bool enabled = false;
+        private bool enabled;
 
         private bool enableSsl = DefaultEnableSsl;
 
@@ -64,32 +68,32 @@ namespace Kitpymes.Core.Logger.Serilog
         private string outputTemplate = DefaultOutputTemplate;
 
         /// <summary>
-        /// Propiedad donde se setea el nombre del usuario para el envio de email.
+        /// Obtiene o establece el nombre del usuario para el envio de email.
         /// </summary>
         public string? UserName { get; set; }
 
         /// <summary>
-        /// Propiedad donde se setea la contraseña para el envio de email.
+        /// Obtiene o establece la contraseña para el envio de email.
         /// </summary>
         public string? Password { get; set; }
 
         /// <summary>
-        /// Propiedad donde se setea el servidor para el envio de email.
+        /// Obtiene o establece el servidor para el envio de email.
         /// </summary>
         public string? Server { get; set; }
 
         /// <summary>
-        /// Propiedad donde se setea el email que envia el correo.
+        /// Obtiene o establece el email que envia el correo.
         /// </summary>
         public string? From { get; set; }
 
         /// <summary>
-        /// Propiedad donde se setea el email a quien va dirigido el correo.
+        /// Obtiene o establece el email a quien va dirigido el correo.
         /// </summary>
         public string? To { get; set; }
 
         /// <summary>
-        /// Propiedad donde se setea si el logeo de errores de email esta habiliato.
+        /// Obtiene o establece si el logeo de errores de email esta habiliato.
         /// </summary>
         public bool? Enabled
         {
@@ -104,7 +108,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea si el uso de Ssl esta habiliato.
+        /// Obtiene o establece si el uso de Ssl esta habiliato.
         /// </summary>
         public bool? EnableSsl
         {
@@ -119,7 +123,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea el puerto para el envio del email.
+        /// Obtiene o establece el puerto para el envio del email.
         /// </summary>
         public int? Port
         {
@@ -134,7 +138,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea si el uso de Body Html esta habiliato.
+        /// Obtiene o establece si el uso de Body Html esta habiliato.
         /// </summary>
         public bool? IsBodyHtml
         {
@@ -149,7 +153,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea asunto del correo.
+        /// Obtiene o establece el asunto del correo.
         /// </summary>
         public string? Subject
         {
@@ -164,7 +168,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea si el nivel mínimo de error.
+        /// Obtiene o establece el nivel mínimo de error.
         /// </summary>
         public string? MinimumLevel
         {
@@ -179,7 +183,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea la plantilla de salida por defecto.
+        /// Obtiene o establece la plantilla de salida por defecto.
         /// </summary>
         public string? OutputTemplate
         {

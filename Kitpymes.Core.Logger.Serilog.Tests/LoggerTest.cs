@@ -19,7 +19,7 @@ namespace Kitpymes.Core.Logger.Serilog.Tests
 
             var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 
-            var settings = configuration?.GetSection("LoggerSettings:Serilog")?.Get<SerilogSettings>();
+            var settings = configuration?.GetSection("LoggerSettings:SerilogSettings")?.Get<SerilogSettings>();
 
             if(settings != null)
             {

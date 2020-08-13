@@ -1,10 +1,15 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="SerilogServiceCollectionExtensions.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger.Serilog
 {
     using System;
     using Kitpymes.Core.Logger.Abstractions;
+    using Kitpymes.Core.Shared;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -28,12 +33,9 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="services">Colección de servicios.</param>
         /// <param name="settings">Configuración de Serilog.</param>
         /// <returns>La interface ILoggerService.</returns>
-        public static ILoggerService LoadSerilog
-        (
+        public static ILoggerService LoadSerilog(
             this IServiceCollection services,
-            
-            SerilogSettings settings
-        )
+            SerilogSettings settings)
         {
             services.TryAddSingleton<ILoggerService>(new SerilogProvider(settings));
 
@@ -46,12 +48,9 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="services">Colección de servicios.</param>
         /// <param name="options">Configuración de Serilog.</param>
         /// <returns>La interface ILoggerService.</returns>
-        public static ILoggerService LoadSerilog
-        (
+        public static ILoggerService LoadSerilog(
             this IServiceCollection services,
-
-            Action<SerilogOptions> options
-        )
+            Action<SerilogOptions> options)
         => services.LoadSerilog(options.ToConfigureOrDefault().SerilogSettings);
     }
 }

@@ -1,0 +1,12 @@
+# v.1.0.8
+- Se agrega la referencia a la librería Kitpymes.Core.Shared.
+
+# v.1.0.7
+- Se organizaron las propiedades comunes.
+- Se agregaron nuevos analizadores de código.
+
+# v.1.0.6
+- Se actualizaron librerías.
+
+# v.1.0.5
+- Se agregaron los comentarios al logeo de errores.

@@ -1,5 +1,9 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="SerilogOptions.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger.Serilog
 {
@@ -20,7 +24,7 @@ namespace Kitpymes.Core.Logger.Serilog
     public class SerilogOptions
     {
         /// <summary>
-        /// Propiedad donde se setea la configuración de Serilog.
+        /// Obtiene la configuración de Serilog.
         /// </summary>
         public SerilogSettings SerilogSettings { get; private set; } = new SerilogSettings();
 
@@ -30,12 +34,9 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="minimumLevel">Nivel mínimo de error habilidato por defecto.</param>
         /// <param name="outputTemplate">Plantilla de salida por defecto.</param>
         /// <returns>La clase SerilogOptions.</returns>
-        public SerilogOptions AddConsole
-        (
+        public SerilogOptions AddConsole(
             LoggerLevel minimumLevel = SerilogConsoleSettings.DefaultMinimumLevel,
-
-            string outputTemplate = SerilogConsoleSettings.DefaultOutputTemplate
-        )
+            string outputTemplate = SerilogConsoleSettings.DefaultOutputTemplate)
         {
             this.SerilogSettings.Console = new SerilogConsoleSettings
             {
@@ -56,14 +57,10 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="minimumLevel">Nivel mínimo de error habilidato por defecto.</param>
         /// <param name="interval">Intervalo para la creaciñon de archivos.</param>
         /// <returns>La clase SerilogOptions.</returns>
-        public SerilogOptions AddFile
-        (
+        public SerilogOptions AddFile(
             string filePath = SerilogFileSettings.DefaultFilePath,
-
             LoggerLevel minimumLevel = SerilogFileSettings.DefaultMinimumLevel,
-
-            LoggerFileInterval interval = SerilogFileSettings.DefaultLoggerInterval
-        )
+            LoggerFileInterval interval = SerilogFileSettings.DefaultLoggerInterval)
         {
             this.SerilogSettings.File = new SerilogFileSettings
             {
@@ -94,30 +91,18 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="loggerMinimumLevel">El nivel mínimo de error.</param>
         /// <param name="outputTemplate">Plantilla de salida.</param>
         /// <returns>La clase SerilogOptions.</returns>
-        public SerilogOptions AddEmail
-        (
+        public SerilogOptions AddEmail(
             string userName,
-
             string password,
-
             string server,
-
             string from,
-
             string to,
-
             bool enableSsl = SerilogEmailSettings.DefaultEnableSsl,
-
             int port = SerilogEmailSettings.DefaultPort,
-
             string subject = SerilogEmailSettings.DefaultSubject,
-
             bool isBodyHtml = SerilogEmailSettings.DefaultIsBodyHtml,
-
             LoggerLevel loggerMinimumLevel = SerilogEmailSettings.DefaultMinimumLevel,
-
-            string outputTemplate = SerilogEmailSettings.DefaultOutputTemplate
-        )
+            string outputTemplate = SerilogEmailSettings.DefaultOutputTemplate)
         {
             if (string.IsNullOrWhiteSpace(userName))
             {

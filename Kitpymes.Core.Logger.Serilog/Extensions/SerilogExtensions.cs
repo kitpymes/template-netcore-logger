@@ -1,11 +1,15 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="SerilogExtensions.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger.Serilog
 {
-    using System;
     using System.Net;
     using global::Serilog;
+    using Kitpymes.Core.Shared;
     using Seri = global::Serilog;
 
     /*
@@ -29,21 +33,12 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="title">El título del log.</param>
         /// <returns>La clase LoggerConfiguration.</returns>
         public static LoggerConfiguration AddDefaultSettings(this LoggerConfiguration loggerConfiguration, string title)
-        {
-            if (loggerConfiguration is null)
-            {
-                throw new ArgumentNullException(nameof(loggerConfiguration));
-            }
-
-            Seri.Debugging.SelfLog.Enable(Console.Error);
-
-            return loggerConfiguration
-                .Enrich.FromLogContext()
-                .Enrich.WithTitle(title)
-                .Enrich.WithMachineName()
-                .Enrich.WithProcess()
-                .Enrich.WithThread();
-        }
+        => loggerConfiguration.ToThrowIfNullOrEmpty(nameof(loggerConfiguration))
+            .Enrich.FromLogContext()
+            .Enrich.WithTitle(title)
+            .Enrich.WithMachineName()
+            .Enrich.WithProcess()
+            .Enrich.WithThread();
 
         /// <summary>
         /// Habilita el log de consola.
@@ -53,14 +48,9 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La clase LoggerConfiguration.</returns>
         public static LoggerConfiguration AddConsole(this LoggerConfiguration loggerConfiguration, SerilogConsoleSettings? settings)
         {
-            if (loggerConfiguration is null)
-            {
-                throw new ArgumentNullException(nameof(loggerConfiguration));
-            }
-
             if (settings != null && settings.Enabled.HasValue && settings.Enabled.Value)
             {
-                loggerConfiguration.WriteTo.Console(
+                loggerConfiguration.ToThrowIfNullOrEmpty(nameof(loggerConfiguration)).WriteTo.Console(
                     theme: Seri.Sinks.SystemConsole.Themes.AnsiConsoleTheme.Code,
                     outputTemplate: settings.OutputTemplate,
                     restrictedToMinimumLevel: settings.MinimumLevel.ToMinimumLevel());
@@ -77,14 +67,9 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La clase LoggerConfiguration.</returns>
         public static LoggerConfiguration AddFile(this LoggerConfiguration loggerConfiguration, SerilogFileSettings? settings)
         {
-            if (loggerConfiguration is null)
-            {
-                throw new ArgumentNullException(nameof(loggerConfiguration));
-            }
-
             if (settings != null && settings.Enabled.HasValue && settings.Enabled.Value)
             {
-                loggerConfiguration.WriteTo.Async(x => x.File(
+                loggerConfiguration.ToThrowIfNullOrEmpty(nameof(loggerConfiguration)).WriteTo.Async(x => x.File(
                     formatter: new Seri.Formatting.Json.JsonFormatter(),
                     path: settings.FilePath,
                     restrictedToMinimumLevel: settings.MinimumLevel.ToMinimumLevel(),
@@ -103,49 +88,16 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <returns>La clase LoggerConfiguration.</returns>
         public static LoggerConfiguration AddEmail(this LoggerConfiguration loggerConfiguration, SerilogEmailSettings? settings)
         {
-            if (loggerConfiguration is null)
-            {
-                throw new ArgumentNullException(nameof(loggerConfiguration));
-            }
-
             if (settings != null && settings.Enabled.HasValue && settings.Enabled.Value)
             {
-                if (string.IsNullOrWhiteSpace(settings.UserName))
-                {
-                    throw new ArgumentNullException(nameof(settings.UserName));
-                }
+                settings.UserName.ToThrowIfNullOrEmpty(nameof(settings.UserName));
+                settings.Password.ToThrowIfNullOrEmpty(nameof(settings.Password));
+                settings.From.ToThrowIfNullOrEmpty(nameof(settings.From));
+                settings.To.ToThrowIfNullOrEmpty(nameof(settings.To));
+                settings.Port.ToThrowIfNullOrEmpty(nameof(settings.Port));
+                settings.EnableSsl.ToThrowIfNullOrEmpty(nameof(settings.EnableSsl));
 
-                if (string.IsNullOrWhiteSpace(settings.Password))
-                {
-                    throw new ArgumentNullException(nameof(settings.Password));
-                }
-
-                if (string.IsNullOrWhiteSpace(settings.Server))
-                {
-                    throw new ArgumentNullException(nameof(settings.Server));
-                }
-
-                if (string.IsNullOrWhiteSpace(settings.From))
-                {
-                    throw new ArgumentNullException(nameof(settings.From));
-                }
-
-                if (string.IsNullOrWhiteSpace(settings.To))
-                {
-                    throw new ArgumentNullException(nameof(settings.To));
-                }
-
-                if (!settings.Port.HasValue)
-                {
-                    throw new ArgumentNullException(nameof(settings.Port));
-                }
-
-                if (!settings.EnableSsl.HasValue)
-                {
-                    throw new ArgumentNullException(nameof(settings.EnableSsl));
-                }
-
-                loggerConfiguration.WriteTo.Email(
+                loggerConfiguration.ToThrowIfNullOrEmpty(nameof(loggerConfiguration)).WriteTo.Email(
                     new Seri.Sinks.Email.EmailConnectionInfo
                     {
                         NetworkCredentials = new NetworkCredential
@@ -181,8 +133,9 @@ namespace Kitpymes.Core.Logger.Serilog
         /// Convierte el nivel del log génerico al nivel de log de Serilog.
         /// </summary>
         /// <param name="loggerLevel">El nivel mínimo habilitado para el log de errores.</param>
+        /// <param name="defaulLevel">Nivel por defecto a devolver.</param>
         /// <returns>El nivel mínimo de serilog LogEventLevel.</returns>
-        public static Seri.Events.LogEventLevel ToMinimumLevel(this string? loggerLevel)
+        public static Seri.Events.LogEventLevel ToMinimumLevel(this string? loggerLevel, Seri.Events.LogEventLevel defaulLevel = Seri.Events.LogEventLevel.Information)
         {
             var logEventLevel = loggerLevel switch
             {
@@ -191,7 +144,7 @@ namespace Kitpymes.Core.Logger.Serilog
                 "Info" => Seri.Events.LogEventLevel.Information,
                 "Error" => Seri.Events.LogEventLevel.Error,
                 "Fatal" => Seri.Events.LogEventLevel.Fatal,
-                _ => Seri.Events.LogEventLevel.Information,
+                _ => defaulLevel,
             };
 
             return logEventLevel;
@@ -211,8 +164,9 @@ namespace Kitpymes.Core.Logger.Serilog
         /// Convierte el intervalo génerico para la creación de archivos a el intervalo génerico de Serilog.
         /// </summary>
         /// <param name="loggerInterval">El intervalo génerico para la creación de archivos.</param>
+        /// <param name="defaulInterval">Intervalo por defecto a devolver.</param>
         /// <returns>El intervalo de Serilog RollingInterval.</returns>
-        public static RollingInterval ToRollingInterval(this string? loggerInterval)
+        public static RollingInterval ToRollingInterval(this string? loggerInterval, RollingInterval defaulInterval = RollingInterval.Day)
         {
             var rollingInterval = loggerInterval switch
             {
@@ -221,7 +175,7 @@ namespace Kitpymes.Core.Logger.Serilog
                 "Month" => RollingInterval.Month,
                 "Hour" => RollingInterval.Hour,
                 "Minute" => RollingInterval.Minute,
-                _ => RollingInterval.Day,
+                _ => defaulInterval,
             };
 
             return rollingInterval;

@@ -1,5 +1,9 @@
-﻿// Copyright (c) Kitpymes. All rights reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="SerilogConsoleSettings.cs" company="Kitpymes">
+// Copyright (c) Kitpymes. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project docs folder for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Kitpymes.Core.Logger.Serilog
 {
@@ -29,14 +33,14 @@ namespace Kitpymes.Core.Logger.Serilog
         /// </summary>
         public const LoggerLevel DefaultMinimumLevel = LoggerLevel.Info;
 
-        private bool enabled = false;
+        private bool enabled;
 
         private string minimumLevel = DefaultMinimumLevel.ToString();
 
         private string outputTemplate = DefaultOutputTemplate;
 
         /// <summary>
-        /// Propiedad donde se setea si el logeo de errores de consola esta habiliato.
+        /// Obtiene o establece si el logeo de errores de consola esta habiliato.
         /// </summary>
         public bool? Enabled
         {
@@ -51,7 +55,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea si el nivel mínimo de error.
+        /// Obtiene o establece el nivel mínimo de error.
         /// </summary>
         public string MinimumLevel
         {
@@ -66,7 +70,7 @@ namespace Kitpymes.Core.Logger.Serilog
         }
 
         /// <summary>
-        /// Propiedad donde se setea la plantilla de salida por defecto.
+        /// Obtiene o establece la plantilla de salida por defecto.
         /// </summary>
         public string? OutputTemplate
         {

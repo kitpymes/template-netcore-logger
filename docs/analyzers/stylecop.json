@@ -1,11 +1,25 @@
 {
   "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
-  "settings": {
-    "documentationRules": {
-        "companyName": "Kitpymes",
-        "copyrightText": "Copyright (c) Kitpymes. All rights reserved.\nLicensed under the MIT license. See LICENSE file in the project docs folder for full license information.",
-        "xmlHeader": false,
-        "documentInternalElements": false
+    "settings": {
+        "documentationRules": {
+            "companyName": "Kitpymes",
+            "copyrightText": "Copyright (c) Kitpymes. All rights reserved.\nLicensed under the MIT license. See LICENSE file in the project docs folder for full license information.",
+            "xmlHeader": true,
+            "headerDecoration": "-----------------------------------------------------------------------",
+            "documentInternalElements": false,
+            "documentationCulture": "es-MX",        
+            "variables": {
+                "licenseName": "MIT",
+                "licenseFile": "LICENSE"
+            }
+        },
+        "indentation": {
+            // El número de columnas a usar para cada sangría de código. Dependiendo de las configuraciones useTabs y tabSize, esto se rellenará con tabs y / o espacios.
+            "indentationSize": 4,
+            // El ancho de un carácter de tabulación duro en el código fuente. Este valor se utiliza al convertir entre tabs y espacios.
+            "tabSize": 4,
+            // true: para usar tabs fijos, false: para usar sangría de espacios 
+            "useTabs": false
+        }   
     }
-  }
 }

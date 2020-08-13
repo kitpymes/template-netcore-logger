@@ -108,7 +108,7 @@ public enum LoggerFileInterval
 ```js
 {
     "LoggerSettings": {
-        "Serilog": {
+        "SerilogSettings": {
             "Console": {
                 "Enabled": null, // (bool) Default: false
                 "MinimumLevel": null, // (string) Default: "Info" | Options: Trace, Debug, Info, Error
@@ -141,41 +141,38 @@ public enum LoggerFileInterval
 
 ### Para utilizarlo con inyección de dependencia
 
-**Option 1**
+**Opción 1: configuración desde el appsetings**
 
 ```cs
-services.LoadLogger(Configuration);
+public void ConfigureServices(IServiceCollection services)
+{
+    services.LoadLogger(Configuration);
+}
 ```
 
-**Option 2**
+**Opción 2: configuración manual**
 
 ```cs
-services.LoadLogger(loggers =>
+public void ConfigureServices(IServiceCollection services)
 {
-    loggers.UseSerilog(serilog =>
+    services.LoadLogger(loggers =>
     {
-		serilog
-			.AddConsole()
-			.AddFile()
-			.AddEmail
-			(
-				userName: "admin@app.com", 
-				password: "password",
-				server: "smtp.gmail.com",
-				from: "admin@app.com",
-				to: "error@app.com"
-			);
+        loggers.UseSerilog(serilog =>
+        {
+		    serilog
+			    .AddConsole()
+			    .AddFile()
+			    .AddEmail
+			    (
+				    userName: "admin@app.com", 
+				    password: "password",
+				    server: "smtp.gmail.com",
+				    from: "admin@app.com",
+				    to: "error@app.com"
+			    );
+        });
     });
-});
-```
-
-**Option 3**
-
-```cs
-services.LoadLogger(new SerilogSettings 
-{
-	// Custom values
-});
+}
 ```
 
 **Ejemplo**
@@ -264,28 +261,6 @@ var logger = Log.UseSerilog(serilog =>
 })
 .CreateLogger<Program>();
 ```
-
-**Option 3**
-
-```cs
-var logger = Log.UseSerilog(new SerilogSettings 
-{
-	Console = new SerilogConsoleSettings
-    {
-        Enabled = true
-    },
-    File = new SerilogFileSettings
-    {
-        Enabled = true
-    },
-    Email = new SerilogEmailSettings
-    {
-        Enabled = false
-    }
-
-}).CreateLogger<Program>();
-```
-
 **Ejemplo**
 
 ```cs

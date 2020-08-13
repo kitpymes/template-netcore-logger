@@ -5,12 +5,12 @@
   <Choose>
     <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
       <PropertyGroup>
-        <Version>1.0.7</Version>
+        <Version>1.0.8</Version>
         <ApplicationIcon>$(SolutionDir)docs\images\logo.ico</ApplicationIcon>
         <PackageId>$(AssemblyName)</PackageId>
         <Authors>Kitpymes, Sebastian R Ferrari</Authors>
         <Owners>Kitpymes</Owners>
-        <Title>Logger</Title>
+        <Title>Kitpymes.Core.Logger</Title>
         <Copyright>Copyright © $([System.DateTime]::Now.Year) by Kitpymes and Contributors. All rights reserved.</Copyright>
         <Description>Logeo de errores para multi proveedores.</Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -18,7 +18,7 @@
         <PackageLicenseType>file</PackageLicenseType>
         <PackageIcon>logo.png</PackageIcon>
         <PackageProjectUrl>https://kitpymes.github.io/template-netcore-logger/</PackageProjectUrl>
-        <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/packages/notes_$(Version).txt</PackageReleaseNotes>
+        <PackageReleaseNotes>https://github.com/kitpymes/template-netcore-logger/tree/master/docs/RELEASE_NOTES.txt</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/kitpymes/template-netcore-logger</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>Log, Logger, Logging, Error, Logeo, Registrar, Registrador</PackageTags>

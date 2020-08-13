@@ -1,4 +1,4 @@
-name: Logger
+name: Kitpymes.Core.Logger
 
 on: [push]
 
@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        dotnet: [ '3.0.100','3.0.101', '3.1.100' ]
+        dotnet: [ '3.0.100', '3.1.100', '3.1.302' ]
 
     name: Build for .NET Core ${{ matrix.dotnet }}
 
