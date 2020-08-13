@@ -3,11 +3,11 @@
   <Import Project="$(SolutionDir)docs/props/Common.Build.props" Condition="Exists('$(SolutionDir)docs/props/Common.Build.props')" />
   
   <ItemGroup>
-    <PackageReference Include="Kitpymes.Core.Logger" Version="1.0.8" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   
   <ItemGroup>
-    <Folder Include="Logs\" />
+    <PackageReference Include="Kitpymes.Core.Logger" Version="1.0.8" />
   </ItemGroup>
 
 </Project>
