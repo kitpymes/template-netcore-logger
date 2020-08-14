@@ -2,7 +2,7 @@
 
 **Logeo de errores para multiples proveedores**
 
-[![Build Status](https://github.com/kitpymes/template-netcore-logger/workflows/Logger/badge.svg)](https://github.com/kitpymes/template-netcore-logger/actions)
+[![Build Status](https://github.com/kitpymes/template-netcore-logger/workflows/Build/badge.svg)](https://github.com/kitpymes/template-netcore-logger/actions)
 [![NuGet Status](https://img.shields.io/nuget/v/Kitpymes.Core.Logger)](https://www.nuget.org/packages/Kitpymes.Core.Logger/)
 [![NuGet Download](https://img.shields.io/nuget/dt/Kitpymes.Core.Logger)](https://www.nuget.org/stats/packages/Kitpymes.Core.Logger?groupby=Version)
 [![License](https://img.shields.io/github/license/kitpymes/template-netcore-logger)](https://github.com/kitpymes/template-netcore-logger/blob/master/docs/LICENSE.txt)
