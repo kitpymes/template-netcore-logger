@@ -105,11 +105,13 @@
         </AdditionalFiles>
       </ItemGroup>
     </When>
+    <!--
     <Otherwise>
       <PropertyGroup>
         <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
       </PropertyGroup>
     </Otherwise>
+     -->
   </Choose>
 
   <!-- Documentation -->

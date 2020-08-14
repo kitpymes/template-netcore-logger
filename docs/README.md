@@ -1,4 +1,4 @@
-﻿# <img src="https://github.com/kitpymes/template-netcore-logger/raw/master/docs/images/logo.png" height="30px"> Logger
+﻿# <img src="https://github.com/kitpymes/template-netcore-logger/raw/master/docs/images/logo.png" height="30px"> Kitpymes.Core.Logger
 
 **Logeo de errores para multiples proveedores**
 
