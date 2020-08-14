@@ -1,5 +1,8 @@
+# v.1.0.9
+- Se agrega la referencia a la librería Kitpymes.Core.Shared 1.0.4.
+
 # v.1.0.8
-- Se agrega la referencia a la librería Kitpymes.Core.Shared.
+- Se agrega la referencia a la librería Kitpymes.Core.Shared 1.0.3.
 
 # v.1.0.7
 - Se organizaron las propiedades comunes.
