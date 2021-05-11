@@ -1,3 +1,6 @@
+# v.1.0.10
+- Se actualiza la versión de la librería Kitpymes.Core.Shared.
+
 # v.1.0.9
 - Se agrega la referencia a la librería Kitpymes.Core.Shared 1.0.4.
 
