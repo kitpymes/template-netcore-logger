@@ -4,10 +4,13 @@
   <Import Project="$(SolutionDir)docs/props/Pack.Build.props" Condition="Exists('$(SolutionDir)docs/props/Pack.Build.props')" />
 
   <ItemGroup>
-    <PackageReference Include="Kitpymes.Core.Shared" Version="1.0.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Kitpymes.Core.Shared" Version="1.0.8" />
   </ItemGroup>
 
   <ItemGroup>

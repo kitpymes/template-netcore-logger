@@ -33,7 +33,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="title">El título del log.</param>
         /// <returns>La clase LoggerConfiguration.</returns>
         public static LoggerConfiguration AddDefaultSettings(this LoggerConfiguration loggerConfiguration, string title)
-        => loggerConfiguration.ToThrowIfNullOrEmpty(nameof(loggerConfiguration))
+        => loggerConfiguration.ToIsNullOrEmptyThrow(nameof(loggerConfiguration))
             .Enrich.FromLogContext()
             .Enrich.WithTitle(title)
             .Enrich.WithMachineName()
@@ -50,7 +50,7 @@ namespace Kitpymes.Core.Logger.Serilog
         {
             if (settings != null && settings.Enabled.HasValue && settings.Enabled.Value)
             {
-                loggerConfiguration.ToThrowIfNullOrEmpty(nameof(loggerConfiguration)).WriteTo.Console(
+                loggerConfiguration.ToIsNullOrEmptyThrow(nameof(loggerConfiguration)).WriteTo.Console(
                     theme: Seri.Sinks.SystemConsole.Themes.AnsiConsoleTheme.Code,
                     outputTemplate: settings.OutputTemplate,
                     restrictedToMinimumLevel: settings.MinimumLevel.ToMinimumLevel());
@@ -69,7 +69,7 @@ namespace Kitpymes.Core.Logger.Serilog
         {
             if (settings != null && settings.Enabled.HasValue && settings.Enabled.Value)
             {
-                loggerConfiguration.ToThrowIfNullOrEmpty(nameof(loggerConfiguration)).WriteTo.Async(x => x.File(
+                loggerConfiguration.ToIsNullOrEmptyThrow(nameof(loggerConfiguration)).WriteTo.Async(x => x.File(
                     formatter: new Seri.Formatting.Json.JsonFormatter(),
                     path: settings.FilePath,
                     restrictedToMinimumLevel: settings.MinimumLevel.ToMinimumLevel(),
@@ -90,14 +90,14 @@ namespace Kitpymes.Core.Logger.Serilog
         {
             if (settings != null && settings.Enabled.HasValue && settings.Enabled.Value)
             {
-                settings.UserName.ToThrowIfNullOrEmpty(nameof(settings.UserName));
-                settings.Password.ToThrowIfNullOrEmpty(nameof(settings.Password));
-                settings.From.ToThrowIfNullOrEmpty(nameof(settings.From));
-                settings.To.ToThrowIfNullOrEmpty(nameof(settings.To));
-                settings.Port.ToThrowIfNullOrEmpty(nameof(settings.Port));
-                settings.EnableSsl.ToThrowIfNullOrEmpty(nameof(settings.EnableSsl));
+                settings.UserName.ToIsNullOrEmptyThrow(nameof(settings.UserName));
+                settings.Password.ToIsNullOrEmptyThrow(nameof(settings.Password));
+                settings.From.ToIsNullOrEmptyThrow(nameof(settings.From));
+                settings.To.ToIsNullOrEmptyThrow(nameof(settings.To));
+                settings.Port.ToIsNullOrEmptyThrow(nameof(settings.Port));
+                settings.EnableSsl.ToIsNullOrEmptyThrow(nameof(settings.EnableSsl));
 
-                loggerConfiguration.ToThrowIfNullOrEmpty(nameof(loggerConfiguration)).WriteTo.Email(
+                loggerConfiguration.ToIsNullOrEmptyThrow(nameof(loggerConfiguration)).WriteTo.Email(
                     new Seri.Sinks.Email.EmailConnectionInfo
                     {
                         NetworkCredentials = new NetworkCredential

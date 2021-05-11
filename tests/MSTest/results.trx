@@ -1,11 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TestRun id="61a840ab-9fd5-41a3-bb1a-fcb659ed474c" name="sferrari@PC-SFERRARI 2020-08-14 18:47:24" runUser="PC-SFERRARI\sferrari" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <Times creation="2020-08-14T18:47:24.0865911+01:00" queuing="2020-08-14T18:47:24.0865911+01:00" start="2020-08-14T18:47:20.3076943+01:00" finish="2020-08-14T18:47:25.6962866+01:00" />
-  <TestSettings name="default" id="200e09b4-6b4b-4c23-bf56-33cb3dd43aa6">
-    <Deployment runDeploymentRoot="sferrari_PC-SFERRARI_2020-08-14_18_47_24" />
+<TestRun id="199f661a-a21f-4a5e-9c0d-c2adf3535baf" name="sferrari@PC-SFERRARI 2021-05-11 09:12:56" runUser="PC-SFERRARI\sferrari" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2021-05-11T09:12:56.1985477+01:00" queuing="2021-05-11T09:12:56.1985477+01:00" start="2021-05-11T09:12:18.1181354+01:00" finish="2021-05-11T09:13:21.0034664+01:00" />
+  <TestSettings name="default" id="5858976f-dfbf-4708-870a-61da9f3ead22">
+    <Deployment runDeploymentRoot="sferrari_PC-SFERRARI_2021-05-11_09_12_56" />
   </TestSettings>
   <Results>
-    <UnitTestResult executionId="a21975eb-baac-497d-8abe-792aeb021e8e" testId="760106a1-2f04-6b7a-e83d-19e596d37301" testName="InfoWithMultipleDataInline" computerName="PC-SFERRARI" duration="00:00:00.0127750" startTime="2020-08-14T18:47:25.3058275+01:00" endTime="2020-08-14T18:47:25.3187483+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a21975eb-baac-497d-8abe-792aeb021e8e">
+    <UnitTestResult executionId="f2e60ad1-cc79-4eea-99d1-a7c611a8e6d8" testId="b14e3f59-0a51-7c83-01d2-8b64a57d814b" testName="InfoWithMultipleDataInline" computerName="PC-SFERRARI" duration="00:00:00.0072259" startTime="2021-05-11T09:13:20.8679455+01:00" endTime="2021-05-11T09:13:20.8753171+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f2e60ad1-cc79-4eea-99d1-a7c611a8e6d8">
+      <Output>
+        <StdOut>LoggerTest&#xD;
+09:13:20:86 [INF] One =&gt; { Id = 1, Name = Name1 }&#xD;
+&#xD;
+09:13:20:87 [INF] Two =&gt; { Id = 2, Name = Name2 }&#xD;
+&#xD;
+09:13:20:87 [INF] Three =&gt; { Id = 3, Name = Name3 }</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cf62ca1a-fa00-4cfe-a309-4b75101f2b5a" testId="0a4293d9-cc71-0d12-4c83-d9baa4a10156" testName="InfoWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:00.0057278" startTime="2021-05-11T09:13:18.3099929+01:00" endTime="2021-05-11T09:13:18.3158808+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf62ca1a-fa00-4cfe-a309-4b75101f2b5a">
+      <Output>
+        <StdOut>[Information] - "InfoWithMessageWithProperties" =&gt; Id: 1 Name: "Name"</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3f44bbc6-62e4-45bc-8c2e-ad7aa3b23d51" testId="cc7e4b0c-3199-9ca2-36a0-a34b0cca1afd" testName="ErrorWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.5685806" startTime="2021-05-11T09:12:56.3849607+01:00" endTime="2021-05-11T09:12:56.9537909+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3f44bbc6-62e4-45bc-8c2e-ad7aa3b23d51">
+      <Output>
+        <StdOut>[Error] - ErrorWithMessageWithData =&gt; "{ Id = 1, Name = Name }"</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="833a987a-e6a6-4047-b249-3a4644bef578" testId="419261df-f0b3-c204-cc59-8791a27a87f2" testName="ErrorWithException" computerName="PC-SFERRARI" duration="00:00:36.5619482" startTime="2021-05-11T09:12:19.3421157+01:00" endTime="2021-05-11T09:12:56.1036621+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="833a987a-e6a6-4047-b249-3a4644bef578">
+      <Output>
+        <StdOut>[Error] - Exception =&gt; "System.ArgumentNullException: Value cannot be null. (Parameter 'ErrorWithException')"</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="abe1fef6-13f1-4208-811e-b50012de8ec5" testId="5bd0a6bf-af2b-5294-e4e1-fe5c5fe88321" testName="ErrorWithMessage" computerName="PC-SFERRARI" duration="00:00:00.0035746" startTime="2021-05-11T09:13:20.8395244+01:00" endTime="2021-05-11T09:13:20.8433902+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="abe1fef6-13f1-4208-811e-b50012de8ec5">
+      <Output>
+        <StdOut>LoggerTest&#xD;
+09:13:20:84 [ERR] ErrorWithMessage</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2aa0f323-21de-4a84-a030-fb2ca5d92276" testId="1f1998ea-10b3-4d91-fc1e-808cdd53ea45" testName="ErrorWithMessage" computerName="PC-SFERRARI" duration="00:00:00.2618773" startTime="2021-05-11T09:12:56.1225718+01:00" endTime="2021-05-11T09:12:56.3848174+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2aa0f323-21de-4a84-a030-fb2ca5d92276">
+      <Output>
+        <StdOut>[Error] - ErrorWithMessage</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ac214793-ea0e-4e44-9464-4f6922d0f95c" testId="c6cf7005-5450-ec05-ff9e-332640c31375" testName="ErrorWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.0070211" startTime="2021-05-11T09:13:20.8434465+01:00" endTime="2021-05-11T09:13:20.8506217+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac214793-ea0e-4e44-9464-4f6922d0f95c">
+      <Output>
+        <StdOut>LoggerTest&#xD;
+09:13:20:84 [ERR] ErrorWithMessageWithData =&gt; { Id = 1, Name = Name }</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="127b5cf9-3d6f-4c3e-a1a5-a710653e303d" testId="f85d82bd-2af5-c59a-d1e9-124dce5aac80" testName="InfoWithMessage" computerName="PC-SFERRARI" duration="00:00:00.0027624" startTime="2021-05-11T09:13:20.8507102+01:00" endTime="2021-05-11T09:13:20.8535920+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="127b5cf9-3d6f-4c3e-a1a5-a710653e303d">
+      <Output>
+        <StdOut>LoggerTest&#xD;
+09:13:20:85 [INF] InfoWithMessage</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c0ce9801-1009-42a8-8b72-97516b23da31" testId="ebfd3878-0e66-9ade-6cac-e123abde2692" testName="ErrorWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:21.3450720" startTime="2021-05-11T09:12:56.9542174+01:00" endTime="2021-05-11T09:13:18.2997020+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c0ce9801-1009-42a8-8b72-97516b23da31">
+      <Output>
+        <StdOut>[Error] - "ErrorWithMessageWithProperties" =&gt; Id: 1 Name: "Name"</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4e407915-dc89-48e7-be5f-d2378883dff1" testId="3082bcfe-0e97-e9bd-29ec-46b9919623e2" testName="InfoWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.0045145" startTime="2021-05-11T09:13:20.8536354+01:00" endTime="2021-05-11T09:13:20.8583110+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e407915-dc89-48e7-be5f-d2378883dff1">
+      <Output>
+        <StdOut>LoggerTest&#xD;
+09:13:20:85 [INF] InfoWithMessageWithData =&gt; { Id = 1, Name = Name }</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="71fa52fc-1726-471a-a89c-bedfa950de54" testId="af338802-7815-4b14-95b0-65fe953091eb" testName="ErrorWithException" computerName="PC-SFERRARI" duration="00:00:02.5154712" startTime="2021-05-11T09:13:18.3232470+01:00" endTime="2021-05-11T09:13:20.8393761+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="71fa52fc-1726-471a-a89c-bedfa950de54">
+      <Output>
+        <StdOut>LoggerTest&#xD;
+09:13:20:83 [ERR] Exception =&gt; System.ArgumentNullException: Value cannot be null. (Parameter 'ErrorWithException')</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ff07b155-8d3b-4cce-92ae-da2c00533220" testId="e264b32f-63ce-1e58-ad23-4968703198e2" testName="InfoWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:00.0093633" startTime="2021-05-11T09:13:20.8583573+01:00" endTime="2021-05-11T09:13:20.8679009+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ff07b155-8d3b-4cce-92ae-da2c00533220">
+      <Output>
+        <StdOut>LoggerTest&#xD;
+09:13:20:86 [INF] InfoWithMessageWithProperties =&gt; Id: 1 Name: Name</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0b284f77-8823-4247-b005-1866cb9d602b" testId="bfae7f18-a1cf-32c4-027a-a7ac7e1511c8" testName="InfoWithMessage" computerName="PC-SFERRARI" duration="00:00:00.0040004" startTime="2021-05-11T09:13:18.3005647+01:00" endTime="2021-05-11T09:13:18.3049851+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b284f77-8823-4247-b005-1866cb9d602b">
+      <Output>
+        <StdOut>[Information] - InfoWithMessage</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1536abd8-be28-430d-a112-ef8be57fbbd4" testId="760106a1-2f04-6b7a-e83d-19e596d37301" testName="InfoWithMultipleDataInline" computerName="PC-SFERRARI" duration="00:00:00.0070919" startTime="2021-05-11T09:13:18.3159513+01:00" endTime="2021-05-11T09:13:18.3231989+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1536abd8-be28-430d-a112-ef8be57fbbd4">
       <Output>
         <StdOut>[Information] - InfoWithMultipleDataInline 1 =&gt; "{ Id = 1, Name = Name1 }"&#xD;
 &#xD;
@@ -14,166 +90,90 @@
 [Information] - InfoWithMultipleDataInline 3 =&gt; "{ Id = 3, Name = Name3 }"</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="de4d2b62-72df-4da1-99a0-b3e2ce878345" testId="ebfd3878-0e66-9ade-6cac-e123abde2692" testName="ErrorWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:00.7444173" startTime="2020-08-14T18:47:24.5360758+01:00" endTime="2020-08-14T18:47:25.2806319+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de4d2b62-72df-4da1-99a0-b3e2ce878345">
-      <Output>
-        <StdOut>[Error] - "ErrorWithMessageWithProperties" =&gt; Id: 1 Name: "Name"</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="08d077e8-46bf-44bd-81bd-aacb0d094f37" testId="1f1998ea-10b3-4d91-fc1e-808cdd53ea45" testName="ErrorWithMessage" computerName="PC-SFERRARI" duration="00:00:00.7380493" startTime="2020-08-14T18:47:22.9708749+01:00" endTime="2020-08-14T18:47:23.7091266+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="08d077e8-46bf-44bd-81bd-aacb0d094f37">
-      <Output>
-        <StdOut>[Error] - ErrorWithMessage</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="786419e9-60ca-4c14-aca2-02d3cd7d124f" testId="af338802-7815-4b14-95b0-65fe953091eb" testName="ErrorWithException" computerName="PC-SFERRARI" duration="00:00:00.0563802" startTime="2020-08-14T18:47:25.3187891+01:00" endTime="2020-08-14T18:47:25.3754730+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="786419e9-60ca-4c14-aca2-02d3cd7d124f">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-18:47:25:37 [ERR] Exception =&gt; System.ArgumentNullException: Value cannot be null. (Parameter 'ErrorWithException')</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="80cee5d6-dd73-4d01-901e-928c3289be4b" testId="3082bcfe-0e97-e9bd-29ec-46b9919623e2" testName="InfoWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.0100231" startTime="2020-08-14T18:47:25.4388764+01:00" endTime="2020-08-14T18:47:25.4490456+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="80cee5d6-dd73-4d01-901e-928c3289be4b">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-18:47:25:44 [INF] InfoWithMessageWithData =&gt; { Id = 1, Name = Name }</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="d144505d-d486-4891-ac68-f7c9d3577279" testId="5bd0a6bf-af2b-5294-e4e1-fe5c5fe88321" testName="ErrorWithMessage" computerName="PC-SFERRARI" duration="00:00:00.0121084" startTime="2020-08-14T18:47:25.3755201+01:00" endTime="2020-08-14T18:47:25.3877581+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d144505d-d486-4891-ac68-f7c9d3577279">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-18:47:25:38 [ERR] ErrorWithMessage</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="fe04bd3a-0be9-421a-a276-48c6c39e1e94" testId="bfae7f18-a1cf-32c4-027a-a7ac7e1511c8" testName="InfoWithMessage" computerName="PC-SFERRARI" duration="00:00:00.0028668" startTime="2020-08-14T18:47:25.2806783+01:00" endTime="2020-08-14T18:47:25.2836676+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fe04bd3a-0be9-421a-a276-48c6c39e1e94">
-      <Output>
-        <StdOut>[Information] - InfoWithMessage</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="4f31447c-55df-41b3-ae09-61c671d8dec6" testId="b14e3f59-0a51-7c83-01d2-8b64a57d814b" testName="InfoWithMultipleDataInline" computerName="PC-SFERRARI" duration="00:00:00.0134292" startTime="2020-08-14T18:47:25.4624715+01:00" endTime="2020-08-14T18:47:25.4760356+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4f31447c-55df-41b3-ae09-61c671d8dec6">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-18:47:25:47 [INF] One =&gt; { Id = 1, Name = Name1 }&#xD;
-&#xD;
-18:47:25:47 [INF] Two =&gt; { Id = 2, Name = Name2 }&#xD;
-&#xD;
-18:47:25:47 [INF] Three =&gt; { Id = 3, Name = Name3 }</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="54d34ce8-fed1-4b8d-afe7-f305a0469277" testId="c6cf7005-5450-ec05-ff9e-332640c31375" testName="ErrorWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.0052561" startTime="2020-08-14T18:47:25.3878007+01:00" endTime="2020-08-14T18:47:25.3932073+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="54d34ce8-fed1-4b8d-afe7-f305a0469277">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-18:47:25:39 [ERR] ErrorWithMessageWithData =&gt; { Id = 1, Name = Name }</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="b0056f1d-4996-4abf-8893-a646c60fcb45" testId="419261df-f0b3-c204-cc59-8791a27a87f2" testName="ErrorWithException" computerName="PC-SFERRARI" duration="00:00:01.7386577" startTime="2020-08-14T18:47:21.1573150+01:00" endTime="2020-08-14T18:47:22.9620493+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b0056f1d-4996-4abf-8893-a646c60fcb45">
-      <Output>
-        <StdOut>[Error] - Exception =&gt; "System.ArgumentNullException: Value cannot be null. (Parameter 'ErrorWithException')"</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="1c3d28b2-49d8-4e59-95b8-c6e43053e8ff" testId="e264b32f-63ce-1e58-ad23-4968703198e2" testName="InfoWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:00.0131998" startTime="2020-08-14T18:47:25.4490872+01:00" endTime="2020-08-14T18:47:25.4624280+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1c3d28b2-49d8-4e59-95b8-c6e43053e8ff">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-18:47:25:46 [INF] InfoWithMessageWithProperties =&gt; Id: 1 Name: Name</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="80965007-57eb-4fb8-accb-76e7f30ba616" testId="0a4293d9-cc71-0d12-4c83-d9baa4a10156" testName="InfoWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:00.0120156" startTime="2020-08-14T18:47:25.2936380+01:00" endTime="2020-08-14T18:47:25.3057866+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="80965007-57eb-4fb8-accb-76e7f30ba616">
-      <Output>
-        <StdOut>[Information] - "InfoWithMessageWithProperties" =&gt; Id: 1 Name: "Name"</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="b9e65632-455a-4d23-b1e2-3edcdc83ee3d" testId="6bd5ad81-8ed7-a8ea-8a39-fd071e698e23" testName="InfoWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.0097400" startTime="2020-08-14T18:47:25.2837095+01:00" endTime="2020-08-14T18:47:25.2935972+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b9e65632-455a-4d23-b1e2-3edcdc83ee3d">
+    <UnitTestResult executionId="4e74d43f-662c-436b-8b9c-f41888f32de0" testId="6bd5ad81-8ed7-a8ea-8a39-fd071e698e23" testName="InfoWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.0047633" startTime="2021-05-11T09:13:18.3050387+01:00" endTime="2021-05-11T09:13:18.3099263+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e74d43f-662c-436b-8b9c-f41888f32de0">
       <Output>
         <StdOut>[Information] - InfoWithMessageWithData =&gt; "{ Id = 1, Name = Name }"</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="440d454d-02bd-474f-899e-e9847e20d10c" testId="cc7e4b0c-3199-9ca2-36a0-a34b0cca1afd" testName="ErrorWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.8266400" startTime="2020-08-14T18:47:23.7092642+01:00" endTime="2020-08-14T18:47:24.5360289+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="440d454d-02bd-474f-899e-e9847e20d10c">
-      <Output>
-        <StdOut>[Error] - ErrorWithMessageWithData =&gt; "{ Id = 1, Name = Name }"</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="15f7883e-75cd-4d1d-a5e7-72a2aee5d35b" testId="f85d82bd-2af5-c59a-d1e9-124dce5aac80" testName="InfoWithMessage" computerName="PC-SFERRARI" duration="00:00:00.0177069" startTime="2020-08-14T18:47:25.4209437+01:00" endTime="2020-08-14T18:47:25.4388368+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="15f7883e-75cd-4d1d-a5e7-72a2aee5d35b">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-18:47:25:43 [INF] InfoWithMessage</StdOut>
-      </Output>
-    </UnitTestResult>
   </Results>
   <TestDefinitions>
-    <UnitTest name="InfoWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="0a4293d9-cc71-0d12-4c83-d9baa4a10156">
-      <Execution id="80965007-57eb-4fb8-accb-76e7f30ba616" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessageWithProperties" />
+    <UnitTest name="InfoWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="0a4293d9-cc71-0d12-4c83-d9baa4a10156">
+      <Execution id="cf62ca1a-fa00-4cfe-a309-4b75101f2b5a" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessageWithProperties" />
     </UnitTest>
-    <UnitTest name="InfoWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="6bd5ad81-8ed7-a8ea-8a39-fd071e698e23">
-      <Execution id="b9e65632-455a-4d23-b1e2-3edcdc83ee3d" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessageWithData" />
+    <UnitTest name="InfoWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="6bd5ad81-8ed7-a8ea-8a39-fd071e698e23">
+      <Execution id="4e74d43f-662c-436b-8b9c-f41888f32de0" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessageWithData" />
     </UnitTest>
-    <UnitTest name="InfoWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="bfae7f18-a1cf-32c4-027a-a7ac7e1511c8">
-      <Execution id="fe04bd3a-0be9-421a-a276-48c6c39e1e94" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessage" />
+    <UnitTest name="InfoWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="bfae7f18-a1cf-32c4-027a-a7ac7e1511c8">
+      <Execution id="0b284f77-8823-4247-b005-1866cb9d602b" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessage" />
     </UnitTest>
-    <UnitTest name="ErrorWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="c6cf7005-5450-ec05-ff9e-332640c31375">
-      <Execution id="54d34ce8-fed1-4b8d-afe7-f305a0469277" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="ErrorWithMessageWithData" />
+    <UnitTest name="ErrorWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="c6cf7005-5450-ec05-ff9e-332640c31375">
+      <Execution id="ac214793-ea0e-4e44-9464-4f6922d0f95c" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="ErrorWithMessageWithData" />
     </UnitTest>
-    <UnitTest name="ErrorWithException" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="419261df-f0b3-c204-cc59-8791a27a87f2">
-      <Execution id="b0056f1d-4996-4abf-8893-a646c60fcb45" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithException" />
+    <UnitTest name="ErrorWithException" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="419261df-f0b3-c204-cc59-8791a27a87f2">
+      <Execution id="833a987a-e6a6-4047-b249-3a4644bef578" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithException" />
     </UnitTest>
-    <UnitTest name="InfoWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="3082bcfe-0e97-e9bd-29ec-46b9919623e2">
-      <Execution id="80cee5d6-dd73-4d01-901e-928c3289be4b" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMessageWithData" />
+    <UnitTest name="InfoWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="3082bcfe-0e97-e9bd-29ec-46b9919623e2">
+      <Execution id="4e407915-dc89-48e7-be5f-d2378883dff1" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMessageWithData" />
     </UnitTest>
-    <UnitTest name="InfoWithMultipleDataInline" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="760106a1-2f04-6b7a-e83d-19e596d37301">
-      <Execution id="a21975eb-baac-497d-8abe-792aeb021e8e" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMultipleDataInline" />
+    <UnitTest name="InfoWithMultipleDataInline" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="760106a1-2f04-6b7a-e83d-19e596d37301">
+      <Execution id="1536abd8-be28-430d-a112-ef8be57fbbd4" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMultipleDataInline" />
     </UnitTest>
-    <UnitTest name="ErrorWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="ebfd3878-0e66-9ade-6cac-e123abde2692">
-      <Execution id="de4d2b62-72df-4da1-99a0-b3e2ce878345" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessageWithProperties" />
+    <UnitTest name="ErrorWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="ebfd3878-0e66-9ade-6cac-e123abde2692">
+      <Execution id="c0ce9801-1009-42a8-8b72-97516b23da31" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessageWithProperties" />
     </UnitTest>
-    <UnitTest name="InfoWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="e264b32f-63ce-1e58-ad23-4968703198e2">
-      <Execution id="1c3d28b2-49d8-4e59-95b8-c6e43053e8ff" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMessageWithProperties" />
+    <UnitTest name="InfoWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="e264b32f-63ce-1e58-ad23-4968703198e2">
+      <Execution id="ff07b155-8d3b-4cce-92ae-da2c00533220" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMessageWithProperties" />
     </UnitTest>
-    <UnitTest name="InfoWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="f85d82bd-2af5-c59a-d1e9-124dce5aac80">
-      <Execution id="15f7883e-75cd-4d1d-a5e7-72a2aee5d35b" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMessage" />
+    <UnitTest name="InfoWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="f85d82bd-2af5-c59a-d1e9-124dce5aac80">
+      <Execution id="127b5cf9-3d6f-4c3e-a1a5-a710653e303d" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMessage" />
     </UnitTest>
-    <UnitTest name="ErrorWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="cc7e4b0c-3199-9ca2-36a0-a34b0cca1afd">
-      <Execution id="440d454d-02bd-474f-899e-e9847e20d10c" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessageWithData" />
+    <UnitTest name="ErrorWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="cc7e4b0c-3199-9ca2-36a0-a34b0cca1afd">
+      <Execution id="3f44bbc6-62e4-45bc-8c2e-ad7aa3b23d51" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessageWithData" />
     </UnitTest>
-    <UnitTest name="ErrorWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="5bd0a6bf-af2b-5294-e4e1-fe5c5fe88321">
-      <Execution id="d144505d-d486-4891-ac68-f7c9d3577279" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="ErrorWithMessage" />
+    <UnitTest name="ErrorWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="5bd0a6bf-af2b-5294-e4e1-fe5c5fe88321">
+      <Execution id="abe1fef6-13f1-4208-811e-b50012de8ec5" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="ErrorWithMessage" />
     </UnitTest>
-    <UnitTest name="ErrorWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="1f1998ea-10b3-4d91-fc1e-808cdd53ea45">
-      <Execution id="08d077e8-46bf-44bd-81bd-aacb0d094f37" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessage" />
+    <UnitTest name="ErrorWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="1f1998ea-10b3-4d91-fc1e-808cdd53ea45">
+      <Execution id="2aa0f323-21de-4a84-a030-fb2ca5d92276" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessage" />
     </UnitTest>
-    <UnitTest name="InfoWithMultipleDataInline" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="b14e3f59-0a51-7c83-01d2-8b64a57d814b">
-      <Execution id="4f31447c-55df-41b3-ae09-61c671d8dec6" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMultipleDataInline" />
+    <UnitTest name="InfoWithMultipleDataInline" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="b14e3f59-0a51-7c83-01d2-8b64a57d814b">
+      <Execution id="f2e60ad1-cc79-4eea-99d1-a7c611a8e6d8" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMultipleDataInline" />
     </UnitTest>
-    <UnitTest name="ErrorWithException" storage="d:\sferrari\01 - trabajo\repos\netcore\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="af338802-7815-4b14-95b0-65fe953091eb">
-      <Execution id="786419e9-60ca-4c14-aca2-02d3cd7d124f" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\REPOS\netcore\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="ErrorWithException" />
+    <UnitTest name="ErrorWithException" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="af338802-7815-4b14-95b0-65fe953091eb">
+      <Execution id="71fa52fc-1726-471a-a89c-bedfa950de54" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="ErrorWithException" />
     </UnitTest>
   </TestDefinitions>
   <TestEntries>
-    <TestEntry testId="760106a1-2f04-6b7a-e83d-19e596d37301" executionId="a21975eb-baac-497d-8abe-792aeb021e8e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="ebfd3878-0e66-9ade-6cac-e123abde2692" executionId="de4d2b62-72df-4da1-99a0-b3e2ce878345" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="1f1998ea-10b3-4d91-fc1e-808cdd53ea45" executionId="08d077e8-46bf-44bd-81bd-aacb0d094f37" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="af338802-7815-4b14-95b0-65fe953091eb" executionId="786419e9-60ca-4c14-aca2-02d3cd7d124f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="3082bcfe-0e97-e9bd-29ec-46b9919623e2" executionId="80cee5d6-dd73-4d01-901e-928c3289be4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="5bd0a6bf-af2b-5294-e4e1-fe5c5fe88321" executionId="d144505d-d486-4891-ac68-f7c9d3577279" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="bfae7f18-a1cf-32c4-027a-a7ac7e1511c8" executionId="fe04bd3a-0be9-421a-a276-48c6c39e1e94" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="b14e3f59-0a51-7c83-01d2-8b64a57d814b" executionId="4f31447c-55df-41b3-ae09-61c671d8dec6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="c6cf7005-5450-ec05-ff9e-332640c31375" executionId="54d34ce8-fed1-4b8d-afe7-f305a0469277" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="419261df-f0b3-c204-cc59-8791a27a87f2" executionId="b0056f1d-4996-4abf-8893-a646c60fcb45" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="e264b32f-63ce-1e58-ad23-4968703198e2" executionId="1c3d28b2-49d8-4e59-95b8-c6e43053e8ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="0a4293d9-cc71-0d12-4c83-d9baa4a10156" executionId="80965007-57eb-4fb8-accb-76e7f30ba616" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="6bd5ad81-8ed7-a8ea-8a39-fd071e698e23" executionId="b9e65632-455a-4d23-b1e2-3edcdc83ee3d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="cc7e4b0c-3199-9ca2-36a0-a34b0cca1afd" executionId="440d454d-02bd-474f-899e-e9847e20d10c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="f85d82bd-2af5-c59a-d1e9-124dce5aac80" executionId="15f7883e-75cd-4d1d-a5e7-72a2aee5d35b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b14e3f59-0a51-7c83-01d2-8b64a57d814b" executionId="f2e60ad1-cc79-4eea-99d1-a7c611a8e6d8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0a4293d9-cc71-0d12-4c83-d9baa4a10156" executionId="cf62ca1a-fa00-4cfe-a309-4b75101f2b5a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cc7e4b0c-3199-9ca2-36a0-a34b0cca1afd" executionId="3f44bbc6-62e4-45bc-8c2e-ad7aa3b23d51" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="419261df-f0b3-c204-cc59-8791a27a87f2" executionId="833a987a-e6a6-4047-b249-3a4644bef578" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5bd0a6bf-af2b-5294-e4e1-fe5c5fe88321" executionId="abe1fef6-13f1-4208-811e-b50012de8ec5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1f1998ea-10b3-4d91-fc1e-808cdd53ea45" executionId="2aa0f323-21de-4a84-a030-fb2ca5d92276" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c6cf7005-5450-ec05-ff9e-332640c31375" executionId="ac214793-ea0e-4e44-9464-4f6922d0f95c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f85d82bd-2af5-c59a-d1e9-124dce5aac80" executionId="127b5cf9-3d6f-4c3e-a1a5-a710653e303d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ebfd3878-0e66-9ade-6cac-e123abde2692" executionId="c0ce9801-1009-42a8-8b72-97516b23da31" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3082bcfe-0e97-e9bd-29ec-46b9919623e2" executionId="4e407915-dc89-48e7-be5f-d2378883dff1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="af338802-7815-4b14-95b0-65fe953091eb" executionId="71fa52fc-1726-471a-a89c-bedfa950de54" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e264b32f-63ce-1e58-ad23-4968703198e2" executionId="ff07b155-8d3b-4cce-92ae-da2c00533220" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bfae7f18-a1cf-32c4-027a-a7ac7e1511c8" executionId="0b284f77-8823-4247-b005-1866cb9d602b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="760106a1-2f04-6b7a-e83d-19e596d37301" executionId="1536abd8-be28-430d-a112-ef8be57fbbd4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6bd5ad81-8ed7-a8ea-8a39-fd071e698e23" executionId="4e74d43f-662c-436b-8b9c-f41888f32de0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <TestLists>
     <TestList name="Resultados sin formato de lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
