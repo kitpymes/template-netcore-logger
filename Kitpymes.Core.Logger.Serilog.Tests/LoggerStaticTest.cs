@@ -29,12 +29,6 @@ namespace Kitpymes.Core.Logger.Serilog.Tests
                 server: "smtp.gmail.com",
                 from: "admin@app.com",
                 to: "error@app.com"
-            )
-            .AddSqlServer
-            (
-                connectionString: "Data Source=PC-SFERRARI\\SQL2017DEV;Initial Catalog=LoggerDB;Persist Security Info=True;User ID=sa;Password=sapopepe;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;TrustServerCertificate=False;",
-                schemaName  : "dbo",
-                tableName: "Log"
             );
         })
         .CreateLogger("Custom Serilog Test");

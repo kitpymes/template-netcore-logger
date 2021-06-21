@@ -2,346 +2,32 @@
   <body>
     <h1>Test run details</h1>
     <div class="summary">
-      <div class="block"><span>Total tests</span><div class="total-tests">8</div><br></div>
-      <div class="block"><span>Passed  : </span><span class="passedTests">4</span><br><span>Failed  : </span><span class="failedTests">4</span><br><span>Skipped : </span><span class="skippedTests">0</span><br></div>
-      <div class="block"><span>Pass percentage</span><div class="pass-percentage">50 %</div><br></div>
-      <div class="block"><span>Run duration</span><div class="test-run-time">33s 74ms</div><br></div><br></div>
-    <h2>Failed Results</h2>
-    <div class="list-row" onclick="ToggleClass('-2107994889-failedResult')">D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\net5.0\Kitpymes.Core.Logger.Serilog.Tests.dll</div>
-    <div class="inner-row" Id="-2107994889-failedResult" style="display:block;">
-      <div class="leaf-division">
-        <div><span class="fail">✘</span><span> ErrorWithException</span><div class="duration"><span>1s 668ms</span><br></div>
-        </div>
-        <div class="error-info">
-    Error: <span class="error-message"><pre>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithException threw exception: 
-System.AggregateException: Failed to emit a log event. (A connection was successfully established with the server, but then an error occurred during the login process. (provider: Shared Memory Provider, error: 0 - No hay ningún proceso en el otro extremo de la canalización.)) ---&gt; Microsoft.Data.SqlClient.SqlException: A connection was successfully established with the server, but then an error occurred during the login process. (provider: Shared Memory Provider, error: 0 - No hay ningún proceso en el otro extremo de la canalización.) ---&gt; System.ComponentModel.Win32Exception: No hay ningún proceso en el otro extremo de la canalización.</pre></span><br>
-    Stack trace: <span class="error-stack-trace"><pre>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
-   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
-   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
-   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
-   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte&amp; value)
-   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
-   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
-   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)
-   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
---- End of inner exception stack trace ---
-    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)
-   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Write(LogEventLevel level, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Write[T](LogEventLevel level, String messageTemplate, T propertyValue)
-   at Serilog.Core.Logger.Error[T](String messageTemplate, T propertyValue)
-   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(Exception exception) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 228
-   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithException() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 90
-</pre></span><br></div>
-      </div>
-      <div class="leaf-division">
-        <div><span class="fail">✘</span><span> ErrorWithMessage</span><div class="duration"><span>10s 31ms</span><br></div>
-        </div>
-        <div class="error-info">
-    Error: <span class="error-message"><pre>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessage threw exception: 
-System.AggregateException: Failed to emit a log event. (No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.) ---&gt; Microsoft.Data.SqlClient.SqlException: No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.</pre></span><br>
-    Stack trace: <span class="error-stack-trace"><pre>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
-   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
-   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)
-   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
---- End of inner exception stack trace ---
-    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)
-   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Write(LogEventLevel level, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Error(String messageTemplate)
-   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(String message) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 179
-   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessage() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 78
-</pre></span><br></div>
-      </div>
-      <div class="leaf-division">
-        <div><span class="fail">✘</span><span> ErrorWithMessageWithData</span><div class="duration"><span>10s 146ms</span><br></div>
-        </div>
-        <div class="error-info">
-    Error: <span class="error-message"><pre>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithData threw exception: 
-System.AggregateException: Failed to emit a log event. (No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.) ---&gt; Microsoft.Data.SqlClient.SqlException: No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.</pre></span><br>
-    Stack trace: <span class="error-stack-trace"><pre>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
-   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
-   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)
-   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
---- End of inner exception stack trace ---
-    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)
-   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Error(Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Error(String messageTemplate, Object[] propertyValues)
-   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(String message, Object data) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 194
-   at CallSite.Target(Closure , CallSite , ILogger , String , Object )
-   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid3[T0,T1,T2](CallSite site, T0 arg0, T1 arg1, T2 arg2)
-   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithData() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 84
-</pre></span><br></div>
-      </div>
-      <div class="leaf-division">
-        <div><span class="fail">✘</span><span> ErrorWithMessageWithProperties</span><div class="duration"><span>10s 25ms</span><br></div>
-        </div>
-        <div class="error-info">
-    Error: <span class="error-message"><pre>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithProperties threw exception: 
-System.AggregateException: Failed to emit a log event. (No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.) ---&gt; Microsoft.Data.SqlClient.SqlException: No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.</pre></span><br>
-    Stack trace: <span class="error-stack-trace"><pre>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
-   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
-   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)
-   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
---- End of inner exception stack trace ---
-    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)
-   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Error(Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Error(String messageTemplate, Object[] propertyValues)
-   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(String eventName, String templateMessage, Object[] propertyValues) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 214
-   at CallSite.Target(Closure , CallSite , ILogger , String , String , Object , Object )
-   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid5[T0,T1,T2,T3,T4](CallSite site, T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
-   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithProperties() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 96
-</pre></span><br></div>
-      </div>
-    </div>
+      <div class="block"><span>Total tests</span><div class="total-tests">15</div><br></div>
+      <div class="block"><span>Passed  : </span><span class="passedTests">15</span><br><span>Failed  : </span><span class="failedTests">0</span><br><span>Skipped : </span><span class="skippedTests">0</span><br></div>
+      <div class="block"><span>Pass percentage</span><div class="pass-percentage">100 %</div><br></div>
+      <div class="block"><span>Run duration</span><div class="test-run-time">1s 425ms</div><br></div><br></div>
     <h2>All Results</h2>
     <div class="list-row" onclick="ToggleClass('-2107994889')">D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\net5.0\Kitpymes.Core.Logger.Serilog.Tests.dll</div>
     <div class="inner-row" Id="-2107994889" style="display:none;">
       <div class="leaf-division">
-        <div><span class="fail">✘</span><span> ErrorWithException</span><div class="duration"><span>1s 668ms</span><br></div>
+        <div><span class="pass">✔</span><span> ErrorWithException</span><div class="duration"><span>146ms</span><br></div>
         </div>
-        <div class="error-info">
-    Error: <span class="error-message"><pre>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithException threw exception: 
-System.AggregateException: Failed to emit a log event. (A connection was successfully established with the server, but then an error occurred during the login process. (provider: Shared Memory Provider, error: 0 - No hay ningún proceso en el otro extremo de la canalización.)) ---&gt; Microsoft.Data.SqlClient.SqlException: A connection was successfully established with the server, but then an error occurred during the login process. (provider: Shared Memory Provider, error: 0 - No hay ningún proceso en el otro extremo de la canalización.) ---&gt; System.ComponentModel.Win32Exception: No hay ningún proceso en el otro extremo de la canalización.</pre></span><br>
-    Stack trace: <span class="error-stack-trace"><pre>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
-   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
-   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
-   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
-   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte&amp; value)
-   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
-   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
-   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)
-   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
---- End of inner exception stack trace ---
-    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)
-   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Write(LogEventLevel level, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Write[T](LogEventLevel level, String messageTemplate, T propertyValue)
-   at Serilog.Core.Logger.Error[T](String messageTemplate, T propertyValue)
-   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(Exception exception) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 228
-   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithException() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 90
-</pre></span><br></div>
+        <div class="error-info"></div>
       </div>
       <div class="leaf-division">
-        <div><span class="fail">✘</span><span> ErrorWithMessage</span><div class="duration"><span>10s 31ms</span><br></div>
+        <div><span class="pass">✔</span><span> ErrorWithMessage</span><div class="duration"><span>4ms</span><br></div>
         </div>
-        <div class="error-info">
-    Error: <span class="error-message"><pre>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessage threw exception: 
-System.AggregateException: Failed to emit a log event. (No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.) ---&gt; Microsoft.Data.SqlClient.SqlException: No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.</pre></span><br>
-    Stack trace: <span class="error-stack-trace"><pre>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
-   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
-   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)
-   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
---- End of inner exception stack trace ---
-    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)
-   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Write(LogEventLevel level, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Error(String messageTemplate)
-   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(String message) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 179
-   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessage() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 78
-</pre></span><br></div>
+        <div class="error-info"></div>
       </div>
       <div class="leaf-division">
-        <div><span class="fail">✘</span><span> ErrorWithMessageWithData</span><div class="duration"><span>10s 146ms</span><br></div>
+        <div><span class="pass">✔</span><span> ErrorWithMessageWithData</span><div class="duration"><span>71ms</span><br></div>
         </div>
-        <div class="error-info">
-    Error: <span class="error-message"><pre>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithData threw exception: 
-System.AggregateException: Failed to emit a log event. (No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.) ---&gt; Microsoft.Data.SqlClient.SqlException: No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.</pre></span><br>
-    Stack trace: <span class="error-stack-trace"><pre>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
-   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
-   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)
-   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
---- End of inner exception stack trace ---
-    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)
-   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Error(Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Error(String messageTemplate, Object[] propertyValues)
-   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(String message, Object data) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 194
-   at CallSite.Target(Closure , CallSite , ILogger , String , Object )
-   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid3[T0,T1,T2](CallSite site, T0 arg0, T1 arg1, T2 arg2)
-   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithData() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 84
-</pre></span><br></div>
+        <div class="error-info"></div>
       </div>
       <div class="leaf-division">
-        <div><span class="fail">✘</span><span> ErrorWithMessageWithProperties</span><div class="duration"><span>10s 25ms</span><br></div>
+        <div><span class="pass">✔</span><span> ErrorWithMessageWithProperties</span><div class="duration"><span>14ms</span><br></div>
         </div>
-        <div class="error-info">
-    Error: <span class="error-message"><pre>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithProperties threw exception: 
-System.AggregateException: Failed to emit a log event. (No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.) ---&gt; Microsoft.Data.SqlClient.SqlException: No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario 'sa'.</pre></span><br>
-    Stack trace: <span class="error-stack-trace"><pre>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
-   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
-   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()
-   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)
-   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
---- End of inner exception stack trace ---
-    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)
-   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)
-   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Error(Exception exception, String messageTemplate, Object[] propertyValues)
-   at Serilog.Core.Logger.Error(String messageTemplate, Object[] propertyValues)
-   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(String eventName, String templateMessage, Object[] propertyValues) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 214
-   at CallSite.Target(Closure , CallSite , ILogger , String , String , Object , Object )
-   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid5[T0,T1,T2,T3,T4](CallSite site, T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
-   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithProperties() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 96
-</pre></span><br></div>
+        <div class="error-info"></div>
       </div>
       <div class="leaf-division">
         <div><span class="pass">✔</span><span> InfoWithMessage</span><div class="duration"><span>4ms</span><br></div>
@@ -349,7 +35,42 @@ Error de inicio de sesión del usuario 'sa'.</pre></span><br>
         <div class="error-info"></div>
       </div>
       <div class="leaf-division">
-        <div><span class="pass">✔</span><span> InfoWithMessageWithData</span><div class="duration"><span>4ms</span><br></div>
+        <div><span class="pass">✔</span><span> InfoWithMessageWithData</span><div class="duration"><span>5ms</span><br></div>
+        </div>
+        <div class="error-info"></div>
+      </div>
+      <div class="leaf-division">
+        <div><span class="pass">✔</span><span> InfoWithMessageWithProperties</span><div class="duration"><span>6ms</span><br></div>
+        </div>
+        <div class="error-info"></div>
+      </div>
+      <div class="leaf-division">
+        <div><span class="pass">✔</span><span> InfoWithMultipleDataInline</span><div class="duration"><span>11ms</span><br></div>
+        </div>
+        <div class="error-info"></div>
+      </div>
+      <div class="leaf-division">
+        <div><span class="pass">✔</span><span> ErrorWithException</span><div class="duration"><span>59ms</span><br></div>
+        </div>
+        <div class="error-info"></div>
+      </div>
+      <div class="leaf-division">
+        <div><span class="pass">✔</span><span> ErrorWithMessage</span><div class="duration"><span>4ms</span><br></div>
+        </div>
+        <div class="error-info"></div>
+      </div>
+      <div class="leaf-division">
+        <div><span class="pass">✔</span><span> ErrorWithMessageWithData</span><div class="duration"><span>5ms</span><br></div>
+        </div>
+        <div class="error-info"></div>
+      </div>
+      <div class="leaf-division">
+        <div><span class="pass">✔</span><span> InfoWithMessage</span><div class="duration"><span>4ms</span><br></div>
+        </div>
+        <div class="error-info"></div>
+      </div>
+      <div class="leaf-division">
+        <div><span class="pass">✔</span><span> InfoWithMessageWithData</span><div class="duration"><span>7ms</span><br></div>
         </div>
         <div class="error-info"></div>
       </div>
@@ -359,7 +80,7 @@ Error de inicio de sesión del usuario 'sa'.</pre></span><br>
         <div class="error-info"></div>
       </div>
       <div class="leaf-division">
-        <div><span class="pass">✔</span><span> InfoWithMultipleDataInline</span><div class="duration"><span>8ms</span><br></div>
+        <div><span class="pass">✔</span><span> InfoWithMultipleDataInline</span><div class="duration"><span>10ms</span><br></div>
         </div>
         <div class="error-info"></div>
       </div>
