@@ -30,7 +30,8 @@ namespace Tests.Api.Controllers
                .Info(message: "Summary 1", Summaries[0])
                .Info(message: "Summary 2", Summaries[1])
                .Info(message: "Summary 3", Summaries[2])
-               .Info(message: "All Summaries", Summaries);
+               .Info(message: "All Summaries", Summaries)
+               .Error("Error Summaries");
 
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

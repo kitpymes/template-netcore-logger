@@ -23,7 +23,7 @@ namespace Kitpymes.Core.Logger.Serilog.Tests
 
             if(settings != null)
             {
-                _loggerService = services.LoadSerilog(settings).CreateLogger(nameof(LoggerTest));
+                _loggerService = services.LoadSerilog(settings)?.CreateLogger(nameof(LoggerTest));
             }
         }
 

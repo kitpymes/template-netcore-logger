@@ -46,7 +46,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <summary>
         /// Plantilla de salida por defecto.
         /// </summary>
-        public const string DefaultOutputTemplate = "SourceContext: {SourceContext} | MachineName: {MachineName} | Process: {Process} | Thread: {Thread} => {NewLine}{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u}] {Message:lj}{NewLine}";
+        public const string DefaultOutputTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} | {Title}  [{Level:u}] {Message:lj}{NewLine}{Exception}";
 
         /// <summary>
         /// Nivel mínimo de error habilidato por defecto.

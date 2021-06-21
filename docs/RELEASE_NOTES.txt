@@ -1,3 +1,6 @@
+# v.1.1.0
+- Se migra de la versión netcoreapp3 a net5 y se actualizan librerías.
+
 # v.1.0.10
 - Se actualiza la versión de la librería Kitpymes.Core.Shared.
 - Se corrigen errores de compilación.

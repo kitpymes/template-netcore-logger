@@ -1,4 +1,4 @@
-name: Kitpymes.Core.Logger
+name: Kitpymes.Core.Shared
 
 on: [push]
 
@@ -8,23 +8,23 @@ jobs:
 
     strategy:
       matrix:
-        dotnet: [ '3.0.100', '3.1.100', '3.1.302' ]
+        dotnet: [ '5.0.100', '5.0.200', '5.0.300' ]
 
-    name: Build for .NET Core ${{ matrix.dotnet }}
+    name: NET ${{ matrix.dotnet }}
 
     steps:  
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
      
     - name: Setup
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: ${{ matrix.dotnet }}
 
-    - name: Clean
-      run: dotnet clean Solution.sln --configuration Release && dotnet nuget locals all --clear
+    - name: Restore 
+      run: dotnet restore
        
     - name: Build 
-      run: dotnet build Solution.sln --configuration Release
+      run: dotnet build Solution.sln --configuration Release --no-restore
      
     - name: Tests
-      run: dotnet test --configuration Release --no-build
+      run: dotnet test --configuration Release --no-build --no-restore

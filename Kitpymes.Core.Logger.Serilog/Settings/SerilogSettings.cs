@@ -35,5 +35,10 @@ namespace Kitpymes.Core.Logger.Serilog
         /// Obtiene o establece la configuración del logeo de errores de email.
         /// </summary>
         public SerilogEmailSettings Email { get; set; } = new SerilogEmailSettings();
+
+        /// <summary>
+        /// Obtiene o establece la configuración del logeo de errores de SqlServer.
+        /// </summary>
+        public SerilogSqlServerSettings SqlServer { get; set; } = new SerilogSqlServerSettings();
     }
 }

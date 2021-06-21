@@ -24,29 +24,38 @@ namespace Tests.Api
             services.LoadLogger(Configuration);
 
             //**Opción 2: configuración manual**//
-            //services.LoadLogger(loggers =>
-            //{
-            //    loggers.UseSerilog(serilog =>
-            //    {
-            //        serilog
-            //            .AddConsole
-            //            (
+            /*
+             
+            services.LoadLogger(loggers =>
+            {
+                loggers.UseSerilog(serilog =>
+                {
+                    serilog
+                        .AddConsole
+                        (
                         
-            //            )
-            //            .AddFile
-            //            (
-            //                minimumLevel: Kitpymes.Core.Logger.Abstractions.LoggerLevel.Info
-            //            );
-            //            //.AddEmail
-            //            //(
-            //            //    userName: "admin@app.com",
-            //            //    password: "password",
-            //            //    server: "smtp.gmail.com",
-            //            //    from: "admin@app.com",
-            //            //    to: "error@app.com"
-            //            //);
-            //    });
-            //});
+                        )
+                        .AddFile
+                        (
+                            minimumLevel: Kitpymes.Core.Logger.Abstractions.LoggerLevel.Info
+                        )
+                        .AddSqlServer
+                        (
+                            autoCreateDb: true,
+                            connectionString: "Data Source=PC-SFERRARI\SQL2017DEV;Initial Catalog=AppAuthDB;Integrated Security=True"connectionString: "Data Source=PC-SFERRARI\\SQL2017DEV;Initial Catalog=LoggerDB;Integrated Security=True"
+                        )
+                        .AddEmail
+                        (
+                            userName: "admin@app.com",
+                            password: "password",
+                            server: "smtp.gmail.com",
+                            from: "admin@app.com",
+                            to: "error@app.com"
+                        );
+                });
+            });
+
+            */
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

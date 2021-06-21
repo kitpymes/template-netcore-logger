@@ -9,6 +9,7 @@ namespace Kitpymes.Core.Logger.Serilog
 {
     using global::Serilog;
     using global::Serilog.Configuration;
+    using global::Serilog.Context;
     using Kitpymes.Core.Shared;
 
     /*

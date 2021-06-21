@@ -8,8 +8,4 @@
     <ProjectReference Include="$(SolutionDir)Kitpymes.Core.Logger\Kitpymes.Core.Logger.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Logs\" />
-  </ItemGroup>
-
 </Project>

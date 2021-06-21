@@ -33,13 +33,13 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="services">Colección de servicios.</param>
         /// <param name="settings">Configuración de Serilog.</param>
         /// <returns>La interface ILoggerService.</returns>
-        public static ILoggerService LoadSerilog(
+        public static ILoggerService? LoadSerilog(
             this IServiceCollection services,
             SerilogSettings settings)
         {
             services.TryAddSingleton<ILoggerService>(new SerilogProvider(settings));
 
-            return services.BuildServiceProvider().GetService<ILoggerService>();
+            return services.ToService<ILoggerService>();
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Kitpymes.Core.Logger.Serilog
         /// <param name="services">Colección de servicios.</param>
         /// <param name="options">Configuración de Serilog.</param>
         /// <returns>La interface ILoggerService.</returns>
-        public static ILoggerService LoadSerilog(
+        public static ILoggerService? LoadSerilog(
             this IServiceCollection services,
             Action<SerilogOptions> options)
         => services.LoadSerilog(options.ToConfigureOrDefault().SerilogSettings);

@@ -1,6 +1,6 @@
 {
     "sdk": {
-        "version": "3.0.100",
+        "version": "5.0.100",
         "allowPrerelease": false,
         "rollForward": "latestMinor"
         // latestMinor: Utiliza la versión SDK instalada más alta con el mismo valor principal , por ejemplo: 3.x.xxx

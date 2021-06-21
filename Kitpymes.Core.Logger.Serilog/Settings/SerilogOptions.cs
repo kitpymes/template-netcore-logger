@@ -65,11 +65,8 @@ namespace Kitpymes.Core.Logger.Serilog
             this.SerilogSettings.File = new SerilogFileSettings
             {
                 FilePath = filePath,
-
                 MinimumLevel = minimumLevel.ToString(),
-
                 Interval = interval.ToString(),
-
                 Enabled = true,
             };
 
@@ -104,55 +101,48 @@ namespace Kitpymes.Core.Logger.Serilog
             LoggerLevel loggerMinimumLevel = SerilogEmailSettings.DefaultMinimumLevel,
             string outputTemplate = SerilogEmailSettings.DefaultOutputTemplate)
         {
-            if (string.IsNullOrWhiteSpace(userName))
-            {
-                throw new System.ArgumentNullException(nameof(userName));
-            }
-
-            if (string.IsNullOrWhiteSpace(password))
-            {
-                throw new System.ArgumentNullException(nameof(password));
-            }
-
-            if (string.IsNullOrWhiteSpace(server))
-            {
-                throw new System.ArgumentNullException(nameof(server));
-            }
-
-            if (string.IsNullOrWhiteSpace(from))
-            {
-                throw new System.ArgumentNullException(nameof(from));
-            }
-
-            if (string.IsNullOrWhiteSpace(to))
-            {
-                throw new System.ArgumentNullException(nameof(to));
-            }
-
             this.SerilogSettings.Email = new SerilogEmailSettings
             {
                 UserName = userName,
-
                 Password = password,
-
                 Server = server,
-
                 From = from,
-
                 To = to,
-
                 EnableSsl = enableSsl,
-
                 Port = port,
-
                 Subject = subject,
-
                 IsBodyHtml = isBodyHtml,
-
                 MinimumLevel = loggerMinimumLevel.ToString(),
-
                 OutputTemplate = outputTemplate,
+                Enabled = true,
+            };
 
+            return this;
+        }
+
+        /// <summary>
+        /// Habilita el proveedor de SqlServer para el logeo de errores.
+        /// </summary>
+        /// <param name="connectionString">Conexión de la base de datos donde se guardaran los errores.</param>
+        /// <param name="schemaName">Nombre del esquema de la tabla donde se guardaran los erroreso.</param>
+        /// <param name="tableName">Nombre de la tabla donde se guardaran los errores.</param>
+        /// <param name="autoCreateDb">Si se debe crear la DB.</param>
+        /// <param name="loggerMinimumLevel">El nivel mínimo de error.</param>
+        /// <returns>La clase SerilogOptions.</returns>
+        public SerilogOptions AddSqlServer(
+            string connectionString,
+            string schemaName = SerilogSqlServerSettings.DefaultSchemaName,
+            string tableName = SerilogSqlServerSettings.DefaultTableName,
+            bool autoCreateDb = SerilogSqlServerSettings.DefaultAutoCreateDB,
+            LoggerLevel loggerMinimumLevel = SerilogEmailSettings.DefaultMinimumLevel)
+        {
+            this.SerilogSettings.SqlServer = new SerilogSqlServerSettings
+            {
+                ConnectionString = connectionString,
+                SchemaName = schemaName,
+                TableName = tableName,
+                MinimumLevel = loggerMinimumLevel.ToString(),
+                AutoCreateDB = autoCreateDb,
                 Enabled = true,
             };
 

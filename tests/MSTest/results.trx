@@ -1,185 +1,407 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TestRun id="237db5ec-37f5-4158-bf1d-e11038330da3" name="sferrari@PC-SFERRARI 2021-05-11 09:23:33" runUser="PC-SFERRARI\sferrari" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <Times creation="2021-05-11T09:23:33.1702660+01:00" queuing="2021-05-11T09:23:33.1702680+01:00" start="2021-05-11T09:23:26.1923739+01:00" finish="2021-05-11T09:24:16.5184506+01:00" />
-  <TestSettings name="default" id="69a70fd4-6704-4ae1-8547-188d7766247b">
-    <Deployment runDeploymentRoot="sferrari_PC-SFERRARI_2021-05-11_09_23_33" />
+<TestRun id="4636a8a3-307e-4d38-accd-ed93c53e792a" name="sferrari@PC-SFERRARI 2021-06-21 07:30:02" runUser="PC-SFERRARI\sferrari" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2021-06-21T07:30:02.3838380+02:00" queuing="2021-06-21T07:30:02.3838380+02:00" start="2021-06-21T07:29:58.4435239+02:00" finish="2021-06-21T07:30:31.5303219+02:00" />
+  <TestSettings name="default" id="867f5fff-c28c-4e69-84d9-78d52cef330b">
+    <Deployment runDeploymentRoot="sferrari_PC-SFERRARI_2021-06-21_07_30_02" />
   </TestSettings>
   <Results>
-    <UnitTestResult executionId="0754f305-cf03-498b-80ac-51982cf86073" testId="760106a1-2f04-6b7a-e83d-19e596d37301" testName="InfoWithMultipleDataInline" computerName="PC-SFERRARI" duration="00:00:00.0074489" startTime="2021-05-11T09:23:31.9353691+01:00" endTime="2021-05-11T09:23:31.9429525+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0754f305-cf03-498b-80ac-51982cf86073">
+    <UnitTestResult executionId="78357720-dabb-43a7-823a-9dbfdeb02ec6" testId="daf2329b-7242-4e36-8285-c55e9dece11c" testName="ErrorWithMessage" computerName="PC-SFERRARI" duration="00:00:10.0318144" startTime="2021-06-21T07:30:01.2095414+02:00" endTime="2021-06-21T07:30:11.2432492+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="78357720-dabb-43a7-823a-9dbfdeb02ec6">
+      <Output>
+        <StdOut>[Error] - ErrorWithMessage&#xD;
+&#xD;
+
+
+Debug Trace:
+2021-06-21T05:30:01.2105144Z Warning: Primary key must be NON-NULL, changing AllowNull property for TimeStamp column.&#xD;
+2021-06-21T05:30:11.2356741Z Unable to write log event to the database due to following error: &#xD;
+2021-06-21T05:30:11.2357690Z Caught exception while emitting to sink Serilog.Core.Sinks.RestrictedSink: Microsoft.Data.SqlClient.SqlException (0x80131904): No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.&#xD;
+Error de inicio de sesión del usuario 'sa'.&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)&#xD;
+   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+ClientConnectionId:7913c6cb-cbea-4afb-ba67-2b5dc58e4a56&#xD;
+Error Number:4060,State:1,Class:11</StdOut>
+        <ErrorInfo>
+          <Message>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessage threw exception: &#xD;
+System.AggregateException: Failed to emit a log event. (No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.&#xD;
+Error de inicio de sesión del usuario 'sa'.) ---&gt; Microsoft.Data.SqlClient.SqlException: No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.&#xD;
+Error de inicio de sesión del usuario 'sa'.</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)&#xD;
+   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)&#xD;
+   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)&#xD;
+   at Serilog.Core.Logger.Write(LogEventLevel level, String messageTemplate, Object[] propertyValues)&#xD;
+   at Serilog.Core.Logger.Error(String messageTemplate)&#xD;
+   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(String message) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 179&#xD;
+   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessage() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 78&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9bf8ef27-2303-452b-a160-cdfdbd00b79f" testId="aafbb4e3-b87d-4336-b6f8-d8b93cb01266" testName="ErrorWithException" computerName="PC-SFERRARI" duration="00:00:01.6687396" startTime="2021-06-21T07:29:59.4601699+02:00" endTime="2021-06-21T07:30:01.2007920+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9bf8ef27-2303-452b-a160-cdfdbd00b79f">
+      <Output>
+        <StdOut>[Error] - Exception =&gt; "System.ArgumentNullException: Value cannot be null. (Parameter 'ErrorWithException')"&#xD;
+&#xD;
+
+
+Debug Trace:
+2021-06-21T05:30:00.0110434Z Warning: Primary key must be NON-NULL, changing AllowNull property for TimeStamp column.&#xD;
+2021-06-21T05:30:00.9017609Z Unable to write log event to the database due to following error: &#xD;
+2021-06-21T05:30:00.9018651Z Caught exception while emitting to sink Serilog.Core.Sinks.RestrictedSink: Microsoft.Data.SqlClient.SqlException (0x80131904): A connection was successfully established with the server, but then an error occurred during the login process. (provider: Shared Memory Provider, error: 0 - No hay ningún proceso en el otro extremo de la canalización.)&#xD;
+ ---&gt; System.ComponentModel.Win32Exception (233): No hay ningún proceso en el otro extremo de la canalización.&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte&amp; value)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)&#xD;
+   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+ClientConnectionId:452ef827-27d3-4550-9edf-3572ba5d3b89&#xD;
+Error Number:233,State:0,Class:20</StdOut>
+        <ErrorInfo>
+          <Message>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithException threw exception: &#xD;
+System.AggregateException: Failed to emit a log event. (A connection was successfully established with the server, but then an error occurred during the login process. (provider: Shared Memory Provider, error: 0 - No hay ningún proceso en el otro extremo de la canalización.)) ---&gt; Microsoft.Data.SqlClient.SqlException: A connection was successfully established with the server, but then an error occurred during the login process. (provider: Shared Memory Provider, error: 0 - No hay ningún proceso en el otro extremo de la canalización.) ---&gt; System.ComponentModel.Win32Exception: No hay ningún proceso en el otro extremo de la canalización.</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()&#xD;
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte&amp; value)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)&#xD;
+   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)&#xD;
+   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)&#xD;
+   at Serilog.Core.Logger.Write(LogEventLevel level, String messageTemplate, Object[] propertyValues)&#xD;
+   at Serilog.Core.Logger.Write[T](LogEventLevel level, String messageTemplate, T propertyValue)&#xD;
+   at Serilog.Core.Logger.Error[T](String messageTemplate, T propertyValue)&#xD;
+   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(Exception exception) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 228&#xD;
+   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithException() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 90&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7cb68461-ce06-44d0-8587-b74d26d26027" testId="fb184b1b-7f06-4414-85a0-e7e8380c6f64" testName="InfoWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:00.0051371" startTime="2021-06-21T07:30:31.4299316+02:00" endTime="2021-06-21T07:30:31.4351922+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7cb68461-ce06-44d0-8587-b74d26d26027">
+      <Output>
+        <StdOut>[Information] - "InfoWithMessageWithProperties" =&gt; Id: 1 Name: "Name"&#xD;
+&#xD;
+
+
+Debug Trace:
+2021-06-21T05:30:31.4314213Z Warning: Primary key must be NON-NULL, changing AllowNull property for TimeStamp column.</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="54665937-1d79-42c7-aae6-f5db36656be0" testId="773b55f5-09bd-4f85-9e37-2c5e03d3d73d" testName="ErrorWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:10.0257257" startTime="2021-06-21T07:30:21.3922900+02:00" endTime="2021-06-21T07:30:31.4198782+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="54665937-1d79-42c7-aae6-f5db36656be0">
+      <Output>
+        <StdOut>[Error] - "ErrorWithMessageWithProperties" =&gt; Id: 1 Name: "Name"&#xD;
+&#xD;
+
+
+Debug Trace:
+2021-06-21T05:30:21.3938005Z Warning: Primary key must be NON-NULL, changing AllowNull property for TimeStamp column.&#xD;
+2021-06-21T05:30:31.4185097Z Unable to write log event to the database due to following error: &#xD;
+2021-06-21T05:30:31.4185862Z Caught exception while emitting to sink Serilog.Core.Sinks.RestrictedSink: Microsoft.Data.SqlClient.SqlException (0x80131904): No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.&#xD;
+Error de inicio de sesión del usuario 'sa'.&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)&#xD;
+   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+ClientConnectionId:a5a6e5a7-c868-4948-ad11-910bbbbf82be&#xD;
+Error Number:4060,State:1,Class:11</StdOut>
+        <ErrorInfo>
+          <Message>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithProperties threw exception: &#xD;
+System.AggregateException: Failed to emit a log event. (No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.&#xD;
+Error de inicio de sesión del usuario 'sa'.) ---&gt; Microsoft.Data.SqlClient.SqlException: No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.&#xD;
+Error de inicio de sesión del usuario 'sa'.</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)&#xD;
+   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)&#xD;
+   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)&#xD;
+   at Serilog.Core.Logger.Error(Exception exception, String messageTemplate, Object[] propertyValues)&#xD;
+   at Serilog.Core.Logger.Error(String messageTemplate, Object[] propertyValues)&#xD;
+   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(String eventName, String templateMessage, Object[] propertyValues) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 214&#xD;
+   at CallSite.Target(Closure , CallSite , ILogger , String , String , Object , Object )&#xD;
+   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid5[T0,T1,T2,T3,T4](CallSite site, T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4)&#xD;
+   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithProperties() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 96&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e30b65ca-30d6-4be1-b183-1de8eac81455" testId="c03e9c2b-29e7-4e31-90ed-88b54430f76b" testName="ErrorWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:10.1460334" startTime="2021-06-21T07:30:11.2438091+02:00" endTime="2021-06-21T07:30:21.3917343+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e30b65ca-30d6-4be1-b183-1de8eac81455">
+      <Output>
+        <StdOut>[Error] - ErrorWithMessageWithData =&gt; "{ Id = 1, Name = Name }"&#xD;
+&#xD;
+
+
+Debug Trace:
+2021-06-21T05:30:11.2664969Z Warning: Primary key must be NON-NULL, changing AllowNull property for TimeStamp column.&#xD;
+2021-06-21T05:30:21.3118859Z Unable to write log event to the database due to following error: &#xD;
+2021-06-21T05:30:21.3119688Z Caught exception while emitting to sink Serilog.Core.Sinks.RestrictedSink: Microsoft.Data.SqlClient.SqlException (0x80131904): No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.&#xD;
+Error de inicio de sesión del usuario 'sa'.&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)&#xD;
+   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+ClientConnectionId:f2a35e28-6335-4cde-9ba1-829edea8c28d&#xD;
+Error Number:4060,State:1,Class:11</StdOut>
+        <ErrorInfo>
+          <Message>Test method Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithData threw exception: &#xD;
+System.AggregateException: Failed to emit a log event. (No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.&#xD;
+Error de inicio de sesión del usuario 'sa'.) ---&gt; Microsoft.Data.SqlClient.SqlException: No se puede abrir la base de datos 'LoggerDB' solicitada por el inicio de sesión. Error de inicio de sesión.&#xD;
+Error de inicio de sesión del usuario 'sa'.</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlClient.SqlConnectionWrapper.Open()&#xD;
+   at Serilog.Sinks.MSSqlServer.Platform.SqlLogEventWriter.WriteEvent(LogEvent logEvent)&#xD;
+   at Serilog.Sinks.MSSqlServer.MSSqlServerAuditSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.RestrictedSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at Serilog.Core.Sinks.AggregateSink.Emit(LogEvent logEvent)&#xD;
+   at Serilog.Core.Logger.Dispatch(LogEvent logEvent)&#xD;
+   at Serilog.Core.Logger.Write(LogEventLevel level, Exception exception, String messageTemplate, Object[] propertyValues)&#xD;
+   at Serilog.Core.Logger.Error(Exception exception, String messageTemplate, Object[] propertyValues)&#xD;
+   at Serilog.Core.Logger.Error(String messageTemplate, Object[] propertyValues)&#xD;
+   at Kitpymes.Core.Logger.Serilog.SerilogProvider.Error(String message, Object data) in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog\SerilogProvider.cs:line 194&#xD;
+   at CallSite.Target(Closure , CallSite , ILogger , String , Object )&#xD;
+   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid3[T0,T1,T2](CallSite site, T0 arg0, T1 arg1, T2 arg2)&#xD;
+   at Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest.ErrorWithMessageWithData() in D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\LoggerStaticTest.cs:line 84&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a9ec0a63-fcc7-490f-a8b8-31ab5d6c3515" testId="b69d2536-db0a-4d75-9343-282d9a740915" testName="InfoWithMultipleDataInline" computerName="PC-SFERRARI" duration="00:00:00.0081595" startTime="2021-06-21T07:30:31.4352841+02:00" endTime="2021-06-21T07:30:31.4435751+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a9ec0a63-fcc7-490f-a8b8-31ab5d6c3515">
       <Output>
         <StdOut>[Information] - InfoWithMultipleDataInline 1 =&gt; "{ Id = 1, Name = Name1 }"&#xD;
 &#xD;
 [Information] - InfoWithMultipleDataInline 2 =&gt; "{ Id = 2, Name = Name2 }"&#xD;
 &#xD;
-[Information] - InfoWithMultipleDataInline 3 =&gt; "{ Id = 3, Name = Name3 }"</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="0af09ca9-34a0-4074-8f31-2ca786765322" testId="f85d82bd-2af5-c59a-d1e9-124dce5aac80" testName="InfoWithMessage" computerName="PC-SFERRARI" duration="00:00:00.4444499" startTime="2021-05-11T09:24:15.8611402+01:00" endTime="2021-05-11T09:24:16.3060593+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0af09ca9-34a0-4074-8f31-2ca786765322">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-09:24:16:30 [INF] InfoWithMessage</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="a08aece1-7cbd-451e-a089-fa676ef6280e" testId="cc7e4b0c-3199-9ca2-36a0-a34b0cca1afd" testName="ErrorWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.2677518" startTime="2021-05-11T09:23:53.9882370+01:00" endTime="2021-05-11T09:23:54.2563153+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a08aece1-7cbd-451e-a089-fa676ef6280e">
-      <Output>
-        <StdOut>[Error] - ErrorWithMessageWithData =&gt; "{ Id = 1, Name = Name }"</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="8088e66d-0526-4cd3-89fa-04356f2ae6b9" testId="1f1998ea-10b3-4d91-fc1e-808cdd53ea45" testName="ErrorWithMessage" computerName="PC-SFERRARI" duration="00:00:22.0436823" startTime="2021-05-11T09:23:31.9430092+01:00" endTime="2021-05-11T09:23:53.9869551+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8088e66d-0526-4cd3-89fa-04356f2ae6b9">
-      <Output>
-        <StdOut>[Error] - ErrorWithMessage</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="6bd21f34-388d-4690-af4e-cf6a0044a4cd" testId="ebfd3878-0e66-9ade-6cac-e123abde2692" testName="ErrorWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:00.2503047" startTime="2021-05-11T09:24:15.6103108+01:00" endTime="2021-05-11T09:24:15.8610891+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6bd21f34-388d-4690-af4e-cf6a0044a4cd">
-      <Output>
-        <StdOut>[Error] - "ErrorWithMessageWithProperties" =&gt; Id: 1 Name: "Name"</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="4065abbb-c0c2-4d04-9997-67a9b035813a" testId="419261df-f0b3-c204-cc59-8791a27a87f2" testName="ErrorWithException" computerName="PC-SFERRARI" duration="00:00:21.3527968" startTime="2021-05-11T09:23:54.2563617+01:00" endTime="2021-05-11T09:24:15.6094025+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4065abbb-c0c2-4d04-9997-67a9b035813a">
-      <Output>
-        <StdOut>[Error] - Exception =&gt; "System.ArgumentNullException: Value cannot be null. (Parameter 'ErrorWithException')"</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="294cbfab-f428-445f-b06d-f5d5b9097a43" testId="b14e3f59-0a51-7c83-01d2-8b64a57d814b" testName="InfoWithMultipleDataInline" computerName="PC-SFERRARI" duration="00:00:00.0105418" startTime="2021-05-11T09:24:16.3181706+01:00" endTime="2021-05-11T09:24:16.3288690+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="294cbfab-f428-445f-b06d-f5d5b9097a43">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-09:24:16:31 [INF] One =&gt; { Id = 1, Name = Name1 }&#xD;
+[Information] - InfoWithMultipleDataInline 3 =&gt; "{ Id = 3, Name = Name3 }"&#xD;
 &#xD;
-09:24:16:32 [INF] Two =&gt; { Id = 2, Name = Name2 }&#xD;
+
+
+Debug Trace:
+2021-06-21T05:30:31.4361793Z Warning: Primary key must be NON-NULL, changing AllowNull property for TimeStamp column.</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ca83f930-dc69-4aee-ae6b-0b16f3dd6879" testId="7055225c-a3b8-4f97-b865-06d5716b8b8f" testName="InfoWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.0047949" startTime="2021-06-21T07:30:31.4247943+02:00" endTime="2021-06-21T07:30:31.4297047+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ca83f930-dc69-4aee-ae6b-0b16f3dd6879">
+      <Output>
+        <StdOut>[Information] - InfoWithMessageWithData =&gt; "{ Id = 1, Name = Name }"&#xD;
 &#xD;
-09:24:16:32 [INF] Three =&gt; { Id = 3, Name = Name3 }</StdOut>
+
+
+Debug Trace:
+2021-06-21T05:30:31.4257035Z Warning: Primary key must be NON-NULL, changing AllowNull property for TimeStamp column.</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="b29910ae-61ff-4d9a-9f64-42eb5364c90d" testId="e264b32f-63ce-1e58-ad23-4968703198e2" testName="InfoWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:00.0069972" startTime="2021-05-11T09:24:16.3109345+01:00" endTime="2021-05-11T09:24:16.3181189+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b29910ae-61ff-4d9a-9f64-42eb5364c90d">
+    <UnitTestResult executionId="6d405900-a355-47ef-b2ff-c30e59d8eacf" testId="e4997669-38a9-4162-b0bf-23b86a3ba332" testName="InfoWithMessage" computerName="PC-SFERRARI" duration="00:00:00.0042968" startTime="2021-06-21T07:30:31.4203084+02:00" endTime="2021-06-21T07:30:31.4247282+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d405900-a355-47ef-b2ff-c30e59d8eacf">
       <Output>
-        <StdOut>LoggerTest&#xD;
-09:24:16:31 [INF] InfoWithMessageWithProperties =&gt; Id: 1 Name: Name</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="828e16c4-278f-43c4-9c68-7056e6b429f0" testId="0a4293d9-cc71-0d12-4c83-d9baa4a10156" testName="InfoWithMessageWithProperties" computerName="PC-SFERRARI" duration="00:00:00.0105094" startTime="2021-05-11T09:23:31.9246114+01:00" endTime="2021-05-11T09:23:31.9353278+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="828e16c4-278f-43c4-9c68-7056e6b429f0">
-      <Output>
-        <StdOut>[Information] - "InfoWithMessageWithProperties" =&gt; Id: 1 Name: "Name"</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="7c3447bf-4807-4d9a-8ff4-edfe5c2493d7" testId="c6cf7005-5450-ec05-ff9e-332640c31375" testName="ErrorWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.0050607" startTime="2021-05-11T09:24:16.3325397+01:00" endTime="2021-05-11T09:24:16.3377442+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7c3447bf-4807-4d9a-8ff4-edfe5c2493d7">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-09:24:16:33 [ERR] ErrorWithMessageWithData =&gt; { Id = 1, Name = Name }</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="609e3274-dcee-4ef4-bc94-2aeb5a00feb5" testId="af338802-7815-4b14-95b0-65fe953091eb" testName="ErrorWithException" computerName="PC-SFERRARI" duration="00:00:00.0035419" startTime="2021-05-11T09:24:16.3377914+01:00" endTime="2021-05-11T09:24:16.3415429+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="609e3274-dcee-4ef4-bc94-2aeb5a00feb5">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-09:24:16:33 [ERR] Exception =&gt; System.ArgumentNullException: Value cannot be null. (Parameter 'ErrorWithException')</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="ada90ca3-a2ef-45de-88cb-3339080fba4d" testId="5bd0a6bf-af2b-5294-e4e1-fe5c5fe88321" testName="ErrorWithMessage" computerName="PC-SFERRARI" duration="00:00:00.0033267" startTime="2021-05-11T09:24:16.3289197+01:00" endTime="2021-05-11T09:24:16.3325039+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ada90ca3-a2ef-45de-88cb-3339080fba4d">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-09:24:16:33 [ERR] ErrorWithMessage</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="09582913-6b93-42d7-9e8f-469ab2e7bcf2" testId="3082bcfe-0e97-e9bd-29ec-46b9919623e2" testName="InfoWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.0046361" startTime="2021-05-11T09:24:16.3061071+01:00" endTime="2021-05-11T09:24:16.3108833+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="09582913-6b93-42d7-9e8f-469ab2e7bcf2">
-      <Output>
-        <StdOut>LoggerTest&#xD;
-09:24:16:30 [INF] InfoWithMessageWithData =&gt; { Id = 1, Name = Name }</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="a7ba4daf-62db-4215-9535-fb025aaadf95" testId="6bd5ad81-8ed7-a8ea-8a39-fd071e698e23" testName="InfoWithMessageWithData" computerName="PC-SFERRARI" duration="00:00:00.4312878" startTime="2021-05-11T09:23:31.4927829+01:00" endTime="2021-05-11T09:23:31.9244919+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a7ba4daf-62db-4215-9535-fb025aaadf95">
-      <Output>
-        <StdOut>[Information] - InfoWithMessageWithData =&gt; "{ Id = 1, Name = Name }"</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="b6e4e6ce-e5c0-46dc-81fe-6170e23c664a" testId="bfae7f18-a1cf-32c4-027a-a7ac7e1511c8" testName="InfoWithMessage" computerName="PC-SFERRARI" duration="00:00:00.9640695" startTime="2021-05-11T09:23:30.4049124+01:00" endTime="2021-05-11T09:23:31.4719522+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b6e4e6ce-e5c0-46dc-81fe-6170e23c664a">
-      <Output>
-        <StdOut>[Information] - InfoWithMessage</StdOut>
+        <StdOut>[Information] - InfoWithMessage&#xD;
+&#xD;
+
+
+Debug Trace:
+2021-06-21T05:30:31.4210654Z Warning: Primary key must be NON-NULL, changing AllowNull property for TimeStamp column.</StdOut>
       </Output>
     </UnitTestResult>
   </Results>
   <TestDefinitions>
-    <UnitTest name="ErrorWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="c6cf7005-5450-ec05-ff9e-332640c31375">
-      <Execution id="7c3447bf-4807-4d9a-8ff4-edfe5c2493d7" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="ErrorWithMessageWithData" />
+    <UnitTest name="ErrorWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\net5.0\kitpymes.core.logger.serilog.tests.dll" id="773b55f5-09bd-4f85-9e37-2c5e03d3d73d">
+      <Execution id="54665937-1d79-42c7-aae6-f5db36656be0" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\net5.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessageWithProperties" />
     </UnitTest>
-    <UnitTest name="ErrorWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="cc7e4b0c-3199-9ca2-36a0-a34b0cca1afd">
-      <Execution id="a08aece1-7cbd-451e-a089-fa676ef6280e" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessageWithData" />
+    <UnitTest name="ErrorWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\net5.0\kitpymes.core.logger.serilog.tests.dll" id="daf2329b-7242-4e36-8285-c55e9dece11c">
+      <Execution id="78357720-dabb-43a7-823a-9dbfdeb02ec6" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\net5.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessage" />
     </UnitTest>
-    <UnitTest name="InfoWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="3082bcfe-0e97-e9bd-29ec-46b9919623e2">
-      <Execution id="09582913-6b93-42d7-9e8f-469ab2e7bcf2" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMessageWithData" />
+    <UnitTest name="InfoWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\net5.0\kitpymes.core.logger.serilog.tests.dll" id="fb184b1b-7f06-4414-85a0-e7e8380c6f64">
+      <Execution id="7cb68461-ce06-44d0-8587-b74d26d26027" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\net5.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessageWithProperties" />
     </UnitTest>
-    <UnitTest name="InfoWithMultipleDataInline" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="b14e3f59-0a51-7c83-01d2-8b64a57d814b">
-      <Execution id="294cbfab-f428-445f-b06d-f5d5b9097a43" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMultipleDataInline" />
+    <UnitTest name="ErrorWithException" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\net5.0\kitpymes.core.logger.serilog.tests.dll" id="aafbb4e3-b87d-4336-b6f8-d8b93cb01266">
+      <Execution id="9bf8ef27-2303-452b-a160-cdfdbd00b79f" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\net5.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithException" />
     </UnitTest>
-    <UnitTest name="InfoWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="6bd5ad81-8ed7-a8ea-8a39-fd071e698e23">
-      <Execution id="a7ba4daf-62db-4215-9535-fb025aaadf95" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessageWithData" />
+    <UnitTest name="InfoWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\net5.0\kitpymes.core.logger.serilog.tests.dll" id="7055225c-a3b8-4f97-b865-06d5716b8b8f">
+      <Execution id="ca83f930-dc69-4aee-ae6b-0b16f3dd6879" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\net5.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessageWithData" />
     </UnitTest>
-    <UnitTest name="InfoWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="e264b32f-63ce-1e58-ad23-4968703198e2">
-      <Execution id="b29910ae-61ff-4d9a-9f64-42eb5364c90d" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMessageWithProperties" />
+    <UnitTest name="InfoWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\net5.0\kitpymes.core.logger.serilog.tests.dll" id="e4997669-38a9-4162-b0bf-23b86a3ba332">
+      <Execution id="6d405900-a355-47ef-b2ff-c30e59d8eacf" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\net5.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessage" />
     </UnitTest>
-    <UnitTest name="InfoWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="0a4293d9-cc71-0d12-4c83-d9baa4a10156">
-      <Execution id="828e16c4-278f-43c4-9c68-7056e6b429f0" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessageWithProperties" />
+    <UnitTest name="ErrorWithMessageWithData" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\net5.0\kitpymes.core.logger.serilog.tests.dll" id="c03e9c2b-29e7-4e31-90ed-88b54430f76b">
+      <Execution id="e30b65ca-30d6-4be1-b183-1de8eac81455" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\net5.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessageWithData" />
     </UnitTest>
-    <UnitTest name="ErrorWithException" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="af338802-7815-4b14-95b0-65fe953091eb">
-      <Execution id="609e3274-dcee-4ef4-bc94-2aeb5a00feb5" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="ErrorWithException" />
-    </UnitTest>
-    <UnitTest name="InfoWithMultipleDataInline" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="760106a1-2f04-6b7a-e83d-19e596d37301">
-      <Execution id="0754f305-cf03-498b-80ac-51982cf86073" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMultipleDataInline" />
-    </UnitTest>
-    <UnitTest name="ErrorWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="5bd0a6bf-af2b-5294-e4e1-fe5c5fe88321">
-      <Execution id="ada90ca3-a2ef-45de-88cb-3339080fba4d" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="ErrorWithMessage" />
-    </UnitTest>
-    <UnitTest name="ErrorWithMessageWithProperties" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="ebfd3878-0e66-9ade-6cac-e123abde2692">
-      <Execution id="6bd21f34-388d-4690-af4e-cf6a0044a4cd" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessageWithProperties" />
-    </UnitTest>
-    <UnitTest name="ErrorWithException" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="419261df-f0b3-c204-cc59-8791a27a87f2">
-      <Execution id="4065abbb-c0c2-4d04-9997-67a9b035813a" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithException" />
-    </UnitTest>
-    <UnitTest name="InfoWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="bfae7f18-a1cf-32c4-027a-a7ac7e1511c8">
-      <Execution id="b6e4e6ce-e5c0-46dc-81fe-6170e23c664a" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMessage" />
-    </UnitTest>
-    <UnitTest name="ErrorWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="1f1998ea-10b3-4d91-fc1e-808cdd53ea45">
-      <Execution id="8088e66d-0526-4cd3-89fa-04356f2ae6b9" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="ErrorWithMessage" />
-    </UnitTest>
-    <UnitTest name="InfoWithMessage" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\release\netcoreapp3.0\kitpymes.core.logger.serilog.tests.dll" id="f85d82bd-2af5-c59a-d1e9-124dce5aac80">
-      <Execution id="0af09ca9-34a0-4074-8f31-2ca786765322" />
-      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Release\netcoreapp3.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerTest" name="InfoWithMessage" />
+    <UnitTest name="InfoWithMultipleDataInline" storage="d:\sferrari\01 - trabajo\repos\netcore\libs\template-netcore-logger\kitpymes.core.logger.serilog.tests\bin\debug\net5.0\kitpymes.core.logger.serilog.tests.dll" id="b69d2536-db0a-4d75-9343-282d9a740915">
+      <Execution id="a9ec0a63-fcc7-490f-a8b8-31ab5d6c3515" />
+      <TestMethod codeBase="D:\SFERRARI\01 - TRABAJO\repos\netcore\libs\template-netcore-logger\Kitpymes.Core.Logger.Serilog.Tests\bin\Debug\net5.0\Kitpymes.Core.Logger.Serilog.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Kitpymes.Core.Logger.Serilog.Tests.LoggerStaticTest" name="InfoWithMultipleDataInline" />
     </UnitTest>
   </TestDefinitions>
   <TestEntries>
-    <TestEntry testId="760106a1-2f04-6b7a-e83d-19e596d37301" executionId="0754f305-cf03-498b-80ac-51982cf86073" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="f85d82bd-2af5-c59a-d1e9-124dce5aac80" executionId="0af09ca9-34a0-4074-8f31-2ca786765322" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="cc7e4b0c-3199-9ca2-36a0-a34b0cca1afd" executionId="a08aece1-7cbd-451e-a089-fa676ef6280e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="1f1998ea-10b3-4d91-fc1e-808cdd53ea45" executionId="8088e66d-0526-4cd3-89fa-04356f2ae6b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="ebfd3878-0e66-9ade-6cac-e123abde2692" executionId="6bd21f34-388d-4690-af4e-cf6a0044a4cd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="419261df-f0b3-c204-cc59-8791a27a87f2" executionId="4065abbb-c0c2-4d04-9997-67a9b035813a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="b14e3f59-0a51-7c83-01d2-8b64a57d814b" executionId="294cbfab-f428-445f-b06d-f5d5b9097a43" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="e264b32f-63ce-1e58-ad23-4968703198e2" executionId="b29910ae-61ff-4d9a-9f64-42eb5364c90d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="0a4293d9-cc71-0d12-4c83-d9baa4a10156" executionId="828e16c4-278f-43c4-9c68-7056e6b429f0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="c6cf7005-5450-ec05-ff9e-332640c31375" executionId="7c3447bf-4807-4d9a-8ff4-edfe5c2493d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="af338802-7815-4b14-95b0-65fe953091eb" executionId="609e3274-dcee-4ef4-bc94-2aeb5a00feb5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="5bd0a6bf-af2b-5294-e4e1-fe5c5fe88321" executionId="ada90ca3-a2ef-45de-88cb-3339080fba4d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="3082bcfe-0e97-e9bd-29ec-46b9919623e2" executionId="09582913-6b93-42d7-9e8f-469ab2e7bcf2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="6bd5ad81-8ed7-a8ea-8a39-fd071e698e23" executionId="a7ba4daf-62db-4215-9535-fb025aaadf95" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="bfae7f18-a1cf-32c4-027a-a7ac7e1511c8" executionId="b6e4e6ce-e5c0-46dc-81fe-6170e23c664a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="daf2329b-7242-4e36-8285-c55e9dece11c" executionId="78357720-dabb-43a7-823a-9dbfdeb02ec6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aafbb4e3-b87d-4336-b6f8-d8b93cb01266" executionId="9bf8ef27-2303-452b-a160-cdfdbd00b79f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fb184b1b-7f06-4414-85a0-e7e8380c6f64" executionId="7cb68461-ce06-44d0-8587-b74d26d26027" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="773b55f5-09bd-4f85-9e37-2c5e03d3d73d" executionId="54665937-1d79-42c7-aae6-f5db36656be0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c03e9c2b-29e7-4e31-90ed-88b54430f76b" executionId="e30b65ca-30d6-4be1-b183-1de8eac81455" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b69d2536-db0a-4d75-9343-282d9a740915" executionId="a9ec0a63-fcc7-490f-a8b8-31ab5d6c3515" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7055225c-a3b8-4f97-b865-06d5716b8b8f" executionId="ca83f930-dc69-4aee-ae6b-0b16f3dd6879" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e4997669-38a9-4162-b0bf-23b86a3ba332" executionId="6d405900-a355-47ef-b2ff-c30e59d8eacf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <TestLists>
     <TestList name="Resultados sin formato de lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
     <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
   </TestLists>
-  <ResultSummary outcome="Completed">
-    <Counters total="15" executed="15" passed="15" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  <ResultSummary outcome="Failed">
+    <Counters total="8" executed="8" passed="4" failed="4" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
   </ResultSummary>
 </TestRun>

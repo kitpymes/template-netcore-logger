@@ -48,6 +48,7 @@ namespace Kitpymes.Core.Logger.Serilog
                 .AddConsole(this.SerilogSettings.Console)
                 .AddFile(this.SerilogSettings.File)
                 .AddEmail(this.SerilogSettings.Email)
+                .AddSqlserver(this.SerilogSettings.SqlServer)
                 .CreateLogger();
 
             return this;
@@ -70,6 +71,8 @@ namespace Kitpymes.Core.Logger.Serilog
         {
             this.Logger?.Verbose(message);
 
+            Close();
+
             return this;
         }
 
@@ -83,6 +86,8 @@ namespace Kitpymes.Core.Logger.Serilog
         {
             this.Logger?.Verbose(message + " => {Data}", data);
 
+            Close();
+
             return this;
         }
 
@@ -94,6 +99,8 @@ namespace Kitpymes.Core.Logger.Serilog
         public Abstractions.ILogger Debug(string message)
         {
             this.Logger?.Debug(message);
+
+            Close();
 
             return this;
         }
@@ -108,6 +115,8 @@ namespace Kitpymes.Core.Logger.Serilog
         {
             this.Logger?.Debug(message + " => {Data}", data);
 
+            Close();
+
             return this;
         }
 
@@ -119,6 +128,8 @@ namespace Kitpymes.Core.Logger.Serilog
         public Abstractions.ILogger Info(string message)
         {
             this.Logger?.Information(message);
+
+            Close();
 
             return this;
         }
@@ -132,6 +143,8 @@ namespace Kitpymes.Core.Logger.Serilog
         public Abstractions.ILogger Info(string message, object data)
         {
             this.Logger?.Information(message + " => {Data}", data);
+
+            Close();
 
             return this;
         }
@@ -151,6 +164,8 @@ namespace Kitpymes.Core.Logger.Serilog
 
             this.Logger?.Information(message, values);
 
+            Close();
+
             return this;
         }
 
@@ -162,6 +177,8 @@ namespace Kitpymes.Core.Logger.Serilog
         public Abstractions.ILogger Error(string message)
         {
             this.Logger?.Error(message);
+
+            Close();
 
             return this;
         }
@@ -175,6 +192,8 @@ namespace Kitpymes.Core.Logger.Serilog
         public Abstractions.ILogger Error(string message, object data)
         {
             this.Logger?.Error(message + " => {Data}", data);
+
+            Close();
 
             return this;
         }
@@ -194,6 +213,8 @@ namespace Kitpymes.Core.Logger.Serilog
 
             this.Logger?.Error(message, values);
 
+            Close();
+
             return this;
         }
 
@@ -205,6 +226,8 @@ namespace Kitpymes.Core.Logger.Serilog
         public Abstractions.ILogger Error(Exception exception)
         {
             this.Logger?.Error("Exception => {Exception}", exception);
+
+            Close();
 
             return this;
         }
@@ -219,7 +242,11 @@ namespace Kitpymes.Core.Logger.Serilog
         {
             this.Logger?.Error(message + " => {Exception}", exception);
 
+            Close();
+
             return this;
         }
+
+        private void Close() => Log.CloseAndFlush();
     }
 }
